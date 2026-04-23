@@ -77,7 +77,7 @@ function TweaksPanel({ tweaks, setTweaks }) {
       color: '#F5F1EA',
       borderRadius: '16px',
       border: '1px solid rgba(245,241,234,0.15)',
-      fontFamily: "'Urbanist', sans-serif",
+      fontFamily: "'Poppins', sans-serif",
       boxShadow: '0 20px 50px -10px rgba(0,0,0,0.5)',
     }}>
       <button

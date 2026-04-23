@@ -9,7 +9,9 @@ function App() {
       <Proof />
       <WhoWeAre />
       <Capabilities />
+      <div className="kw-cap-seam" aria-hidden="true" />
       <Insight />
+      <Approach />
       <FAQ />
       <Testimonials />
       <Footer />

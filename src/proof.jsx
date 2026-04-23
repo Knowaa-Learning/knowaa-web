@@ -22,13 +22,15 @@ function Proof() {
         maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
       }}>
-        <div style={{
+        <div className="proof-row" style={{
           display: 'flex', width: 'max-content',
           gap: 'clamp(50px, 5.4vw, 86px)', alignItems: 'center',
           animation: 'knowaaMarquee 42s linear infinite',
         }}>
           {row.map((logo, i) => (
             <img key={i} src={logo.src} alt={logo.name}
+              className="proof-logo"
+              data-scale={(logo.height || 40)}
               style={{
                 height: (logo.height || 40) + 'px',
                 width: 'auto', flexShrink: 0, objectFit: 'contain',

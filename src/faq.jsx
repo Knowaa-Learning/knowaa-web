@@ -128,9 +128,9 @@ function FAQ() {
         .kw-faq {
           position: relative;
           background: #ffffff;
-          padding: 96px 0 104px;
+          padding: 128px 0 184px;
           color: #333;
-          font-family: 'Urbanist', system-ui, sans-serif;
+          font-family: 'Poppins', system-ui, sans-serif;
         }
         .kw-faq-container {
           max-width: 760px;
@@ -143,7 +143,7 @@ function FAQ() {
           margin: 0;
           font-size: clamp(30px, 3.6vw, 46px);
           line-height: 1.1; font-weight: 900;
-          letter-spacing: -0.012em; color: #111;
+          letter-spacing: -0.012em; color: var(--title, #0B1638);
         }
 
         .kw-faq-list {
@@ -158,7 +158,7 @@ function FAQ() {
           gap: 24px;
           padding: 22px 0;
           background: transparent; border: none; cursor: pointer;
-          text-align: left; font: inherit; color: #111;
+          text-align: left; font: inherit; color: var(--title, #0B1638);
           transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .kw-faq-q:hover { color: #503594; }
@@ -217,7 +217,7 @@ function FAQ() {
         .kw-faq.is-revealed .kw-faq-list   { opacity: 1; transform: none; transition-delay: 0.18s; }
 
         @media (max-width: 720px) {
-          .kw-faq { padding: 64px 0 72px; }
+          .kw-faq { padding: 96px 0 128px; }
           .kw-faq-container { padding: 0 20px; }
           .kw-faq-header { margin-bottom: 32px; }
           .kw-faq-q { padding: 18px 0; gap: 16px; }

@@ -38,6 +38,35 @@ function Insight() {
       revealObserver.observe(section);
     }
 
+    // ---------- Parallax depth between orange plinth and card ----------
+    // Plinth drifts slower than the card as the section scrolls through
+    // the viewport, creating a sense of layered depth.
+    let parallaxRaf = null;
+    const plinthEl = section.querySelector('.insights__plinth');
+    const carouselEl = section.querySelector('.insights__carousel');
+    const onParallax = () => {
+      if (parallaxRaf) return;
+      parallaxRaf = window.requestAnimationFrame(() => {
+        parallaxRaf = null;
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        // Progress: -1 (section entering from below) -> 0 (centered) -> 1 (leaving above)
+        const progress = (vh / 2 - (rect.top + rect.height / 2)) / (vh / 2 + rect.height / 2);
+        const clamped = Math.max(-1, Math.min(1, progress));
+        // Plinth moves UP faster (parallax background feel) — pronounced range.
+        const plinthY = clamped * -180;
+        // Card drifts in opposite direction for stronger layered depth.
+        const cardY = clamped * 48;
+        if (plinthEl) plinthEl.style.transform = `translateX(-50%) translateY(${plinthY}px)`;
+        if (carouselEl) carouselEl.style.setProperty('--insights-card-parallax', `${cardY}px`);
+      });
+    };
+    if (!prefersReducedMotion) {
+      onParallax();
+      window.addEventListener('scroll', onParallax, { passive: true });
+      window.addEventListener('resize', onParallax);
+    }
+
     // ---------- Carousel logic ----------
     const slides   = Array.from(carousel.querySelectorAll('.insight-card'));
     const dots     = Array.from(carousel.querySelectorAll('[data-dot]'));
@@ -174,6 +203,9 @@ function Insight() {
 
     return () => {
       revealObserver && revealObserver.disconnect();
+      window.removeEventListener('scroll', onParallax);
+      window.removeEventListener('resize', onParallax);
+      if (parallaxRaf) window.cancelAnimationFrame(parallaxRaf);
       document.removeEventListener('visibilitychange', onCarouselVisibility);
       stopTimer();
       prevBtn && prevBtn.removeEventListener('click', onPrev);
@@ -375,7 +407,7 @@ function Insight() {
                     The attention threshold: why learning fails before it begins.
                   </h3>
                   <p className="insight-card__excerpt">
-                    Most learning programs lose the learner within the first few minutes. The issue is simpler and more structural than content quality. Attention has already shifted elsewhere.
+                    Most learning programs lose the learner within the first few minutes. The problem is structural, not about content quality.
                   </p>
                   <div className="insight-card__meta">
                     <span>Article</span>
@@ -460,7 +492,7 @@ const INSIGHTS_CSS = `
   --kw-purple-bright: #7C3AED;
   --kw-pink:          #ED1F80;
   --kw-orange:        #F37137;
-  --kw-ink:           #111111;
+  --kw-ink:           #0D0959;
   --kw-body:          #333333;
   --kw-muted:         #777777;
   --kw-paper:         #ffffff;
@@ -470,12 +502,12 @@ const INSIGHTS_CSS = `
 }
 
 .insights {
-  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--kw-ink);
-  background: var(--kw-paper);
+  background: #F4F2FA; /* gogopool-style soft lavender */
   position: relative;
-  padding: 64px 0 80px;
-  overflow: hidden; /* clip the full-bleed plinth to the white canvas edges */
+  padding: 160px 0 160px;
+  overflow: hidden;
 }
 .insights__inner {
   max-width: 1680px;
@@ -501,7 +533,7 @@ const INSIGHTS_CSS = `
   background: var(--kw-rule-strong);
 }
 .insights__title {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 900;
   line-height: 1.06;
@@ -517,15 +549,7 @@ const INSIGHTS_CSS = `
 }
 .insights__viewport { position: relative; }
 .insights__plinth {
-  position: absolute;
-  top: 60px;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+  display: none; /* removed — section background is now lavender */
 }
 .insights__plinth-svg { display: block; width: 100%; height: 100%; }
 .insights__plinth::after {
@@ -555,10 +579,12 @@ const INSIGHTS_CSS = `
   align-items: center;
   position: relative;
   background: var(--kw-card-bg);
-  border: 1px solid var(--kw-rule);
-  border-radius: 10px;
+  border: 1px solid rgba(62, 51, 187, 0.18);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(17, 17, 17, 0.05);
+  box-shadow:
+    0 12px 32px -12px rgba(20, 22, 60, 0.10),
+    0 2px 6px rgba(20, 22, 60, 0.05);
   opacity: 0;
   transform: translateY(8px);
   transition:
@@ -569,20 +595,13 @@ const INSIGHTS_CSS = `
 }
 .insight-card.is-active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(var(--insights-card-parallax, 0px));
   pointer-events: auto;
   z-index: 2;
+  will-change: transform;
 }
 .insight-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 9px;
-  background: #503594;
-  z-index: 3;
-  pointer-events: none;
+  content: none; /* removed — gogopool-style clean card without left stripe */
 }
 
 .insight-card__body {
@@ -593,7 +612,7 @@ const INSIGHTS_CSS = `
   position: relative;
 }
 .insight-card__title {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(22px, 2.1vw, 30px);
   font-weight: 900;
   line-height: 1.14;
@@ -603,7 +622,7 @@ const INSIGHTS_CSS = `
   max-width: 520px;
 }
 .insight-card__excerpt {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.55;
@@ -615,7 +634,7 @@ const INSIGHTS_CSS = `
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -637,24 +656,26 @@ const INSIGHTS_CSS = `
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--kw-paper);
-  background: var(--kw-purple-deep);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  background: #3E33BB;
   text-decoration: none;
-  padding: 13px 22px 13px 24px;
-  border: 1px solid var(--kw-purple-deep);
-  border-radius: 0;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 999px;
   line-height: 1;
-  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  box-shadow: 0 6px 14px rgba(62, 51, 187, 0.28);
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
 .insight-card__cta:hover,
 .insight-card__cta:focus-visible {
-  background: var(--kw-purple-bright);
-  border-color: var(--kw-purple-bright);
-  color: var(--kw-paper);
+  background: #2D22A8;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(62, 51, 187, 0.35);
   outline: none;
 }
 .insight-card__cta-arrow { transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -761,7 +782,7 @@ const INSIGHTS_CSS = `
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -801,9 +822,9 @@ const INSIGHTS_CSS = `
 .insights.is-revealed .insights__all      { transition-delay: 500ms; }
 
 @media (max-width: 960px) {
-  .insights { padding: 64px 0 88px; }
-  .insights__inner { padding: 0 28px; }
-  .insights__header { margin-bottom: 40px; }
+  .insights { padding: 128px 0 88px; }
+  .insights__inner { padding: 0 24px; }
+  .insights__header { margin-bottom: 32px; }
   .insight-card { grid-template-columns: 1fr; }
   .insight-card__cover {
     order: -1;
@@ -815,12 +836,16 @@ const INSIGHTS_CSS = `
   .insight-card__body { padding: 28px 28px 32px; }
   .insight-card:not(.is-active) { display: none; }
   .insights__progress { max-width: 160px; }
+  .insights__controls { display: none; }
+  .insights__all { display: none; }
 }
 @media (max-width: 520px) {
-  .insight-card__title  { font-size: 24px; }
-  .insight-card__excerpt { font-size: 16px; }
-  .insights__title { font-size: 30px; }
-  .insight-card__body { padding: 24px 22px 28px; }
+  .insights { padding: 80px 0 72px; }
+  .insights__inner { padding: 0 20px; }
+  .insight-card__title  { font-size: 22px; }
+  .insight-card__excerpt { font-size: 15px; }
+  .insights__title { font-size: 28px; }
+  .insight-card__body { padding: 20px 20px 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .insight-card { transition: opacity 0ms; transform: none; }

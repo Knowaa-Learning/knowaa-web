@@ -141,7 +141,7 @@ function Capabilities() {
       <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true" focusable="false">
         <defs>
           <clipPath id="capabilities-clip" clipPathUnits="objectBoundingBox">
-            <path d="M 0,0.06 C 0.33,0.015 0.66,0.002 1,0 L 1,1 L 0,1 Z" />
+            <path d="M 0,0.06 C 0.33,0.015 0.66,0.002 1,0 L 1,0.88 C 0.66,0.99 0.33,1.0 0,0.92 Z" />
           </clipPath>
         </defs>
       </svg>
@@ -181,12 +181,12 @@ function Capabilities() {
                 <img src="assets/capabilities/01-consulting.png" alt="" loading="lazy" />
               </div>
               <div className="capabilities__card-top">
-                <h3 className="capabilities__card-title">Consultant services</h3>
+                <h3 className="capabilities__card-title">Learning strategy</h3>
                 <p className="capabilities__card-slogan">Naming the right problem first.</p>
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Most programs are commissioned without naming the business behavior they&apos;re supposed to produce. We start there.
+                  Most programs are commissioned without naming the <span className="cap-hl" style={{'--hl-i': 0}}>business behavior</span> they&apos;re supposed to produce. We <span className="cap-hl" style={{'--hl-i': 1}}>start there</span>.
                 </p>
                 <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
@@ -203,7 +203,7 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Microlearning where chunking matches how working memory consolidates. Adaptive paths where prior knowledge varies. Gamification where the work itself rewards practice. Scenarios where the decision is messy. Method chosen by fit, not by trend.
+                  <span className="cap-hl" style={{'--hl-i': 0}}>Microlearning</span> where chunking matches how working memory consolidates. <span className="cap-hl" style={{'--hl-i': 1}}>Adaptive paths</span> where prior knowledge varies. <span className="cap-hl" style={{'--hl-i': 2}}>Gamification</span> where the work itself rewards practice. <span className="cap-hl" style={{'--hl-i': 3}}>Scenarios</span> where the decision is messy. Method chosen by fit, not by trend.
                 </p>
                 <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
@@ -220,7 +220,7 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Built to the standard people see in their feeds — because that&apos;s the standard the learner is comparing against.
+                  Built to the <span className="cap-hl" style={{'--hl-i': 0}}>standard</span> people see in their <span className="cap-hl" style={{'--hl-i': 1}}>feeds</span> — because that&apos;s the standard the <span className="cap-hl" style={{'--hl-i': 2}}>learner</span> is comparing against.
                 </p>
                 <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
@@ -237,7 +237,7 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Multi-touch campaigns that reinforce behavior across weeks of real work — emails, micro-content, nudges, reminders.
+                  Multi-touch campaigns that <span className="cap-hl" style={{'--hl-i': 0}}>reinforce behavior</span> across <span className="cap-hl" style={{'--hl-i': 1}}>weeks of real work</span> — emails, micro-content, nudges, reminders.
                 </p>
                 <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
@@ -251,10 +251,11 @@ function Capabilities() {
             z-index: 5;
             background-color: #503594;
             color: #ffffff;
-            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             clip-path: url(#capabilities-clip);
-            padding: 168px 24px 40px;
+            padding: 168px 24px 160px;
             margin-top: -48px;
+            margin-bottom: -64px;
             overflow: hidden;
           }
           .capabilities__atmosphere {
@@ -263,6 +264,14 @@ function Capabilities() {
             will-change: transform, opacity;
           }
           .capabilities.is-visible .capabilities__atmosphere { opacity: 1; }
+          .capabilities__signature {
+            position: absolute; inset: 0; z-index: 1;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.6s ease-out 0.2s;
+          }
+          .capabilities.is-visible .capabilities__signature { opacity: 1; }
           .capabilities__atmosphere-svg {
             width: 100%; height: 100%; display: block;
             filter: blur(75px); opacity: 0.55;
@@ -320,7 +329,7 @@ function Capabilities() {
           }
 
           .capabilities__card-number {
-            font-family: 'Urbanist', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(2.25rem, 3.5vw, 3rem);
             font-weight: 300; color: rgba(255, 255, 255, 0.45);
             line-height: 1; margin: 0 0 28px;
@@ -354,6 +363,39 @@ function Capabilities() {
             font-size: 0.9375rem; font-weight: 400;
             color: rgba(255, 255, 255, 0.92); line-height: 1.6; margin: 0;
           }
+
+          /* Sequential-bold highlight words inside each card body.
+             Start neutral (weight 400), match body color. On card hover,
+             step through each word: flash orange at bold, then settle to white. */
+          .cap-hl {
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.92);
+            transition: font-weight 180ms ease, color 180ms ease;
+            will-change: font-weight, color;
+          }
+          @keyframes capHlFlash {
+            0%   { font-weight: 400; color: rgba(255, 255, 255, 0.92); }
+            35%  { font-weight: 700; color: #F37137; }
+            70%  { font-weight: 700; color: #F37137; }
+            100% { font-weight: 700; color: #ffffff; }
+          }
+          @media (hover: hover) {
+            .capabilities__card:hover .cap-hl {
+              animation: capHlFlash 900ms ease forwards;
+              animation-delay: calc(260ms + var(--hl-i, 0) * 260ms);
+            }
+          }
+          .capabilities__card:focus-visible .cap-hl {
+            animation: capHlFlash 900ms ease forwards;
+            animation-delay: calc(260ms + var(--hl-i, 0) * 260ms);
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .cap-hl { animation: none !important; }
+            .capabilities__card:hover .cap-hl,
+            .capabilities__card:focus-visible .cap-hl {
+              font-weight: 700; color: #ffffff; animation: none !important;
+            }
+          }
           .capabilities__card-arrow {
             font-size: 1.375rem; color: #ffffff; font-weight: 700;
             align-self: flex-start; transition: transform 0.3s ease;
@@ -374,17 +416,40 @@ function Capabilities() {
           }
 
           @media (max-width: 960px) {
-            .capabilities { padding: 128px 20px 32px; margin-top: -40px; }
+            .capabilities {
+              padding: 96px 20px 72px;
+              margin-top: 0;
+              clip-path: none;
+            }
             .capabilities__header { margin-bottom: 56px; }
             .capabilities__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
             .capabilities__card { min-height: 0; }
           }
 
           @media (max-width: 640px) {
-            .capabilities { padding: 88px 20px 24px; margin-top: -24px; }
+            .capabilities {
+              padding: 88px 20px 56px;
+              margin-top: 0;
+              clip-path: none;
+            }
             .capabilities__header { margin-bottom: 48px; }
+            .capabilities__heading {
+              font-size: 2.25rem;
+              line-height: 1.05;
+              letter-spacing: -0.02em;
+              margin: 0 0 20px;
+            }
+            .capabilities__subhead {
+              font-size: 0.95rem;
+              line-height: 1.5;
+            }
             .capabilities__grid { grid-template-columns: 1fr; gap: 8px; }
             .capabilities__card { min-height: 0; padding: 32px 0 28px; }
+            .capabilities__card-reveal {
+              align-items: center;
+              text-align: center;
+            }
+            .capabilities__card-arrow { align-self: center; }
           }
 
           @media (prefers-reduced-motion: reduce) {

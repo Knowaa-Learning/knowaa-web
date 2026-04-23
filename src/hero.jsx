@@ -64,22 +64,17 @@ function Hero({ tweaks }) {
     <section
       style={{
         position: 'relative',
-        // More breathing room on sides so video feels composed, not edge-to-edge
-        padding: 'clamp(16px, 2.5vw, 40px) clamp(16px, 4vw, 56px)',
       }}
     >
       <div
+        className="hero-video-well"
         style={{
           position: 'relative',
-          // Contained, centered video panel
-          maxWidth: '1280px',
-          margin: '0 auto',
-          height: 'min(78vh, 760px)',
-          minHeight: '520px',
-          borderRadius: '14px',
+          width: '100%',
+          height: 'clamp(680px, 81vh, 940px)',
+          minHeight: '680px',
           overflow: 'hidden',
           background: '#0A0A0A',
-          boxShadow: '0 30px 80px -30px rgba(0,0,0,0.25)',
           opacity: mounted ? 1 : 0,
           transform: mounted ? 'scale(1)' : 'scale(0.995)',
           transition: 'opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)',
@@ -103,7 +98,7 @@ function Hero({ tweaks }) {
           }}
         >
           {/* Drop your video at assets/hero.mp4 when ready */}
-          <source src="assets/hero.mp4?v=2" type="video/mp4" />
+          <source src={`assets/hero.mp4?v=${Date.now()}`} type="video/mp4" />
         </video>
 
         {/* Legibility scrim — stronger at bottom for copy */}
@@ -133,8 +128,9 @@ function Hero({ tweaks }) {
         >
           {/* Headline + typing loop */}
           <h1
+            className="hero-h1"
             style={{
-              fontFamily: "'Urbanist', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 'clamp(34px, 3.4vw, 44px)',
               fontWeight: 900,
               lineHeight: 1.1,
@@ -146,7 +142,7 @@ function Hero({ tweaks }) {
               transition: 'all 1s cubic-bezier(.2,.7,.2,1) 0.15s',
             }}
           >
-            <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Drive Real Business Results Through</span>
+            <span className="hero-h1-line1" style={{ display: 'block', whiteSpace: 'nowrap' }}>Drive Real Business Results Through</span>
             <span style={{ display: 'block', color: '#FFFFFF', minHeight: '1.1em' }}>
               <TypedLoop words={[
                 'Innovative Learning',
@@ -171,7 +167,7 @@ function Hero({ tweaks }) {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0, flexWrap: 'wrap' }}>
               <a
-                href="#contact"
+                href="Knowaa Contact.html"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',

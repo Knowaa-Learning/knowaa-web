@@ -283,10 +283,10 @@ function Testimonials() {
         .kw-testimonials {
           position: relative;
           overflow: hidden;
-          background: #503594;
+          background: linear-gradient(90deg, #503594 0%, #503594 40%, #7C5BE0 80%, #9B7BF0 100%);
           padding: 48px 0 104px;
           color: #fff;
-          font-family: 'Urbanist', system-ui, sans-serif;
+          font-family: 'Poppins', system-ui, sans-serif;
           isolation: isolate;
         }
         .kw-testimonials::before,
@@ -297,11 +297,11 @@ function Testimonials() {
         }
         .kw-testimonials::before {
           top: 0;
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.22), transparent);
+          background: transparent;
         }
         .kw-testimonials::after {
           bottom: 0;
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent);
+          background: transparent;
         }
 
         .kw-bg {
@@ -309,6 +309,7 @@ function Testimonials() {
           pointer-events: none; overflow: hidden;
         }
         .kw-bg-shapes {
+          display: none; /* shapes removed per design direction */
           position: absolute; inset: 0;
           width: 100%; height: 100%;
           animation: kw-drift 22s ease-in-out infinite alternate;
