@@ -252,14 +252,15 @@ function Approach() {
 .kw-approach__row {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.4vw, 8px);
+  justify-content: center;
+  gap: clamp(40px, 6vw, 88px);
   padding-left: clamp(40px, 8vw, 120px);
   padding-right: clamp(40px, 8vw, 120px);
   --box-enter-x: -90px;
   --text-enter-x: 60px;
 }
 .kw-approach__row--reverse {
-  justify-content: space-between;
+  justify-content: center;
   --box-enter-x: 90px;
   --text-enter-x: -60px;
 }
@@ -269,12 +270,65 @@ function Approach() {
 /* ----- Box wrapper (scroll-linked entry + parallax) ----- */
 .kw-approach__boxWrap {
   width: clamp(260px, 26vw, 340px);
+  position: relative;
   opacity: var(--box-progress, 0);
   transform:
     translateX(calc(var(--box-enter-x) * (1 - var(--box-progress, 0))))
     translateY(var(--parallax-y, 0px))
     scale(calc(0.86 + 0.14 * var(--box-progress, 0)));
   will-change: transform, opacity;
+}
+/* ----- Overlay icon (large lottie anchored to bottom-right of image) ----- */
+.kw-approach__overlayIcon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(140px, 16vw, 220px);
+  height: clamp(140px, 16vw, 220px);
+  /* slight nudge inward from the corner */
+  transform: translate(40%, 40%);
+  pointer-events: none;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+}
+/* Award + brush get a size bump */
+.kw-approach__overlayIcon--award,
+.kw-approach__overlayIcon--brush {
+  width: clamp(170px, 19vw, 260px);
+  height: clamp(170px, 19vw, 260px);
+}
+.kw-approach__overlayIcon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(255,255,255,0.98) 0%,
+    rgba(255,255,255,0.92) 28%,
+    rgba(255,255,255,0.65) 50%,
+    rgba(255,255,255,0.25) 70%,
+    rgba(255,255,255,0) 85%);
+  filter: blur(2px);
+  z-index: 0;
+}
+.kw-approach__overlayIcon > [data-lottie] {
+  position: relative;
+  z-index: 1;
+  width: 72%;
+  height: 72%;
+  display: block;
+}
+.kw-approach__overlayIcon [data-lottie] svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+@media (max-width: 900px) {
+  .kw-approach__overlayIcon {
+    width: clamp(110px, 28vw, 160px);
+    height: clamp(110px, 28vw, 160px);
+  }
 }
 /* ----- The box (purple fill + big shadow + continuous float) ----- */
 .kw-approach__box {
@@ -494,15 +548,13 @@ function Approach() {
                       />
                     ) : null}
                   </div>
+                  {row.icon ? (
+                    <div className={'kw-approach__overlayIcon kw-approach__overlayIcon--' + row.icon} aria-hidden="true">
+                      <div data-lottie={row.icon} />
+                    </div>
+                  ) : null}
                 </div>
                 <div className="kw-approach__text">
-                  {row.icon ? (
-                    <div
-                      className="kw-approach__icon"
-                      data-lottie={row.icon}
-                      aria-hidden="true"
-                    />
-                  ) : null}
                   <span className="kw-approach__stripe" aria-hidden="true" />
                   <div className="kw-approach__copy">
                     <h3 className="kw-approach__rowTitle">{row.title}</h3>
