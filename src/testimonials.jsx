@@ -260,21 +260,6 @@ function Testimonials() {
             </div>
           </div>
 
-          <aside className="kw-award" aria-label="Industry recognition">
-            <p className="kw-award-eyebrow">Recognized by</p>
-            <div className="kw-badge-wrap">
-              <div className="kw-badge-glow" aria-hidden="true" />
-              <img
-                className="kw-badge"
-                src="assets/testimonials/watch-list-2026.png"
-                alt="2026 Watch List Company — Custom Content Development — Training Industry"
-              />
-            </div>
-            <p className="kw-award-caption">2026 Watch List Company</p>
-            <p className="kw-award-sub">
-              Custom Content Development · Training Industry
-            </p>
-          </aside>
         </div>
       </div>
 
@@ -336,11 +321,15 @@ function Testimonials() {
 
         .kw-grid {
           display: grid;
-          grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+          grid-template-columns: 1fr;
           gap: 0;
           align-items: center;
+          justify-items: center;
+          text-align: center;
         }
         .kw-left {
+          max-width: 720px;
+          width: 100%;
           display: flex;
           flex-direction: column;
           gap: 20px;
@@ -450,10 +439,14 @@ function Testimonials() {
           align-items: center; justify-content: center;
           margin-bottom: 16px;
         }
+        .kw-badge-wrap--row {
+          gap: 18px;
+          flex-wrap: wrap;
+        }
         .kw-badge-glow { display: none; }
         .kw-badge {
           position: relative;
-          width: 220px; height: auto; display: block;
+          width: 200px; height: auto; display: block;
           filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.32)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
         }
         .kw-award-caption {
@@ -510,3 +503,70 @@ function Testimonials() {
     </section>
   );
 }
+
+/* ─── Recognition strip — renders on white below testimonials. ─── */
+function Recognition() {
+  return (
+    <section className="kw-recognition" aria-label="Industry recognition">
+      <div className="kw-recognition__inner">
+        <p className="kw-recognition__label">Recognized by</p>
+        <div className="kw-recognition__badges">
+          <img
+            className="kw-recognition__badge"
+            src="assets/testimonials/watch-list-2026.png"
+            alt="2026 Watch List Company — Custom Content Development — Training Industry"
+          />
+          <img
+            className="kw-recognition__badge"
+            src="assets/testimonials/badge-2.png"
+            alt="Top Content Providers for Custom eLearning 2026 — Featured on elearningindustry.com"
+          />
+        </div>
+      </div>
+      <style>{`
+        .kw-recognition {
+          background: #FFFFFF;
+          padding: 48px 24px 56px;
+        }
+        .kw-recognition__inner {
+          max-width: 1100px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 22px;
+        }
+        .kw-recognition__label {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: #6b6883;
+        }
+        .kw-recognition__badges {
+          display: flex;
+          align-items: center;
+          gap: 36px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .kw-recognition__badge {
+          width: 180px;
+          height: auto;
+          display: block;
+          filter: drop-shadow(0 6px 14px rgba(13, 9, 89, 0.10));
+        }
+        @media (max-width: 600px) {
+          .kw-recognition { padding: 32px 16px 40px; }
+          .kw-recognition__inner { gap: 18px; }
+          .kw-recognition__badges { gap: 20px; }
+          .kw-recognition__badge { width: 130px; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+window.Recognition = Recognition;

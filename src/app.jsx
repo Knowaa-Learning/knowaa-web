@@ -12,7 +12,9 @@ function App() {
       <div className="kw-cap-seam" aria-hidden="true" />
       <Insight />
       <Approach />
+      <CTAOrange />
       <FAQ />
+      <window.Recognition />
       <Testimonials />
       <Footer />
       <TweaksPanel tweaks={tweaks} setTweaks={setTweaks} />

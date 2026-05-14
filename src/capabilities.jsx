@@ -166,16 +166,16 @@ function Capabilities() {
         <div className="capabilities__container">
           <header className="capabilities__header">
             <h2 id="capabilities-heading" className="capabilities__heading">
-              <span className="capabilities__heading-line">Four practices.</span>
-              <span className="capabilities__heading-line capabilities__heading-line--alt">One standard.</span>
+              <span className="capabilities__heading-line">Starts With Why.</span>
+              <span className="capabilities__heading-line capabilities__heading-line--alt">Ends With Change.</span>
             </h2>
             <p className="capabilities__subhead">
-              Did the behavior change in the business — or didn&apos;t it.
+              From learning strategy to custom content, video production to campaigns, built by one studio, held to one standard.
             </p>
           </header>
 
           <div className="capabilities__grid">
-            <a href="/solutions/consulting" className="capabilities__card">
+            <a href="Knowaa Strategy.html" className="capabilities__card">
               <span className="capabilities__card-number" aria-hidden="true">01</span>
               <div className="capabilities__icon" aria-hidden="true">
                 <img src="assets/capabilities/01-consulting.png" alt="" loading="lazy" />
@@ -186,13 +186,12 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Most programs are commissioned without naming the <span className="cap-hl" style={{'--hl-i': 0}}>business behavior</span> they&apos;re supposed to produce. We <span className="cap-hl" style={{'--hl-i': 1}}>start there</span>.
+                  Most learning programs fail before they launch, built around content instead of outcomes. We work with you to diagnose the <span className="cap-hl" style={{'--hl-i': 0}}>real performance gaps</span>, define what good looks like, and build a learning architecture that holds up against your actual <span className="cap-hl" style={{'--hl-i': 1}}>business goals</span>. No generic frameworks. No borrowed playbooks.
                 </p>
-                <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
             </a>
 
-            <a href="/solutions/custom-elearning" className="capabilities__card">
+            <a href="Knowaa Custom eLearning.html" className="capabilities__card">
               <span className="capabilities__card-number" aria-hidden="true">02</span>
               <div className="capabilities__icon" aria-hidden="true">
                 <img src="assets/capabilities/02-elearning.png" alt="" loading="lazy" />
@@ -203,13 +202,12 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  <span className="cap-hl" style={{'--hl-i': 0}}>Microlearning</span> where chunking matches how working memory consolidates. <span className="cap-hl" style={{'--hl-i': 1}}>Adaptive paths</span> where prior knowledge varies. <span className="cap-hl" style={{'--hl-i': 2}}>Gamification</span> where the work itself rewards practice. <span className="cap-hl" style={{'--hl-i': 3}}>Scenarios</span> where the decision is messy. Method chosen by fit, not by trend.
+                  Not every learner needs the same path. We build content that adapts, <span className="cap-hl" style={{'--hl-i': 0}}>microlearning</span> for retention, interactive <span className="cap-hl" style={{'--hl-i': 1}}>scenarios</span> for application, and <span className="cap-hl" style={{'--hl-i': 2}}>adaptive</span> sequencing that responds to how each person actually performs. The right methodology, matched to the <span className="cap-hl" style={{'--hl-i': 3}}>real behavior you need to change.</span>
                 </p>
-                <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
             </a>
 
-            <a href="/solutions/video-animation" className="capabilities__card">
+            <a href="Knowaa Video and Animation.html" className="capabilities__card">
               <span className="capabilities__card-number" aria-hidden="true">03</span>
               <div className="capabilities__icon" aria-hidden="true">
                 <img src="assets/capabilities/03-video-animation.png" alt="" loading="lazy" />
@@ -220,13 +218,12 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Built to the <span className="cap-hl" style={{'--hl-i': 0}}>standard</span> people see in their <span className="cap-hl" style={{'--hl-i': 1}}>feeds</span> — because that&apos;s the standard the <span className="cap-hl" style={{'--hl-i': 2}}>learner</span> is comparing against.
+                  From quick-turn explainers to cinematic productions, we build learning videos and animations that <span className="cap-hl" style={{'--hl-i': 0}}>hold attention and drive retention</span>, live action, motion graphics, character animation, and AI-generated formats. If it moves and teaches, we make it. <span className="cap-hl" style={{'--hl-i': 1}}>Premium quality,</span> matched to the moment your learner needs it most.
                 </p>
-                <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
             </a>
 
-            <a href="/solutions/campaigns" className="capabilities__card">
+            <a href="Knowaa Campaigns.html" className="capabilities__card">
               <span className="capabilities__card-number" aria-hidden="true">04</span>
               <div className="capabilities__icon" aria-hidden="true">
                 <img src="assets/capabilities/04-campaigns.png" alt="" loading="lazy" />
@@ -237,9 +234,8 @@ function Capabilities() {
               </div>
               <div className="capabilities__card-reveal">
                 <p className="capabilities__card-body">
-                  Multi-touch campaigns that <span className="cap-hl" style={{'--hl-i': 0}}>reinforce behavior</span> across <span className="cap-hl" style={{'--hl-i': 1}}>weeks of real work</span> — emails, micro-content, nudges, reminders.
+                  Learning doesn&apos;t spread itself. We help build the <span className="cap-hl" style={{'--hl-i': 0}}>internal momentum</span>, the communications, the <span className="cap-hl" style={{'--hl-i': 1}}>nudges</span>, the <span className="cap-hl" style={{'--hl-i': 2}}>cultural signals</span>, that get people to show up, engage, and use what they&apos;ve learned.
                 </p>
-                <span className="capabilities__card-arrow" aria-hidden="true">→</span>
               </div>
             </a>
           </div>
@@ -314,9 +310,10 @@ function Capabilities() {
           .capabilities__heading-line { display: block; }
           .capabilities__heading-line--alt { color: rgba(255, 255, 255, 0.55); }
           .capabilities__subhead {
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(1rem, 1.25vw, 1.125rem);
             font-weight: 400; color: rgba(255, 255, 255, 0.78);
-            line-height: 1.5; margin: 0; max-width: 640px; font-style: italic;
+            line-height: 1.5; margin: 0; max-width: 820px;
           }
 
           .capabilities__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -396,16 +393,10 @@ function Capabilities() {
               font-weight: 700; color: #ffffff; animation: none !important;
             }
           }
-          .capabilities__card-arrow {
-            font-size: 1.375rem; color: #ffffff; font-weight: 700;
-            align-self: flex-start; transition: transform 0.3s ease;
-          }
-
           @media (hover: hover) {
             .capabilities__card:hover { transform: translateY(-4px); }
             .capabilities__card:hover .capabilities__card-number { color: rgba(255, 255, 255, 0.9); }
             .capabilities__card:hover .capabilities__card-reveal { opacity: 1; transform: translateY(0); }
-            .capabilities__card:hover .capabilities__card-arrow { transform: translateX(6px); }
             .capabilities__card:hover .capabilities__icon { transform: translateY(-2px); }
           }
 
@@ -449,13 +440,12 @@ function Capabilities() {
               align-items: center;
               text-align: center;
             }
-            .capabilities__card-arrow { align-self: center; }
           }
 
           @media (prefers-reduced-motion: reduce) {
             .atmos { animation: none !important; }
             .capabilities__atmosphere { transition: none; }
-            .capabilities__card, .capabilities__icon, .capabilities__card-arrow, .capabilities__card-reveal { transition: none; }
+            .capabilities__card, .capabilities__icon, .capabilities__card-reveal { transition: none; }
             .capabilities__card:hover { transform: none; }
             .capabilities__card-reveal { opacity: 1; transform: none; }
             .capabilities__card { opacity: 1 !important; transform: none !important; transition: none !important; }

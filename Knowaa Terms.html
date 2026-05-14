@@ -97,10 +97,38 @@
       font-size: clamp(17px, 1.35vw, 20px);
       line-height: 1.55;
       color: var(--ink-70);
-      margin: 0 0 56px;
+      margin: 0 0 28px;
       max-width: 640px;
-      padding-bottom: 40px;
+    }
+    .terms__lede:last-of-type {
+      padding-bottom: 32px;
       border-bottom: 1px solid var(--ink-15);
+      margin-bottom: 32px;
+    }
+    .terms__lede--secondary {
+      font-size: clamp(15px, 1.1vw, 17px);
+      color: var(--ink-50);
+    }
+
+    .terms__meta {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-50);
+      text-transform: uppercase;
+      margin: 0 0 36px;
+    }
+
+    .terms__callout {
+      background: #F5F5F5;
+      border: 1px solid #EAEAEA;
+      border-left: 3px solid var(--knowaa-purple);
+      border-radius: 8px;
+      padding: 18px 22px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-70);
+      margin: 0 0 56px;
     }
 
     .terms__section + .terms__section { margin-top: 48px; }
@@ -134,6 +162,53 @@
       max-width: 680px;
     }
     .terms__p:last-child { margin-bottom: 0; }
+
+    .terms__h3 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      margin: 24px 0 10px;
+    }
+
+    .terms__ul {
+      margin: 0 0 14px;
+      padding-left: 22px;
+      color: var(--ink-70);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+    .terms__ul li { margin-bottom: 6px; }
+    .terms__ul a {
+      color: var(--knowaa-purple);
+      border-bottom: 1px solid rgba(74,15,184,0.3);
+    }
+
+    .terms__table {
+      width: 100%;
+      max-width: 760px;
+      border-collapse: collapse;
+      margin: 16px 0 18px;
+      font-size: 14.5px;
+    }
+    .terms__table th,
+    .terms__table td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--ink-15);
+      vertical-align: top;
+      color: var(--ink-70);
+      line-height: 1.55;
+    }
+    .terms__table th {
+      font-weight: 700;
+      color: var(--ink);
+      background: #F7F7F9;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
 
     .terms__p a {
       color: var(--knowaa-purple);
@@ -226,9 +301,9 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-  <script type="text/babel" src="src/nav.jsx"></script>
-  <script type="text/babel" src="src/footer.jsx"></script>
-  <script type="text/babel" src="src/terms.jsx"></script>
+  <script type="text/babel" src="src/nav.jsx?v=10"></script>
+  <script type="text/babel" src="src/footer.jsx?v=7"></script>
+  <script type="text/babel" src="src/terms.jsx?v=5"></script>
 
   <script type="text/babel">
     function TermsApp() {

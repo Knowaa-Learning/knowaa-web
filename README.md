@@ -1,30 +1,54 @@
-# Knowaa Homepage — Vercel deploy
+# Knowaa — Vercel deploy bundle
 
-Static site. No build step required.
+Self-contained static build of the Knowaa marketing site.
+Drag the **entire `vercel-build/` folder** into Vercel's "Deploy" → "Browse" upload,
+or zip it and import via `vercel deploy --prod`.
 
-## Deploy
+## What's inside
 
-### Option 1 — Vercel CLI
 ```
-npm i -g vercel
-cd vercel-build
-vercel deploy --prod
+vercel-build/
+├── index.html              ← homepage (mirrors Knowaa Homepage.html)
+├── Knowaa Homepage.html
+├── Knowaa Strategy.html
+├── Knowaa Custom eLearning.html
+├── Knowaa Video and Animation.html
+├── Knowaa Campaigns.html
+├── Knowaa Resources.html
+├── Knowaa Article.html
+├── Knowaa Case Study.html
+├── Knowaa Contact.html
+├── Knowaa Terms.html
+├── Knowaa Privacy.html
+├── src/                    ← React components loaded via Babel-standalone
+└── assets/                 ← Images, video (hero.mp4, frames), logos, icons
 ```
 
-### Option 2 — Drag & drop
-1. Zip this folder.
-2. Go to https://vercel.com/new → "Deploy" → drag the zip in.
+## Vercel project settings
 
-### Option 3 — Git
-Push this folder to a Git repo and import it on vercel.com. Framework preset: **Other**. No build command. Output directory: `./`.
+- Framework: **Other** (static)
+- Build command: **leave empty**
+- Output directory: **leave empty** (Vercel uses the project root)
+- Install command: **leave empty**
 
-## Structure
-- `index.html` — entry point
-- `src/*.jsx` — components (transpiled in-browser by Babel standalone)
-- `assets/` — images, video, logos, fonts
-- `vercel.json` — cache headers + clean URLs
+`vercel.json` already sets:
+- Cache headers (long for `/assets/`, no-cache for HTML + JSX so updates pick up fast)
+- `cleanUrls: true` (so `/contact` works → `Knowaa Contact.html`)
 
-## Notes
-- The site uses `@babel/standalone` for in-browser JSX transpile. Works out of the box, no bundler needed.
-- Fonts load from Google Fonts (Urbanist).
-- No env vars, no API routes, no serverless functions.
+## Domain
+
+After upload, in the Vercel project → Settings → Domains, attach `knowaa.com`
+(or whatever your domain is) and Vercel will issue the SSL automatically.
+
+## Connected services
+
+- **Contact form** → Web3Forms (key embedded in `src/contact.jsx`)
+- **Newsletter** → `https://knowaa-info.com/api/subscribe` (POST email + name)
+- **Calendly** → `https://calendly.com/noam-knowaa/30min`
+
+No env vars required for the static site.
+
+## Updating later
+
+Replace any file in this folder and redeploy. The cache headers force browsers to
+revalidate HTML/JSX on every load, so changes show up immediately for users.

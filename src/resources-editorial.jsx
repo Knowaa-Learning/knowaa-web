@@ -116,8 +116,38 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
 }
 
 function ResourcesEditorial() {
-  const [typeFilter, setTypeFilter] = useStateA('all');
+  // Allow ?type=case (or ?type=article|insight) in the URL to deep-link
+  // into a filtered view from nav / footer / external links.
+  const initialType = (() => {
+    try {
+      const t = new URLSearchParams(window.location.search).get('type');
+      if (t && ['article','case','insight'].includes(t)) return t;
+    } catch (e) {}
+    return 'all';
+  })();
+  const [typeFilter, setTypeFilter] = useStateA(initialType);
   const [q, setQ] = useStateA('');
+  // Newsletter state — POSTs to knowaa-news API
+  const [nlEmail, setNlEmail] = useStateA('');
+  const [nlSent, setNlSent] = useStateA(false);
+  const [nlSubmitting, setNlSubmitting] = useStateA(false);
+  const [nlError, setNlError] = useStateA('');
+  async function handleNewsletter(e) {
+    e.preventDefault();
+    if (!nlEmail || nlSubmitting) return;
+    setNlSubmitting(true); setNlError('');
+    try {
+      const res = await fetch('https://knowaa-info.com/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: nlEmail, name: '' }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (data && data.ok) { setNlSent(true); setNlEmail(''); }
+      else { setNlError((data && data.error) || 'Something went wrong. Try again.'); }
+    } catch { setNlError('Something went wrong. Try again.'); }
+    finally { setNlSubmitting(false); }
+  }
 
   const filtered = useMemoA(() => {
     return window.RESOURCES.filter((r) => {
@@ -151,10 +181,11 @@ function ResourcesEditorial() {
         {/* Headline + intro on white */}
         <div className="rc__hero-light">
           <div className="rc__hero-inner">
-            <h1 className="rc__h1">Insights. Field notes from building learning that performs.</h1>
+            <h1 className="rc__h1">{typeFilter === 'insight' ? 'Insights.' : 'Case studies.'}</h1>
             <p className="rc__intro">
-              Articles, case studies, and short insights from the Knowaa studio. What we're learning
-              as we design and produce enterprise learning programs that change behavior.
+              {typeFilter === 'insight'
+                ? 'Perspectives on learning design, content strategy, and the specific challenges of building effective programs inside regulated industries.'
+                : 'Learning programs built for organizations where content has to earn attention, survive compliance review, and actually change how people perform.'}
             </p>
           </div>
         </div>
@@ -162,12 +193,14 @@ function ResourcesEditorial() {
         {/* Featured card — same lavender-inner design as archive cards */}
         {hero && (
           <div className="rc__hero-feature-wrap">
-            <a className="rc__arch-card rc__arch-card--hero" href={`#article-${hero.id}`}>
+            <a className="rc__arch-card rc__arch-card--hero" href={(hero.type === 'case' ? 'Knowaa Case Study.html' : 'Knowaa Article.html') + `?id=${hero.id}`}>
               <div className="rc__arch-cover">
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
                 ) : null}
-                <span className="rc__arch-cover-label">{typeLabel(hero.type)}</span>
+                {hero.type !== 'case' && (
+                  <span className="rc__arch-cover-label">{typeLabel(hero.type)}</span>
+                )}
                 <span className="rc__arch-cover-icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -219,12 +252,14 @@ function ResourcesEditorial() {
           <ul className="rc__stream-list">
             {stream.map((r) => (
               <li key={r.id} className="rc__arch-item">
-                <a href={`#article-${r.id}`} className="rc__arch-card">
+                <a href={(r.type === 'case' ? 'Knowaa Case Study.html' : 'Knowaa Article.html') + `?id=${r.id}`} className="rc__arch-card">
                   <div className="rc__arch-cover">
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />
                     ) : null}
-                    <span className="rc__arch-cover-label">{typeLabel(r.type)}</span>
+                    {r.type !== 'case' && (
+                      <span className="rc__arch-cover-label">{typeLabel(r.type)}</span>
+                    )}
                     <span className="rc__arch-cover-icon" aria-hidden="true">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="3" />
@@ -254,10 +289,27 @@ function ResourcesEditorial() {
             <span className="rc__nl-kicker">One email a week. Never more.</span>
             <h3 className="rc__nl-title">New thinking, delivered.</h3>
           </div>
-          <form className="rc__nl-form" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="you@company.com" />
-            <button type="submit">Subscribe</button>
+          <form className="rc__nl-form" onSubmit={handleNewsletter}>
+            <input
+              type="email"
+              placeholder="you@company.com"
+              value={nlEmail}
+              onChange={(e) => setNlEmail(e.target.value)}
+              disabled={nlSent || nlSubmitting}
+              required
+            />
+            <button type="submit" disabled={nlSubmitting || nlSent}>
+              {nlSent ? 'Subscribed' : nlSubmitting ? 'Subscribing…' : 'Subscribe'}
+            </button>
           </form>
+          {nlSent && (
+            <p className="rc__nl-msg" role="status" aria-live="polite">
+              You&rsquo;re in. Check your inbox for a welcome email.
+            </p>
+          )}
+          {nlError && (
+            <p className="rc__nl-msg rc__nl-msg--err" role="status" aria-live="polite">{nlError}</p>
+          )}
         </div>
       </section>
     </div>
@@ -564,7 +616,7 @@ const CSS = `
 .rc__arch-cover::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(13,9,89,0.35) 0%, rgba(13,9,89,0.10) 45%, rgba(13,9,89,0) 100%);
+  background: transparent;
   pointer-events: none;
 }
 .rc__arch-cover-label { position: relative; z-index: 1; color: #FFFFFF; text-shadow: 0 1px 2px rgba(13,9,89,0.35); }
@@ -661,6 +713,17 @@ const CSS = `
   cursor: pointer; transition: background 180ms, color 180ms;
 }
 .rc__nl-form button:hover { background: #0A0A0A; color: #FFFFFF; }
+.rc__nl-form button:disabled { opacity: 0.7; cursor: progress; }
+.rc__nl-msg {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+.rc__nl-msg--err {
+  color: #FFE3EE;
+  font-weight: 600;
+}
 
 /* ═══ Responsive ═══ */
 @media (max-width: 960px) {

@@ -9,17 +9,17 @@
     {
       heading: 'Solutions',
       items: [
-        { label: 'Learning strategy', href: '/solutions/consulting' },
-        { label: 'Custom eLearning', href: '/solutions/custom-elearning' },
-        { label: 'Video & Animation', href: '/solutions/video-animation' },
-        { label: 'Learning campaigns', href: '/solutions/campaigns' },
+        { label: 'Learning strategy', href: 'Knowaa Strategy.html' },
+        { label: 'Custom eLearning', href: 'Knowaa Custom eLearning.html' },
+        { label: 'Video & Animation', href: 'Knowaa Video and Animation.html' },
+        { label: 'Learning campaigns', href: 'Knowaa Campaigns.html' },
       ],
     },
     {
       heading: 'Resources',
       items: [
         { label: 'Insights',       href: 'Knowaa Resources.html' },
-        { label: 'Case studies',   href: 'Knowaa Resources.html' },
+        { label: 'Case studies',   href: 'Knowaa Resources.html?type=case' },
         { label: 'Newsletter',     href: '#newsletter' },
         { label: 'Article',        href: 'Knowaa Article.html' },
       ],
@@ -47,13 +47,32 @@
   function Footer() {
     const [email, setEmail] = useState('');
     const [sent, setSent] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState('');
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
       e.preventDefault();
-      if (!email) return;
-      setSent(true);
-      setTimeout(() => setSent(false), 2400);
-      setEmail('');
+      if (!email || submitting) return;
+      setSubmitting(true);
+      setError('');
+      try {
+        const res = await fetch('https://knowaa-info.com/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name: '' }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (data && data.ok) {
+          setSent(true);
+          setEmail('');
+        } else {
+          setError((data && data.error) || 'Something went wrong. Try again.');
+        }
+      } catch {
+        setError('Something went wrong. Try again.');
+      } finally {
+        setSubmitting(false);
+      }
     }
 
     return (
@@ -79,8 +98,18 @@
                 onChange={(e) => setEmail(e.target.value)}
                 aria-label="Email address"
               />
-              <button type="submit">{sent ? 'Subscribed' : 'Subscribe'}</button>
+              <button type="submit" disabled={submitting}>
+                {sent ? 'Subscribed' : submitting ? 'Subscribing…' : 'Subscribe'}
+              </button>
             </form>
+            {error && (
+              <p className="kwfooter__msg" role="status" aria-live="polite" style={{ color: '#ED1F80', fontSize: 13, marginTop: 8 }}>{error}</p>
+            )}
+            {sent && (
+              <p className="kwfooter__msg" role="status" aria-live="polite" style={{ color: 'rgba(13, 9, 89, 0.78)', fontSize: 13, marginTop: 8 }}>
+                You&rsquo;re in. Check your inbox for a welcome email.
+              </p>
+            )}
           </div>
 
           {/* Right — 4-col link grid */}
@@ -104,7 +133,7 @@
         <div className="kwfooter__bottom">
           <span className="kwfooter__copy">© 2026 KNOWAA, INC.</span>
           <span className="kwfooter__legal">
-            <a href="#">Privacy</a>
+            <a href="Knowaa Privacy.html">Privacy</a>
             <span aria-hidden>·</span>
             <a href="Knowaa Terms.html">Terms</a>
           </span>

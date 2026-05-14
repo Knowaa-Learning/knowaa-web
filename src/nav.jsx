@@ -39,15 +39,15 @@ const NAV = [
         {
           heading: 'Categories',
           items: [
-            { title: 'Learning strategy', desc: 'Naming the right problem first', href: '/solutions/consulting' },
-            { title: 'Custom eLearning', desc: 'The format follows the work', href: '/solutions/custom-elearning' },
+            { title: 'Learning strategy', desc: 'Naming the right problem first', href: 'Knowaa Strategy.html', iconSrc: 'assets/icons/nav-strategy.svg' },
+            { title: 'Custom eLearning', desc: 'The format follows the work', href: 'Knowaa Custom eLearning.html', iconSrc: 'assets/icons/nav-elearning.svg' },
           ],
         },
         {
           heading: '',
           items: [
-            { title: 'Video & Animation', desc: 'Advertising-grade production for learning', href: '/solutions/video-animation' },
-            { title: 'Learning campaigns', desc: 'Behavior over time, not the event once', href: '/solutions/campaigns' },
+            { title: 'Video & Animation', desc: 'Advertising-grade production for learning', href: 'Knowaa Video and Animation.html', iconSrc: 'assets/icons/nav-video.svg' },
+            { title: 'Learning campaigns', desc: 'Nudge learning at its best', href: 'Knowaa Campaigns.html', iconSrc: 'assets/icons/nav-campaigns.svg' },
           ],
         },
       ],
@@ -61,45 +61,23 @@ const NAV = [
         {
           heading: '',
           items: [
-            { title: 'Insights', desc: 'Field notes and essays from our studio', href: 'Knowaa Resources.html' },
-            { title: 'Newsletter signup', desc: 'Weekly, under 5 minutes' },
+            { title: 'Case studies', desc: 'How we work, in practice', href: 'Knowaa Resources.html?type=case', iconSrc: 'assets/icons/nav-case-studies.svg' },
+            { title: 'Insights', desc: 'Field notes and essays from our studio', href: 'Knowaa Resources.html?type=insight', iconSrc: 'assets/icons/nav-insights.svg' },
+            { title: 'Newsletter signup', desc: 'Weekly, under 5 minutes', iconSrc: 'assets/icons/nav-newsletter.svg' },
           ],
         },
       ],
       feature: {
         eyebrow: 'Insight of the week',
         title: 'The attention threshold: why learning fails before it begins.',
-        excerpt: 'Most learning programs lose the learner within the first few minutes. The issue is simpler and more structural than content quality.',
+        excerpt: '',
         readTime: '6 min read',
         cta: 'Read the article',
         href: 'https://resources.knowaa.com/articles/attention-threshold-why-learning-fails',
         video: 'assets/insights/02-attention-threshold.mp4',
+        image: 'assets/insights/modern-learner.jpg',
         isInsight: true,
       },
-    },
-  },
-  {
-    label: 'About',
-    href: '#about',
-    menu: {
-      lists: [
-        {
-          heading: 'Company',
-          items: [
-            { title: 'Our Story', desc: 'Where Knowaa started' },
-            { title: 'Team', desc: 'The people behind the work' },
-            { title: 'Careers', desc: 'Open roles' },
-          ],
-        },
-        {
-          heading: 'Press',
-          items: [
-            { title: 'In the News', desc: 'Recent coverage' },
-            { title: 'Awards', desc: 'Recognition and honours' },
-            { title: 'Brand Kit', desc: 'Logos and guidelines' },
-          ],
-        },
-      ],
     },
   },
   { label: 'Contact us', href: 'Knowaa Contact.html', menu: null },
@@ -137,7 +115,7 @@ function Feature({ feature }) {
       className="nav-feature"
       style={{
         display: 'grid',
-        gridTemplateColumns: '220px 1fr',
+        gridTemplateColumns: '280px 1fr',
         gap: '18px',
         alignItems: 'center',
         padding: '4px 28px 4px 0',
@@ -147,20 +125,35 @@ function Feature({ feature }) {
         height: '100%',
       }}
     >
-      {/* Square video cover — mirrors insight-card__cover */}
+      {/* 16:9 image cover */}
       <div
         className="nav-feature__cover"
         style={{
           position: 'relative',
           width: '100%',
-          aspectRatio: '1 / 1',
+          aspectRatio: '16 / 9',
           borderRadius: '10px',
           overflow: 'hidden',
           background: '#0A0A0A',
           transition: 'box-shadow 0.25s ease',
         }}
       >
-        {feature.video ? (
+        {feature.image ? (
+          <img
+            src={feature.image}
+            alt=""
+            loading="lazy"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              display: 'block',
+            }}
+          />
+        ) : feature.video ? (
           <video
             autoPlay
             muted
@@ -187,37 +180,6 @@ function Feature({ feature }) {
           }} />
         )}
 
-        {/* subtle scrim + play badge */}
-        <div aria-hidden style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.55) 100%)',
-          pointerEvents: 'none',
-        }} />
-        <div aria-hidden style={{
-          position: 'absolute',
-          left: '8px',
-          bottom: '8px',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '6px',
-          padding: '4px 8px 4px 6px',
-          borderRadius: '999px',
-          background: 'rgba(255,255,255,0.92)',
-          color: 'var(--ink)',
-          fontSize: '10px',
-          fontWeight: 600,
-          letterSpacing: '0.02em',
-          backdropFilter: 'blur(6px)',
-        }}>
-          <span style={{
-            width: '14px', height: '14px', borderRadius: '50%',
-            background: 'var(--ink)', color: '#FFFFFF',
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <svg width="5" height="6" viewBox="0 0 8 9" aria-hidden><path d="M1 1 L7 4.5 L1 8 Z" fill="currentColor" /></svg>
-          </span>
-          Read
-        </div>
       </div>
 
       <div>
@@ -277,12 +239,32 @@ function NewsletterForm({ onBack }) {
   const [email, setEmail] = useStateN('');
   const [consent, setConsent] = useStateN(false);
   const [submitted, setSubmitted] = useStateN(false);
+  const [submitting, setSubmitting] = useStateN(false);
+  const [errorMsg, setErrorMsg] = useStateN('');
   const [focused, setFocused] = useStateN(false);
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && consent;
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (!valid) return;
-    setSubmitted(true);
+    if (!valid || submitting) return;
+    setSubmitting(true);
+    setErrorMsg('');
+    try {
+      const res = await fetch('https://knowaa-info.com/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name: '' }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (data && data.ok) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg((data && data.error) || 'Something went wrong. Try again.');
+      }
+    } catch {
+      setErrorMsg('Something went wrong. Try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -401,7 +383,7 @@ function NewsletterForm({ onBack }) {
               />
               <button
                 type="submit"
-                disabled={!valid}
+                disabled={!valid || submitting}
                 aria-label="Subscribe"
                 style={{
                   width: '25px', height: '25px',
@@ -457,7 +439,9 @@ function NewsletterForm({ onBack }) {
               </span>
             </label>
             <a
-              href="#terms"
+              href="Knowaa Terms.html"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
                 fontSize: '10px',
@@ -493,6 +477,18 @@ function NewsletterForm({ onBack }) {
               </button>
             </span>
           </div>
+
+          {errorMsg && (
+            <div role="status" aria-live="polite" style={{
+              marginTop: '10px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#ED1F80',
+              lineHeight: 1.4,
+            }}>
+              {errorMsg}
+            </div>
+          )}
         </form>
       )}
       </div>
@@ -560,7 +556,19 @@ function MegaPanel({ menu, newsletterOpen, setNewsletterOpen }) {
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(10,10,10,0.04)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
             >
-              {it.icon && OIcons[it.icon] && (
+              {it.iconSrc ? (
+                <span style={{
+                  width: '36px',
+                  height: '36px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: 'var(--ink)',
+                }}>
+                  <img src={it.iconSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </span>
+              ) : it.icon && OIcons[it.icon] && (
                 <span style={{
                   width: '28px',
                   height: '28px',
@@ -695,14 +703,21 @@ function MobileMenu({ isOpen, onClose, textColor, logoSrc, solid }) {
                           )}
                           {col.items.map((sub, si) => (
                             <a key={si} href={sub.href || '#'} onClick={onClose} style={{
-                              display: 'block',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '12px',
                               padding: '12px 0',
                               color: 'var(--ink)',
                               textDecoration: 'none',
                               fontSize: '16px', fontWeight: 500,
                             }}>
-                              <div style={{ fontWeight: 600 }}>{sub.title}</div>
-                              <div style={{ fontSize: '13px', color: 'var(--ink-50)', marginTop: '2px', fontWeight: 400 }}>{sub.desc}</div>
+                              {sub.iconSrc ? (
+                                <img src={sub.iconSrc} alt="" style={{ width: '32px', height: '32px', objectFit: 'contain', flexShrink: 0 }} />
+                              ) : null}
+                              <span style={{ minWidth: 0 }}>
+                                <div style={{ fontWeight: 600 }}>{sub.title}</div>
+                                <div style={{ fontSize: '13px', color: 'var(--ink-50)', marginTop: '2px', fontWeight: 400 }}>{sub.desc}</div>
+                              </span>
                             </a>
                           ))}
                         </div>
