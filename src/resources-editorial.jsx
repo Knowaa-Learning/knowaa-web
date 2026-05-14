@@ -181,11 +181,13 @@ function ResourcesEditorial() {
         {/* Headline + intro on white */}
         <div className="rc__hero-light">
           <div className="rc__hero-inner">
-            <h1 className="rc__h1">{typeFilter === 'insight' ? 'Insights.' : 'Case studies.'}</h1>
+            <h1 className="rc__h1">{typeFilter === 'insight' ? 'Insights.' : typeFilter === 'case' ? 'Case studies.' : 'Resources.'}</h1>
             <p className="rc__intro">
               {typeFilter === 'insight'
                 ? 'Perspectives on learning design, content strategy, and the specific challenges of building effective programs inside regulated industries.'
-                : 'Learning programs built for organizations where content has to earn attention, survive compliance review, and actually change how people perform.'}
+                : typeFilter === 'case'
+                ? 'Learning programs built for organizations where content has to earn attention, survive compliance review, and actually change how people perform.'
+                : 'Field notes, essays, and case studies from the Knowaa studio.'}
             </p>
           </div>
         </div>
@@ -193,7 +195,7 @@ function ResourcesEditorial() {
         {/* Featured card — same lavender-inner design as archive cards */}
         {hero && (
           <div className="rc__hero-feature-wrap">
-            <a className="rc__arch-card rc__arch-card--hero" href={(hero.type === 'case' ? 'Knowaa Case Study.html' : 'Knowaa Article.html') + `?id=${hero.id}`}>
+            <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)}>
               <div className="rc__arch-cover">
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
@@ -252,7 +254,7 @@ function ResourcesEditorial() {
           <ul className="rc__stream-list">
             {stream.map((r) => (
               <li key={r.id} className="rc__arch-item">
-                <a href={(r.type === 'case' ? 'Knowaa Case Study.html' : 'Knowaa Article.html') + `?id=${r.id}`} className="rc__arch-card">
+                <a href={window.resourceHref(r)} className="rc__arch-card">
                   <div className="rc__arch-cover">
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />

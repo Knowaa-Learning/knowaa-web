@@ -61,7 +61,7 @@ function ServiceHero({ eyebrow, title, intro }) {
         {Array.isArray(intro)
           ? intro.map((p, i) => <p key={i} className="svc-hero__intro">{p}</p>)
           : <p className="svc-hero__intro">{intro}</p>}
-        <a className="svc-hero__cta" href="#contact">
+        <a className="svc-hero__cta" href="Knowaa Contact.html">
           <span>Book a demo</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

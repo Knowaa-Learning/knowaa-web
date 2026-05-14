@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article — Knowaa</title>
+  <meta name="description" content="Field notes and essays from the Knowaa studio." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#4A0FB8" />
+  <link rel="canonical" href="https://knowaa.com/resources/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Knowaa" />
+  <meta property="og:title" content="Article — Knowaa" />
+  <meta property="og:description" content="Field notes and essays from the Knowaa studio." />
+  <meta property="og:url" content="https://knowaa.com/resources/" />
+  <meta property="og:image" content="https://knowaa.com/assets/og/knowaa-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Article — Knowaa" />
+  <meta name="twitter:description" content="Field notes and essays from the Knowaa studio." />
+  <meta name="twitter:image" content="https://knowaa.com/assets/og/knowaa-og.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #F2F2F2; }
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #0A0A0A;
+      overflow-x: hidden;
+    }
+    img, svg, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; padding: 0; }
+    ::selection { background: #4A0FB8; color: #fff; }
+    :root {
+      --knowaa-purple: #4A0FB8;
+      --spark-orange: #FF7A29;
+      --ink: #0D0959;
+      --title: #0D0959;
+      --page-gutter: clamp(15px, 2.78vw, 41px);
+    }
+    @media (max-width: 768px) { :root { --page-gutter: 0px; } }
+
+    /* Global title color */
+    .who-we-are__title,
+    .kw-faq-title,
+    .kw-approach__title,
+    .kw-approach__rowTitle,
+    .capabilities__heading,
+    .rc__h1,
+    .rc__hero-feature-title,
+    .rc-min__title,
+    .rc-min__feat-title,
+    .rc-mag__cover-headline,
+    .rc-mag__cover-feature-title,
+    .rc-mag__rest-title,
+    .terms__h1,
+    .terms__h2,
+    .article__title,
+    .article__h2,
+    .cs__h2,
+    .art__title,
+    .art__h2 {
+      color: var(--title);
+    }
+  </style>
+</head>
+<body>
+  <div id="root" style="max-width: 1680px; margin: 0 auto; padding: 0 var(--page-gutter); background: transparent;"></div>
+
+  <noscript>
+    <div style="max-width:680px;margin:80px auto;padding:40px 24px;font-family:system-ui,-apple-system,sans-serif;color:#0A0A0A;text-align:center;">
+      <h1 style="font-size:28px;margin:0 0 16px;font-weight:700;">Knowaa Article</h1>
+      <p style="font-size:17px;line-height:1.5;color:#555;">
+        This article requires JavaScript to load. Visit
+        <a href="/resources/" style="color:#4A0FB8;">knowaa.com/resources</a> for the full library.
+      </p>
+    </div>
+  </noscript>
+
+  <style>
+    #root { position: relative; }
+    #root::before {
+      content: ""; position: absolute; inset: 0 var(--page-gutter);
+      background: #FFFFFF; z-index: 0; pointer-events: none;
+    }
+    #root > *:not(header) { background: #FFFFFF; position: relative; }
+    #root > header { background: transparent !important; }
+    #root > .art { background: transparent; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="src/nav.jsx?v=10"></script>
+  <script type="text/babel" src="src/footer.jsx?v=7"></script>
+  <script type="text/babel" src="src/service-template.jsx?v=25"></script>
+  <script type="text/babel" src="src/resources-data.jsx?v=5"></script>
+  <script type="text/babel" src="src/article-css.jsx?v=14"></script>
+  <script type="text/babel" src="src/article.jsx?v=19"></script>
+
+  <script type="text/babel">
+    function App() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 'attention-threshold';
+
+      React.useEffect(() => {
+        const r = (window.RESOURCES || []).find(x => x.id === id);
+        if (!r) return;
+        const canonical = `https://knowaa.com/resources/${r.id}`;
+        const ogImage = r.image && r.image.startsWith('http') ? r.image : `https://knowaa.com/${r.image || 'assets/og/knowaa-og.jpg'}`;
+        const desc = (r.dek || '').slice(0, 200);
+        const title = `${r.title} | Knowaa`;
+
+        document.title = title;
+        const setMeta = (sel, attr, val) => {
+          const el = document.querySelector(sel);
+          if (el) el.setAttribute(attr, val);
+        };
+        setMeta('meta[name="description"]', 'content', desc);
+        setMeta('link[rel="canonical"]', 'href', canonical);
+        setMeta('meta[property="og:title"]', 'content', title);
+        setMeta('meta[property="og:description"]', 'content', desc);
+        setMeta('meta[property="og:url"]', 'content', canonical);
+        setMeta('meta[property="og:image"]', 'content', ogImage);
+        setMeta('meta[name="twitter:title"]', 'content', title);
+        setMeta('meta[name="twitter:description"]', 'content', desc);
+        setMeta('meta[name="twitter:image"]', 'content', ogImage);
+
+        const ld = {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "headline": r.title,
+              "description": desc,
+              "image": [ogImage],
+              "datePublished": r.publishedAt || null,
+              "author": r.author
+                ? { "@type": "Person", "name": r.author, "jobTitle": r.role || undefined }
+                : { "@type": "Organization", "name": "Knowaa" },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Knowaa",
+                "logo": { "@type": "ImageObject", "url": "https://knowaa.com/assets/knowaa-logo.png" }
+              },
+              "mainEntityOfPage": canonical
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://knowaa.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://knowaa.com/resources/" },
+                { "@type": "ListItem", "position": 3, "name": r.title,     "item": canonical }
+              ]
+            }
+          ]
+        };
+        let script = document.getElementById('article-jsonld');
+        if (!script) {
+          script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.id = 'article-jsonld';
+          document.head.appendChild(script);
+        }
+        script.textContent = JSON.stringify(ld);
+      }, [id]);
+
+      return (
+        <>
+          <window.Nav solid pinned />
+          <window.Article resourceId={id} />
+          <window.Footer />
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

@@ -748,9 +748,7 @@ function CaseStudy({ resourceId }) {
           </div>
           <div className="cs__related-grid">
             {related.map(r => {
-              const href = r.type === 'case'
-                ? `Knowaa Case Study.html?id=${r.id}`
-                : `Knowaa Article.html?id=${r.id}`;
+              const href = window.resourceHref ? window.resourceHref(r) : (r.type === 'case' ? `Knowaa Case Study.html?id=${r.id}` : `Knowaa Article.html?id=${r.id}`);
               return (
                 <a key={r.id} className="cs__related-card" href={href}>
                   <div className="cs__related-cover">

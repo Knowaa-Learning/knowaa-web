@@ -1,306 +1,357 @@
-// ARTICLE READING PAGE — matches reference structure.
-// Purple hero band at top (narrow, with character illustration on the right),
-// narrow body column, mid-article stat card, share row, 3-up related footer.
+// ARTICLE READING PAGE — clean, narrow, editorial.
+// Body content is keyed by resource id so we can add more articles over time.
 
 const { useEffect: useEffectArt, useRef: useRefArt, useMemo: useMemoArt } = React;
 
-/* ─────────────────────── Article body (content) ─────────────────────── */
-const ARTICLE_BODY = [
-  { type: 'lede',
-    text: 'Most learning programs lose the learner within the first few minutes. The issue is simpler and more structural than content quality. Attention has already shifted elsewhere.'
+/* ─────────────────────── Article bodies ───────────────────────
+   Each entry provides the structured content the template renders.
+   Block types:
+     { type: 'lede', text }              — opening paragraph, larger weight
+     { type: 'h2',   text }              — section heading
+     { type: 'h3',   text }              — sub-heading
+     { type: 'p',    text }              — paragraph
+     { type: 'p',    html }              — paragraph with inline HTML (links, em, strong)
+     { type: 'ul',   items: [...] }      — bulleted list
+     { type: 'pull', text }              — pull quote (orange left rule, bold)
+     { type: 'divider' }                 — thin horizontal rule
+   ──────────────────────────────────────────────────────────── */
+
+const ARTICLE_BODIES = {
+  'generic-training-production-ai-strategy': {
+    banner: 'assets/articles/header-generic-training.jpg',
+    bannerAlign: 'center',
+    body: [
+      { type: 'lede',
+        text: 'For twenty years, the honest answer to \u201Cwhy is our training so abstract?\u201D was a production constraint. That constraint is gone. The question has changed.'
+      },
+
+      { type: 'h2', text: 'The production constraint that shaped an industry.' },
+      { type: 'p',
+        text: 'For twenty years the honest answer to why is our training so abstract was a production constraint. Building contextual learning \u2014 content built around specific roles, real decisions, and actual work environments \u2014 required scriptwriters, subject matter experts, video crews, and timelines that made role-specific variants economically impossible at scale. That constraint is gone.'
+      },
+      { type: 'p',
+        text: 'Generative AI has reduced contextual content development from months to days. The question is no longer can we afford to build training that reflects how our people actually work. It is why are we still commissioning content that we know will not change behavior.'
+      },
+
+      { type: 'h2', text: 'Generic content was never a design choice. It was a workaround.' },
+      { type: 'p',
+        text: 'The learning industry normalized abstract, one-size-fits-all content because specificity was expensive. A single generic compliance module could serve 40,000 employees across functions and geographies \u2014 one production budget, universal deployment. Building role-specific variants \u2014 a version for warehouse supervisors that used their language, their scenarios, their actual decision points \u2014 required multiples of budget and timeline that most organizations could not justify.'
+      },
+      { type: 'p',
+        text: 'So the field invented a rationalization called transferable principles. Learners would apply abstract frameworks to their own contexts. The research on that claim is not generous. John Sweller\u2019s work on cognitive load established that when learners must simultaneously process unfamiliar content and translate it into their own context, working memory is split between the task and the translation. The transfer rarely happens automatically. What gets lost is not motivation \u2014 it is the contextual cues that trigger retrieval in the moment the behavior is needed.'
+      },
+
+      { type: 'pull', text: 'Generic training did not fail because learners were disengaged. It failed because the gap between the training scenario and the real situation was too wide for most people to bridge.' },
+
+      { type: 'p',
+        text: 'A customer service representative trained on a fictional call-center scenario faces a real irate customer and finds no mental bridge between the two. That gap was accepted as an unavoidable cost of scale. It was not. It was a production cost that organizations passed onto learners in the form of reduced effectiveness, and rationalized as pedagogy.'
+      },
+
+      { type: 'h2', text: 'AI did not improve content production. It removed the constraint entirely.' },
+      { type: 'p',
+        text: 'The relevant shift is not that AI makes content development faster. It is that AI decouples contextual specificity from production cost. Those two things were previously inseparable. More specific content required more production resources, always. That relationship no longer holds.'
+      },
+      { type: 'p',
+        text: 'Consider what that means in operational terms. A learning team previously commissioning a single role-specific video scenario \u2014 with a vendor, a script review cycle, and a six-to-eight-week production timeline \u2014 can now develop multiple role-specific variants using AI-assisted scripting, voice synthesis, and scenario generation in a fraction of that time and at a fraction of that cost.'
+      },
+      { type: 'p',
+        text: 'When the cost of specificity collapses, the economic argument for generic content stops being a budget decision. It becomes a performance decision with a known outcome. An organization commissioning abstract leadership development built around a fictional mid-size company \u2014 or a generic safety program using scenarios that bear no resemblance to the actual site conditions a technician works in \u2014 is not managing a constraint. It is choosing to accept a lower probability of behavior change when an alternative is now operationally available at comparable cost.'
+      },
+      { type: 'p',
+        text: 'The production barrier was real. The strategy barrier that has replaced it belongs to a different conversation, with different people accountable for the answer.'
+      },
+
+      { type: 'h2', text: 'Contextual specificity has a measurable performance mechanism.' },
+      { type: 'p',
+        text: 'The case for contextual learning is not that learners prefer it \u2014 though the evidence suggests they do. The case is mechanistic, because context determines retrieval. Memory research on encoding specificity, developed by Endel Tulving in the 1970s and consistently replicated since, establishes that learning is most likely to be retrieved in conditions that match the conditions under which it was encoded.'
+      },
+      { type: 'p',
+        text: 'A technician trained on a safety procedure using the actual equipment names, the actual fault codes, and the actual sequence of decisions she faces on shift is more likely to retrieve that training when it is needed than a technician trained on a generalized version of the same content. This is not an argument for engagement. It is an argument for architecture. The specificity of the learning environment is a design variable with a direct effect on whether behavior changes in the real environment.'
+      },
+      { type: 'p',
+        text: 'What contextual learning actually requires is a different starting point, not a larger budget. Instead of beginning with a topic \u2014 we need a module on managing difficult conversations \u2014 the work begins with a behavior in a specific situation. When a regional sales manager is six weeks from quarter close and a deal is stalling because procurement has introduced a new approval layer the rep has never navigated before, what does an effective conversation with the procurement lead look like, and what does an ineffective one cost the business?'
+      },
+      { type: 'p',
+        text: 'The counterargument worth taking seriously is that contextual content requires ongoing maintenance. A module built around specific systems, terminology, and workflows becomes outdated as the organization changes. This is a real operational cost, and AI-assisted development does not eliminate it. What it does is reduce the update burden enough to make continuous iteration feasible where it previously was not.'
+      },
+
+      { type: 'h2', text: 'The production constraint gave L&D cover. That cover is gone.' },
+      { type: 'p',
+        text: 'For two decades, when a business leader asked why the leadership program was built around fictional scenarios \u2014 or why the compliance training bore no resemblance to the actual decisions people faced \u2014 the honest answer was available. Building something more specific costs more than the budget allows. That answer carried real weight. It was true.'
+      },
+      { type: 'p',
+        text: 'That answer is no longer available in the same form. The next program brief your team writes, the next vendor conversation you have, the next budget request you approve carries a question that cannot be deflected by pointing at production timelines. The question is whether the learning being commissioned is designed around how work actually happens in your organization, or around what was easiest to build when building things was hard.'
+      },
+
+      { type: 'pull', text: 'For the role this program targets, can we name the three decisions where performance most visibly breaks down \u2014 and does the learning we are about to buy put the learner inside those exact decisions?' },
+
+      { type: 'p',
+        text: 'If the answer is no, the program will produce completion data. It will not produce the behavior change the business is waiting for. That is now a choice, not a constraint. The accountability for it has moved.'
+      },
+    ],
   },
 
-  { type: 'h2', text: 'The constraint is not inside the content' },
-  { type: 'p',
-    text: 'When a program underperforms, the instinct is to audit the content: Was it too dense? Was the narrative muddled? Did we open with the right hook? Those are not the wrong questions, but they are almost never the constraint. The learner is not wrestling with a mis-sequenced argument. They are gone.'
-  },
-  { type: 'p',
-    text: 'L&D has been trained on a particular loss-narrative: someone checks in, finishes the intro, makes it most of the way through, fades on the closing activities. That is the loss curve for a well-designed programme launched into a room that has already paid attention. It is also a myth. The loss curve for anything launched cold into the modern workweek starts at the front, not the end.'
-  },
+  'attention-threshold': {
+    banner: 'assets/articles/header-attention-threshold.jpg',
+    bannerVariant: 'flush-left',
+    body: [
+      { type: 'lede',
+        text: 'Most learning programs lose the learner within the first few minutes. The issue is simpler and more structural than content quality. Attention has already shifted elsewhere.'
+      },
 
-  { type: 'h2', text: 'Experience quality functions as a signal' },
-  { type: 'p',
-    text: 'Experience quality is often framed as a design decision. Higher production, polished narration, a thoughtful interface design. It can feel like a cost line on a budget. But when the programme is competing with a full inbox and a sixty-slide deck already open on another monitor, the experience it creates in the first thirty seconds is also doing a signalling job. The experience quality tells the learner, implicitly, how much the organisation thinks this moment is worth.'
-  },
-  { type: 'p',
-    text: 'People can read the signal immediately. They are making a judgment call — not about the content, but about whether it is going to reward the time. If the answer reads as no, attention routes elsewhere before a single learning objective gets a hearing.'
-  },
+      { type: 'h2', text: 'The constraint is not inside the content.' },
 
-  { type: 'stat' },
+      { type: 'p',
+        text: 'When a program underperforms, the instinct is to examine the content. Was it relevant? Were the scenarios realistic? Were objectives aligned to the capability gap? These are valid questions, but they come too late in the sequence.'
+      },
+      { type: 'p',
+        text: 'Before content can instruct, it must compete. The learner is not entering a controlled environment. They are navigating interruptions, unfinished work, and constant digital noise. Microsoft\u2019s 2025 Frontier Firm report estimates employees are interrupted every two minutes during a typical workday.'
+      },
+      { type: 'p',
+        text: 'That is the context in which learning must operate. It is not given sustained focus. It is granted a brief opportunity. Continu\u2019s 2025 corporate eLearning research suggests the average employee has around 24 minutes per week available for formal learning. That makes the opening moments decisive. If the first ninety seconds fail, that time is not redirected to better learning. It is absorbed by the next demand on attention.'
+      },
 
-  { type: 'h2', text: 'The threshold is crossed early' },
-  { type: 'p',
-    text: 'Designing for the attention threshold is different from just more engagement up front. Certain moves are available to an experienced designer — establishing the stakes of this specific session with a specific learner, demonstrating that the session understands their context, declaring early what the learner will be able to do by the end. Each of these reads as quality in the first fifteen seconds, and each of them pulls attention forward rather than trying to recapture it later.'
-  },
-  { type: 'p',
-    text: 'What it does not work to rely on is volume. More activity, more notifications, more required clicks — all of these can read as noise. The learner will downsize cognitive effort accordingly. A performance is not a fair substitute for signal.'
-  },
+      { type: 'pull', text: 'Before content can instruct, it must compete.' },
 
-  { type: 'h2', text: 'What to ask before commissioning the next program' },
-  { type: 'p',
-    text: 'Two questions are worth running at the front end of a learning programme, ahead of the content-scoping conversation. First: what would cause our most valuable learners to give this session less than two minutes? Second: what quality of experience would they expect from something else that competes for their time — the last good product demo they watched, the last serious piece of business writing they read, the last tool that earned their attention? If the answers to those two questions diverge — and they usually do — you have found the constraint.'
-  },
-  { type: 'p',
-    text: 'The follow-on is straightforward. Build backward from the quality threshold the learner already expects, not forward from the content scope. The cost of that inversion is smaller than it used to be, because the production cost of a high-quality simulated experience has fallen sharply since 2022. But the quality itself is not optional. Below a certain threshold, attention is not present. If it is not present, the content does not land, no matter how good.'
-  },
-];
+      { type: 'p',
+        text: 'This is often misdiagnosed as a motivation issue. If the content is relevant, the learner will engage. In reality, relevance is assessed only after attention is secured. The learner is not initially asking whether something is useful. They are deciding whether it is worth stopping for. That distinction changes how learning should be designed.'
+      },
 
-/* Related — stub picker from the resources data */
-function pickRelated(currentId, count = 3) {
+      { type: 'h2', text: 'Experience quality functions as a signal.' },
+
+      { type: 'p',
+        text: 'Experience quality is often framed as a budget decision. High-end production, professional narration, or advanced interaction design are treated as optional enhancements. That framing misses the role these elements play.'
+      },
+      { type: 'p',
+        text: 'The learner forms an impression before engaging with any instructional content. Visual and auditory quality signal credibility and intent. The experience establishes whether it should be taken seriously before the material has a chance to prove itself.'
+      },
+      { type: 'p',
+        text: 'The threshold has also shifted due to the broader content environment. Research from Graphite.io shows that by late 2024, AI-generated articles outnumbered human-written ones, with nearly 40 percent of published content produced by AI within a year of ChatGPT\u2019s release.'
+      },
+      { type: 'p',
+        text: 'This matters because it changes how people filter information. Exposure to large volumes of polished but low-signal content sharpens the instinct to dismiss quickly. In that context, a learning experience that feels indistinguishable from everything else is not neutral. It is ignored.'
+      },
+      { type: 'p',
+        text: 'This does not imply that every program requires extensive production investment. It does mean that experience quality should be treated as a strategic input. Without it, even well-designed instruction reaches only the small subset of learners who were already inclined to engage.'
+      },
+
+      { type: 'figure',
+        src: 'assets/articles/attention-threshold-modern-learner.png',
+        alt: 'Knowaa — The Modern Learner: insights for companies with 500+ employees. Statistics across office and remote workers showing attention, distractions, and learning preferences.',
+        caption: 'The modern learner — attention, distractions, and learning preferences across office and remote workers.',
+      },
+
+      { type: 'h2', text: 'The threshold is crossed early.' },
+
+      { type: 'p',
+        text: 'Designing for the attention threshold is different from optimizing engagement metrics. Completion rates and satisfaction scores can improve without addressing the underlying issue. Shorter formats or gamified elements do not determine whether a learner takes the experience seriously.'
+      },
+      { type: 'p',
+        text: 'What matters is how the experience presents itself at the start. The opening moments should reflect the realities of the learner\u2019s role and decisions. A concrete scenario grounded in actual pressures will hold attention more effectively than an abstract overview. Visual and audio quality establish credibility before any content is processed. The pacing of the first minutes determines whether attention continues or shifts elsewhere.'
+      },
+      { type: 'p',
+        text: 'Instructional rigor remains essential. Retrieval practice, spaced repetition, and realistic scenarios are well-established drivers of behavior change. However, they only apply if the learner stays long enough to encounter them.'
+      },
+
+      { type: 'pull', text: 'The attention threshold does not replace these mechanisms. It enables them.' },
+
+      { type: 'p',
+        text: 'When strong instructional design fails to deliver results, the assumption is often that the content needs refinement. Another possibility is that the intended audience never engaged with it in the first place. Not due to access or scheduling, but because the experience did not justify their attention.'
+      },
+
+      { type: 'h2', text: 'What to ask before commissioning the next program.' },
+
+      { type: 'p',
+        text: 'The attention threshold introduces a different question at the outset of a project. Not whether the content is correct, but whether the experience signals that it deserves attention. This question should be addressed during commissioning, not after launch.'
+      },
+      { type: 'p',
+        text: 'When evaluating vendors or briefing internal teams, the focus should extend beyond instructional design. What does the first ninety seconds look like? Does it reflect the actual decisions the learner is facing? What do the visual and audio standards communicate? At what point is this evaluated, and by whom?'
+      },
+      { type: 'p',
+        text: 'Most organizations have clear processes for validating instructional accuracy. Very few assess whether an experience will hold attention in real conditions. That gap often determines whether behavior change is achieved.'
+      },
+      { type: 'p',
+        text: 'If a recent initiative did not deliver the expected outcomes, the first question is not about content revisions. It is whether the experience earned attention before making any demands of the learner. If it did not, the root issue sits upstream. That is where the next iteration should begin.'
+      },
+    ],
+  },
+};
+
+/* Related — prefers articles, falls back to anything else in the library */
+function pickRelatedArticles(currentId, count = 3) {
   const pool = (window.RESOURCES || []).filter(r => r.id !== currentId);
-  return pool.slice(0, count);
+  const articles = pool.filter(r => r.type === 'article');
+  const others = pool.filter(r => r.type !== 'article');
+  return [...articles, ...others].slice(0, count);
+}
+
+/* Resolve the URL each related card should link to. */
+function relatedHref(r) {
+  return window.resourceHref ? window.resourceHref(r) : (r.type === 'case' ? 'Knowaa Case Study.html?id=' + r.id : 'Knowaa Article.html?id=' + r.id);
 }
 
 function Article({ resourceId }) {
   const resource = useMemoArt(() => {
-    const id = resourceId || (window.RESOURCES && window.RESOURCES[0] && window.RESOURCES[0].id);
-    return (window.RESOURCES || []).find(r => r.id === id) || (window.RESOURCES || [])[0];
+    const id = resourceId
+      || (window.RESOURCES && window.RESOURCES.find(r => r.type === 'article')?.id)
+      || (window.RESOURCES && window.RESOURCES[0]?.id);
+    return (window.RESOURCES || []).find(r => r.id === id);
   }, [resourceId]);
 
-  /* Scroll progress bar */
+  const content = useMemoArt(() => {
+    if (!resource) return null;
+    return ARTICLE_BODIES[resource.id] || { body: [] };
+  }, [resource]);
+
+  /* Scroll-progress indicator */
   const progressRef = useRefArt(null);
   useEffectArt(() => {
-    const el = progressRef.current; if (!el) return;
-    let raf = null;
     const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = null;
-        const h = document.documentElement;
-        const max = h.scrollHeight - h.clientHeight;
-        el.style.transform = `scaleX(${max > 0 ? Math.min(1, h.scrollTop / max) : 0})`;
-      });
+      const el = progressRef.current; if (!el) return;
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, doc.scrollTop / max)) : 0;
+      el.style.transform = `scaleX(${p})`;
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    document.addEventListener('scroll', onScroll, { passive: true });
+    return () => document.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (!resource) return null;
+  if (!resource) {
+    return (
+      <section className="art">
+        <div className="art__hero">
+          <a className="art__back" href="Knowaa Resources.html">
+            <svg width="12" height="12" viewBox="0 0 14 14" aria-hidden>
+              <path d="M12 7 H2 M6 3 L2 7 L6 11" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>Back to Resources</span>
+          </a>
+          <h1 className="art__title">Article not found.</h1>
+        </div>
+      </section>
+    );
+  }
 
-  const related = pickRelated(resource.id, 3);
-  const typeLabel = window.TYPES && window.TYPES.find(t => t.key === resource.type)?.label;
+  const cover = content.cover || resource.image;
+  const banner = content.banner;
+  const related = pickRelatedArticles(resource.id, 3);
 
   return (
-    <article className="art">
-      <style>{window.CSS_ART}</style>
+    <section className="art" aria-labelledby="art-title">
+      <style>{window.CSS_ARTICLE}</style>
 
       {/* Scroll progress */}
       <div className="art__progress" aria-hidden>
         <span ref={progressRef} />
       </div>
 
-      {/* ─── PURPLE HERO BAND ─── */}
-      <div className="art__hero-wrap">
-        <header className="art__hero">
-          {/* Back link */}
-          <a className="art__back" href="Knowaa Resources.html" aria-label="Back to Resources">
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
-              <path d="M12 7 H2 M6 3 L2 7 L6 11" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span>Back to Resources</span>
-          </a>
-
-          <div className="art__hero-grid">
-            <div className="art__hero-text">
-              <span className="art__tag">{resource.category}</span>
-              <h1 className="art__h1">{resource.title}</h1>
-              <div className="art__meta">
-                <span>By {resource.author || resource.client}</span>
-                <span className="art__meta-dot">·</span>
-                <span>{window.formatDate(resource.publishedAt)}</span>
-                <span className="art__meta-dot">·</span>
-                <span>{resource.readTime}</span>
+      {/* ─── BANNER (when set) — custom hero with title + byline overlaid on the left ─── */}
+      {banner ? (
+        <section
+          className={
+            'art__banner'
+            + (content.bannerAlign === 'center' ? ' art__banner--center' : '')
+            + (content.bannerVariant === 'flush-left' ? ' art__banner--flush-left' : '')
+          }
+          style={{ backgroundImage: `url("${banner}")` }}
+        >
+          <div className="art__banner-inner">
+            <h1 id="art-title" className="art__banner-title">{resource.title}</h1>
+            {(resource.author || resource.publishedAt || resource.readTime) ? (
+              <div className="art__banner-byline">
+                {resource.author ? <span>{resource.author}{resource.role ? `, ${resource.role}` : ''}</span> : null}
+                {resource.publishedAt ? <br /> : null}
+                {resource.publishedAt ? <span>{formatDate(resource.publishedAt)}{resource.readTime ? `, ${resource.readTime}` : ''}</span> : null}
               </div>
-            </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
 
-            {/* Character illustration — placeholder for now */}
-            <div className="art__hero-art" aria-hidden>
-              <ArtCharacter />
-            </div>
+      {/* ─── HERO (skipped when banner is set; banner carries title + byline) ─── */}
+      {!banner ? (
+        <header className="art__hero">
+          {resource.category ? <div className="art__tag">{resource.category}</div> : null}
+          <h1 id="art-title" className="art__title">{resource.title}</h1>
+
+          <div className="art__byline">
+            {resource.author ? <span><strong>{resource.author}</strong>{resource.role ? `, ${resource.role}` : ''}</span> : null}
+            {resource.publishedAt ? <span className="art__byline-sep" aria-hidden /> : null}
+            {resource.publishedAt ? <span>{formatDate(resource.publishedAt)}</span> : null}
+            {resource.readTime ? <span className="art__byline-sep" aria-hidden /> : null}
+            {resource.readTime ? <span>{resource.readTime}</span> : null}
           </div>
         </header>
-      </div>
+      ) : null}
+
+      {/* ─── COVER IMAGE (only when no banner) ─── */}
+      {!banner && cover ? (
+        <div className="art__cover">
+          <img src={cover} alt="" />
+        </div>
+      ) : null}
 
       {/* ─── BODY ─── */}
       <div className="art__body-wrap">
         <div className="art__body">
-          {ARTICLE_BODY.map((block, i) => {
-            if (block.type === 'lede') {
-              return <p key={i} className="art__lede">{block.text}</p>;
-            }
-            if (block.type === 'p') {
-              return <p key={i} className="art__p">{block.text}</p>;
-            }
-            if (block.type === 'h2') {
-              return <h2 key={i} className="art__h2">{block.text}</h2>;
-            }
-            if (block.type === 'h3') {
-              return <h3 key={i} className="art__h3">{block.text}</h3>;
-            }
-            if (block.type === 'pullquote') {
-              return (
-                <aside key={i} className="art__pull">
-                  <p className="art__pull-text">{block.quote}</p>
-                </aside>
-              );
-            }
-            if (block.type === 'stat') {
-              return <StatCard key={i} />;
-            }
-            return null;
-          })}
+          {content.body.map((block, i) => renderBlock(block, i))}
         </div>
       </div>
 
-      {/* ─── SHARE ─── */}
-      <div className="art__share-wrap">
-        <div className="art__share">
-          <span className="art__share-label">Share</span>
-          <a href="#" className="art__share-btn" aria-label="Share on LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.44 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.8c0-1.62-.03-3.7-2.25-3.7-2.25 0-2.6 1.76-2.6 3.58V22H7.66V8z"/></svg>
-          </a>
-          <a href="#" className="art__share-btn" aria-label="Share on X">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M18.9 1.5h3.68l-8.05 9.2L24 22.5h-7.4l-5.8-7.58L4.18 22.5H.5l8.6-9.83L0 1.5h7.58l5.24 6.93L18.9 1.5zm-1.3 18.84h2.04L6.5 3.56H4.32l13.28 16.78z"/></svg>
-          </a>
-          <a href="#" className="art__share-btn" aria-label="Copy link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.5 1.5"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.5-1.5"/></svg>
-          </a>
-          <a href="#" className="art__share-btn" aria-label="Share by email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6L12 13 2 6"/></svg>
-          </a>
-        </div>
-      </div>
-
-      {/* ─── RELATED ─── */}
-      {related.length > 0 && (
-        <section className="art__related">
-          <div className="art__related-head">
-            <span className="art__sec-label">Related posts</span>
-          </div>
-          <div className="art__related-grid">
-            {related.map(r => (
-              <a key={r.id} className="art__related-card" href={`Knowaa Article.html?id=${r.id}`}>
-                <div className="art__related-cover">
-                  <img src={r.image} alt={r.title} loading="lazy" />
-                  <span className="art__related-cat">{r.category}</span>
-                </div>
-                <div className="art__related-body">
-                  <h3 className="art__related-title">{r.title}</h3>
-                  <div className="art__related-meta">
-                    <span>{r.author || r.client}</span>
-                    <span className="art__meta-dot">·</span>
-                    <span>{r.readTime}</span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-    </article>
+      {/* ─── ARTICLE CTA — empty purple strip ─── */}
+      <section className="art__cta" aria-hidden="true">
+        <div className="art__cta-inner" />
+      </section>
+    </section>
   );
 }
 
-/* ─── Character illustration placeholder ─── */
-function ArtCharacter() {
-  // Simple stylised character (person with headphones + hoodie),
-  // echoing the reference's illustrated hero. Draws inline so no asset needed.
-  return (
-    <svg className="art__char" viewBox="0 0 320 320" aria-hidden>
-      {/* Background soft halo */}
-      <defs>
-        <radialGradient id="char-halo" cx="50%" cy="45%" r="55%">
-          <stop offset="0%" stopColor="#FF9AB8" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#FF9AB8" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="160" cy="150" r="130" fill="url(#char-halo)" />
-
-      {/* Hoodie (red) */}
-      <path d="M80 240 Q80 180 130 170 L190 170 Q240 180 240 240 L240 310 L80 310 Z" fill="#E23A3A" />
-      <path d="M130 170 Q130 150 160 148 Q190 150 190 170 Z" fill="#C92B2B" />
-
-      {/* Hair (back layer) */}
-      <path d="M108 130 Q108 82 160 78 Q212 82 212 130 L212 160 L108 160 Z" fill="#1A1A1A" />
-
-      {/* Face */}
-      <ellipse cx="160" cy="148" rx="44" ry="52" fill="#F5D4B3" />
-
-      {/* Hair fringe */}
-      <path d="M120 118 Q140 95 160 98 Q180 95 200 118 Q195 110 160 108 Q125 110 120 118 Z" fill="#1A1A1A" />
-      <path d="M122 128 Q150 110 160 115 Q170 110 198 128 Q188 112 160 112 Q132 112 122 128 Z" fill="#1A1A1A" />
-
-      {/* Eyes */}
-      <circle cx="144" cy="152" r="3" fill="#1A1A1A" />
-      <circle cx="176" cy="152" r="3" fill="#1A1A1A" />
-
-      {/* Blush */}
-      <circle cx="138" cy="165" r="5" fill="#F5A6A0" opacity="0.6" />
-      <circle cx="182" cy="165" r="5" fill="#F5A6A0" opacity="0.6" />
-
-      {/* Smile */}
-      <path d="M150 172 Q160 180 170 172" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round" />
-
-      {/* Headphone band */}
-      <path d="M108 130 Q160 90 212 130" stroke="#1A1A1A" strokeWidth="6" fill="none" strokeLinecap="round" />
-
-      {/* Headphone cups */}
-      <ellipse cx="108" cy="148" rx="14" ry="18" fill="#FF6B35" />
-      <ellipse cx="108" cy="148" rx="9" ry="13" fill="#1A1A1A" />
-      <ellipse cx="212" cy="148" rx="14" ry="18" fill="#FF6B35" />
-      <ellipse cx="212" cy="148" rx="9" ry="13" fill="#1A1A1A" />
-    </svg>
-  );
+function renderBlock(block, key) {
+  switch (block.type) {
+    case 'lede':
+      return <p key={key} className="art__lede">{block.text}</p>;
+    case 'h2':
+      return <h2 key={key} className="art__h2">{block.text}</h2>;
+    case 'h3':
+      return <h3 key={key} className="art__h3">{block.text}</h3>;
+    case 'p':
+      return block.html
+        ? <p key={key} className="art__p" dangerouslySetInnerHTML={{ __html: block.html }} />
+        : <p key={key} className="art__p">{block.text}</p>;
+    case 'ul':
+      return (
+        <ul key={key} className="art__ul">
+          {block.items.map((it, j) => (
+            typeof it === 'string'
+              ? <li key={j}>{it}</li>
+              : <li key={j} dangerouslySetInnerHTML={{ __html: it.html }} />
+          ))}
+        </ul>
+      );
+    case 'pull':
+      return <blockquote key={key} className="art__pull">{block.text}</blockquote>;
+    case 'divider':
+      return <hr key={key} className="art__divider" />;
+    case 'figure':
+      return (
+        <figure key={key} className="art__figure">
+          <img src={block.src} alt={block.alt || ''} loading="lazy" />
+          {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+        </figure>
+      );
+    default:
+      return null;
+  }
 }
 
-/* ─── Mid-article stat card ─── */
-function StatCard() {
-  return (
-    <div className="art__stat">
-      <div className="art__stat-top">
-        <span className="art__stat-brand">KNOWAA</span>
-      </div>
-      <div className="art__stat-head">
-        <div className="art__stat-kicker">THE MODERN LEARNER</div>
-        <div className="art__stat-title">INSIGHTS FOR COMPANIES WITH 500+ EMPLOYEES</div>
-        <div className="art__stat-sub">Gen Y &amp; Gen Z now represent <span className="art__stat-hi">67%</span> of the workforce</div>
-      </div>
-
-      <div className="art__stat-row">
-        <div className="art__stat-num">
-          <div className="art__stat-big">5–10<span className="art__stat-min">min</span></div>
-          <div className="art__stat-cap">Average daily time workers spend on learning content</div>
-        </div>
-        <div className="art__stat-num">
-          <div className="art__stat-big">74<span className="art__stat-min">%</span></div>
-          <div className="art__stat-cap">Workers who say their training feels outdated within the first session</div>
-        </div>
-        <div className="art__stat-num">
-          <div className="art__stat-big">15<span className="art__stat-min">%</span></div>
-          <div className="art__stat-cap">Content absorbed when learners lose attention in the first two minutes</div>
-        </div>
-      </div>
-
-      <div className="art__stat-row art__stat-row--split">
-        <div className="art__stat-col">
-          <div className="art__stat-col-title">OFFICE WORKERS</div>
-          <div className="art__stat-col-big">80<span className="art__stat-col-min">%</span></div>
-          <div className="art__stat-col-cap">Interrupt learning content within the first four minutes of a session</div>
-          <div className="art__stat-col-big art__stat-col-big--sm">39<span className="art__stat-col-min">%</span></div>
-          <div className="art__stat-col-cap">Complete self-paced learning without supervision</div>
-        </div>
-        <div className="art__stat-col art__stat-col--right">
-          <div className="art__stat-col-title">REMOTE WORKERS</div>
-          <div className="art__stat-col-big">34<span className="art__stat-col-min">%</span></div>
-          <div className="art__stat-col-cap">Report their org's training is actively relevant to their current role</div>
-          <div className="art__stat-col-big art__stat-col-big--sm">48<span className="art__stat-col-min">%</span></div>
-          <div className="art__stat-col-cap">Would engage more with content that reflected their actual workflow</div>
-        </div>
-      </div>
-    </div>
-  );
+function formatDate(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch { return iso; }
 }
 
 window.Article = Article;
-window.ARTICLE_BODY = ARTICLE_BODY;
+window.ARTICLE_BODIES = ARTICLE_BODIES;

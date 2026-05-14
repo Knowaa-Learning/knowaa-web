@@ -21,7 +21,7 @@
         { label: 'Insights',       href: 'Knowaa Resources.html' },
         { label: 'Case studies',   href: 'Knowaa Resources.html?type=case' },
         { label: 'Newsletter',     href: '#newsletter' },
-        { label: 'Article',        href: 'Knowaa Article.html' },
+        { label: 'Article',        href: 'Knowaa Article - Attention Threshold.html' },
       ],
     },
     {

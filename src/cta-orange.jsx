@@ -11,7 +11,7 @@ const ctaFramePath = (i) =>
 function CTAOrange({
   heading = 'Better learning,\nSharper teams,\nVisible results.',
   ctaLabel = 'Book a Demo',
-  ctaHref = '#contact',
+  ctaHref = 'Knowaa Contact.html',
 }) {
   const sectionRef = useRefCTA(null);
   const stackRef = useRefCTA(null);

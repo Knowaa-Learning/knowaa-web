@@ -327,9 +327,9 @@ function Insight() {
                   </div>
                   <a
                     className="insight-card__cta"
-                    href="https://resources.knowaa.com/articles/generic-training-production-problem-ai-strategy"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="Knowaa Article - Generic Training.html"
+                    target="_self"
+                    rel="noopener"
                   >
                     <span>Read the article</span>
                     <svg className="insight-card__cta-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -338,59 +338,9 @@ function Insight() {
                   </a>
                 </div>
 
-                {/* Editorial SVG cover — "Production → Strategy" (600×600 square) */}
+                {/* Cover — Generic Training editorial image */}
                 <div className="insight-card__cover insight-card__cover--1" aria-hidden="true">
-                  <svg className="cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                      <linearGradient id="cover1-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3E1F78"/>
-                        <stop offset="55%" stopColor="#503594"/>
-                        <stop offset="100%" stopColor="#7C3AED"/>
-                      </linearGradient>
-                      <radialGradient id="cover1-sun" cx="72%" cy="30%" r="46%">
-                        <stop offset="0%" stopColor="#F37137" stopOpacity="0.95"/>
-                        <stop offset="55%" stopColor="#F37137" stopOpacity="0.25"/>
-                        <stop offset="100%" stopColor="#F37137" stopOpacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="cover1-glow" cx="15%" cy="85%" r="58%">
-                        <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.55"/>
-                        <stop offset="100%" stopColor="#7C3AED" stopOpacity="0"/>
-                      </radialGradient>
-                      <filter id="cover1-noise">
-                        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
-                        <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
-                        <feComposite in2="SourceGraphic" operator="in"/>
-                      </filter>
-                    </defs>
-                    <rect width="600" height="600" fill="url(#cover1-bg)"/>
-                    <rect width="600" height="600" fill="url(#cover1-glow)"/>
-                    <rect width="600" height="600" fill="url(#cover1-sun)"/>
-                    <g opacity="0.10" stroke="#FFFFFF" strokeWidth="1">
-                      <line x1="0"   y1="100" x2="600" y2="100"/>
-                      <line x1="0"   y1="200" x2="600" y2="200"/>
-                      <line x1="0"   y1="300" x2="600" y2="300"/>
-                      <line x1="0"   y1="400" x2="600" y2="400"/>
-                      <line x1="0"   y1="500" x2="600" y2="500"/>
-                      <line x1="100" y1="0"   x2="100" y2="600"/>
-                      <line x1="200" y1="0"   x2="200" y2="600"/>
-                      <line x1="300" y1="0"   x2="300" y2="600"/>
-                      <line x1="400" y1="0"   x2="400" y2="600"/>
-                      <line x1="500" y1="0"   x2="500" y2="600"/>
-                    </g>
-                    <circle cx="430" cy="190" r="135" fill="#F37137" opacity="0.92"/>
-                    <circle cx="430" cy="190" r="135" fill="url(#cover1-sun)" opacity="0.6"/>
-                    <g fill="none" stroke="#FFFFFF" strokeWidth="1.25" opacity="0.55">
-                      <circle cx="430" cy="190" r="172"/>
-                      <circle cx="430" cy="190" r="216" opacity="0.38"/>
-                      <circle cx="430" cy="190" r="264" opacity="0.22"/>
-                    </g>
-                    <path d="M -40 130 C 180 200, 260 380, 640 540" fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" opacity="0.85"/>
-                    <path d="M -40 160 C 180 240, 260 420, 640 580" fill="none" stroke="#ED1F80" strokeWidth="2.2" strokeLinecap="round" opacity="0.55"/>
-                    <circle cx="138" cy="470" r="7" fill="#F37137"/>
-                    <circle cx="104" cy="518" r="4" fill="#ED1F80"/>
-                    <circle cx="178" cy="544" r="5" fill="#FFFFFF" opacity="0.7"/>
-                    <rect width="600" height="600" filter="url(#cover1-noise)" opacity="0.55"/>
-                  </svg>
+                  <img src="assets/insights/generic-training-cover.jpg" alt="" loading="lazy" />
                 </div>
               </li>
 
@@ -416,9 +366,9 @@ function Insight() {
                   </div>
                   <a
                     className="insight-card__cta"
-                    href="https://resources.knowaa.com/articles/attention-threshold-why-learning-fails"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="Knowaa Article - Attention Threshold.html"
+                    target="_self"
+                    rel="noopener"
                   >
                     <span>Read the article</span>
                     <svg className="insight-card__cta-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">

@@ -11,7 +11,7 @@ const customElearningService = {
   cta: {
     heading: 'Better learning. Sharper people. Visible results.',
     ctaLabel: 'Book a Demo',
-    ctaHref: '#contact',
+    ctaHref: 'Knowaa Contact.html',
   },
   samples: [
     {

@@ -73,7 +73,7 @@ const NAV = [
         excerpt: '',
         readTime: '6 min read',
         cta: 'Read the article',
-        href: 'https://resources.knowaa.com/articles/attention-threshold-why-learning-fails',
+        href: 'Knowaa Article - Attention Threshold.html',
         video: 'assets/insights/02-attention-threshold.mp4',
         image: 'assets/insights/modern-learner.jpg',
         isInsight: true,
