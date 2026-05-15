@@ -1,4 +1,4 @@
-// Terms and Conditions — content adapted from the legal copy, styled with the site's design system.
+// Terms and Conditions, content adapted from the legal copy, styled with the site's design system.
 
 const TERMS_LEDE = `These Terms and Conditions ("Terms") govern your access to and use of the website located at www.knowaa.com (the "Site"), the Knowaa newsletter, and the contact form available on the Site. They are entered into between you and Knowaa LLC, a Delaware limited liability company ("Knowaa," "we," "us," or "our").`;
 
@@ -28,7 +28,7 @@ const SECTIONS = [
   {
     heading: 'Intellectual Property',
     paragraphs: [
-      `All content on the Site — including text, graphics, logos, images, audio, video, illustrations, software, and the selection and arrangement thereof — is owned by Knowaa or its licensors and is protected by United States and international intellectual property laws. "Knowaa" and the Knowaa logo are trademarks of Knowaa. Nothing in these Terms transfers any intellectual property right to you, except the limited license expressly granted in Section 2.`,
+      `All content on the Site, including text, graphics, logos, images, audio, video, illustrations, software, and the selection and arrangement thereof, is owned by Knowaa or its licensors and is protected by United States and international intellectual property laws. "Knowaa" and the Knowaa logo are trademarks of Knowaa. Nothing in these Terms transfers any intellectual property right to you, except the limited license expressly granted in Section 2.`,
     ],
   },
   {

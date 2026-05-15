@@ -1,4 +1,4 @@
-# Knowaa — Vercel deploy bundle
+# Knowaa, Vercel deploy bundle
 
 Self-contained static build of the Knowaa marketing site.
 Drag the **entire `vercel-build/` folder** into Vercel's "Deploy" → "Browse" upload,
@@ -15,8 +15,14 @@ vercel-build/
 ├── Knowaa Video and Animation.html
 ├── Knowaa Campaigns.html
 ├── Knowaa Resources.html
-├── Knowaa Article.html
+├── Knowaa Article - Attention Threshold.html
+├── Knowaa Article - Generic Training.html
 ├── Knowaa Case Study.html
+├── Knowaa Case Study - ZIM.html
+├── Knowaa Case Study - Signature Aviation.html
+├── Knowaa Case Study - Netafim.html
+├── Knowaa Case Study - Teva.html
+├── Knowaa Case Study - Kornit.html
 ├── Knowaa Contact.html
 ├── Knowaa Terms.html
 ├── Knowaa Privacy.html

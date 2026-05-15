@@ -1,4 +1,4 @@
-// Capabilities — "Four practices. One standard." section.
+// Capabilities, "Four practices. One standard." section.
 // Sits immediately after WhoWeAre. Integration only; do not modify copy/colors/animations/clip-path.
 
 const { useEffect: useEffectCap, useRef: useRefCap } = React;

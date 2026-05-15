@@ -1,4 +1,4 @@
-// CASE STUDY READING PAGE — mirrors Article structure with case-specific blocks.
+// CASE STUDY READING PAGE, mirrors Article structure with case-specific blocks.
 // Hero (purple band, client card on right) → Client meta strip → At-a-glance
 // metrics → Body (Challenge / Approach / Solution / Outcomes) → Testimonial
 // → Share → CTA strip → 3-up Related.
@@ -10,153 +10,267 @@ const { useEffect: useEffectCS, useRef: useRefCS, useMemo: useMemoCS } = React;
    template renders. In production this comes from Sanity. */
 const CASE_BODIES = {
   'zim-dare-to-ai': {
-    heroVariant: 'dark-art',
+    heroVariant: 'plain',
     clientName: 'ZIM Integrated Shipping Services',
+    clientLogo: 'assets/case-studies/zim/logo.png',
+    showClientLogoBand: true,
+    programImage: 'assets/case-studies/zim/cover.jpg',
     meta: {
-      industry: 'Global Shipping & Logistics',
-      region: '90+ countries \u00B7 300+ ports',
-      audience: '1,154 licensed Copilot users',
-      year: '2025',
+      industry: 'Shipping & Logistics',
+      region: 'Global \u00B7 35 countries',
+      audience: 'Enterprise workforce, all functions',
+      year: '2025\u20132026',
     },
     glance: [],
-    /* glance bar disabled for this case — outcomes are rendered as the
-       outcomes block at the end of the body. Keep this empty array so the
-       template knows to skip the bar. */
-    // glance: [
-    //   { num: '$822,740',         cap: 'Microsoft-attested productivity value generated in a single four-week window.' },
-    //   { num: '+124', unit: '%',  cap: 'Active Copilot users — from 846 to 1,896 across the program.' },
-    //   { num: '83',   unit: '%',  cap: 'Retention, breaking a 14-month plateau by 20 points.' },
-    // ],
-    lede: 'Fourteen months into its Microsoft 365 Copilot rollout, ZIM had hit a wall. Adoption was flat, retention was stuck, and 308 licensed employees had never opened the tool. The strategic question wasn\u2019t how to push features harder. It was how to convert a stalled enterprise AI investment into measurable workforce capability that outlasts the platform itself.',
+    lede: '',
     body: [
-      { type: 'kicker', text: 'The Client' },
-      { type: 'h2',     text: 'A global shipping leader, mid-rollout.' },
-      { type: 'p', text: 'ZIM Integrated Shipping Services (NYSE: ZIM) is a global container shipping and logistics operator headquartered in Haifa, Israel. The company runs a fleet of 145 vessels across 90+ countries and 300+ ports, serving 33,000+ customers with approximately 5,000 employees worldwide. By 2025, ZIM had committed to embedding AI across shipping, finance, commercial, and support functions \u2014 with Microsoft 365 Copilot as the licensed execution environment.' },
 
+      /* ─── HEADER ASSET, Dare to AI banner ─── */
+      { type: 'figure', src: 'assets/case-studies/zim/dare-to-ai-banner.png', aspect: '874/310', style: { width: '45%', marginInline: 'auto' } },
+
+      /* ─── THE PROBLEM ─── */
       { type: 'kicker', text: 'The Problem' },
-      { type: 'h2',     text: 'A 14-month adoption plateau.' },
-      { type: 'p', text: 'Fourteen months into its Copilot rollout, ZIM had hit a wall. Adoption sat at 73%. Retention had flatlined at 60\u201365% for 14 straight months. 308 licensed employees had never activated the tool.' },
-      { type: 'p', text: 'A formal Microsoft diagnostic in February 2025 segmented the 1,154 licensed users into three behavioural cohorts \u2014 308 Non-Starters, 540 Lapsed users, and 306 Returning users \u2014 and confirmed the barrier was behavioural, not technical. Employees knew Copilot\u2019s features but weren\u2019t applying them to real work.' },
-      { type: 'p', text: 'The strategic question for EVP HR Arik Elimelech and EVP CIO Eyal Ben Amram: how do you convert a stalled enterprise AI investment into measurable workforce capability that outlasts the platform itself?' },
+      { type: 'h2',     text: 'AI training that ends at the tool.' },
+      { type: 'p', text: 'Most enterprise AI training is, at its core, a vendor onboarding program. It teaches employees which button to press inside which licensed tool, and stops there. The assumption is that access equals adoption, and adoption equals capability. Fourteen months of plateau data says otherwise.' },
+      { type: 'p', text: 'When a workforce has broad access and shallow use, the problem is not the technology. It is the framing. Train people to use a tool, and you get tool-dependent employees. Change platforms, or change the procurement cycle, and you start over. The industry has been solving the wrong problem at scale, and most organisations only notice when the dashboard stops moving.' },
 
-      { type: 'pull', text: 'The barrier was behavioural, not technical. Employees knew Copilot\u2019s features but weren\u2019t applying them to real work.' },
-
+      /* ─── THE STRATEGY ─── */
       { type: 'kicker', text: 'The Strategy' },
-      { type: 'h2',     text: 'AI fluency, not Copilot proficiency.' },
-      { type: 'p', text: 'Knowaa designed Dare to AI as AI fluency training, not Copilot proficiency. The targeted skills \u2014 diagnostic prompting, responsible-use judgment, agent logic \u2014 transfer across any GenAI tool. Every design choice flowed from that frame.' },
+      { type: 'h2',     text: 'Dare to AI, not Dare to Copilot.' },
+      { type: 'p', text: 'The program was named Dare to AI, not Dare to Copilot. That naming decision was the strategy.' },
+      { type: 'p', text: 'Knowaa and ZIM reframed the initiative around platform-agnostic AI fluency: diagnostic prompting, responsible-use judgment, agent logic, applying AI to real workflows. Copilot was the licensed execution environment. The capability being built was designed to outlast any single procurement cycle.' },
+      { type: 'p', text: 'The curriculum ran three tiers, Foundation, Governance, Advanced, each mapped to a distinct workforce capability state. Because Microsoft\u2019s pre-program diagnostic had segmented ZIM\u2019s license holders into three behavioural cohorts, the program used segmented narrative entry points rather than a single average-learner path. Same modules, different framing, because self-determination theory predicts that perceived relevance, not content quality, governs whether an adult learner engages past the first screen.' },
+      { type: 'p', text: 'Delivery was sequenced to the Prosci ADKAR model: awareness through a joint EVP launch letter and a video that reconstructed ZIM\u2019s actual global offices using AI from reference photography; desire through personal-agency framing in leadership voice; knowledge through the three modules; ability through an AI Alignment Task requiring employees to map AI to a workflow they owned; reinforcement through a 35\u201340 person Copilot Champion network trained jointly by Microsoft and ZIM.' },
 
-      { type: 'figure', src: '', placeholder: 'Three-tier capability framework diagram', aspect: '16/9', caption: 'Placeholder \u2014 capability framework diagram to be added.' },
+      /* ─── PROGRAM STRUCTURE, visual ─── */
+      { type: 'figure', src: 'assets/case-studies/zim/program-cards.png', aspect: '16/5', wide: true },
 
-      { type: 'h3',  text: '01 \u00B7 A three-tier capability framework.' },
-      { type: 'p',   text: 'The curriculum mapped to three modules: Module 1 \u2014 Prompting (foundation), Module 2 \u2014 Responsible AI (governance), and Module 3 \u2014 AI Agents (advanced). The advanced tier was the threshold capability the program was built to move employees across.' },
+      /* ─── WHAT MOVED ─── */
+      { type: 'kicker', text: 'What Moved' },
+      { type: 'h2',     text: 'The plateau broke. Then the capability left the tool.' },
+      { type: 'p', text: 'The retention plateau broke in the first measurement window after launch. Monthly active use, flat for fourteen consecutive months, moved decisively and held.' },
+      { type: 'p', text: 'The advanced cohort told a different story. Of the employees who completed the third module, 134 built and deployed working AI agents inside Microsoft 365, configured against real ZIM workflows, by people with no prior agent-building experience. These were not exercises.' },
+      { type: 'p', text: 'The more consequential signal came from outside Copilot entirely. Post-program enterprise telemetry recorded 1,730 ZIM employees actively using generative AI across the broader tool stack. Copilot accounts for roughly a fifth of that activity. The rest is ChatGPT, Gemini, Claude, and platforms ZIM had not formally trained anyone to use. No program directed employees there. The capability transferred on its own.' },
+      { type: 'p', text: 'Both executive sponsors, Arik Elimelech, EVP HR & Organization, and Eyal Ben Amram, EVP CIO, remained publicly named on the program. That is not standard for a workforce upskilling initiative.' },
 
-      { type: 'h3',  text: '02 \u00B7 Segmented narrative entry points.' },
-      { type: 'p',   text: 'A single shared curriculum, framed differently for each of the three behavioural cohorts Microsoft surfaced \u2014 different framing and tone, same instructional content. Non-Starters, Lapsed users, and Returning users each entered through a doorway built for where they actually were.' },
+      /* ─── INSIDE THE PROGRAM ─── */
+      { type: 'kicker', text: 'Inside the Program' },
+      { type: 'h2',     text: 'The hardest design problem was entry, not content.' },
+      { type: 'p', text: 'A workforce that has never touched a tool and a workforce that tried and quit share the same curriculum need, but they do not share the same psychological starting point. Addressing one without acknowledging the other produces training that feels either condescending or irrelevant, depending on which seat you\u2019re sitting in. Dare to AI resolved this through segmented narrative entry points: the three modules were identical in substance, but each cohort encountered them through a different frame, one that named their specific experience with AI and spoke to it directly, before asking anything of them.' },
+      { type: 'p', text: 'The launch video was built on the same logic. Rather than a generic corporate introduction, Knowaa reconstructed ZIM\u2019s actual global offices, Singapore, Hamburg, New York, Haifa, using AI image generation from reference photography. The result was a visual environment employees recognised as their own workplace, demonstrating the technology\u2019s capability inside a context that was unmistakably ZIM. The medium was the first lesson.' },
+      { type: 'p', text: 'Module 3\u2019s AI Alignment Task operationalised the same principle at depth. Employees were not asked to complete a simulation. They were asked to identify a real workflow they owned, diagnose where AI could intervene, and build the agent. The 134 deployed agents that resulted were not program outputs. They were the workforce\u2019s answer to a real question about their own work.' },
 
-      { type: 'h3',  text: '03 \u00B7 ADKAR-aligned delivery architecture.' },
-      { type: 'p',   text: 'A joint EVP launch letter, an AI-generated launch video recreating ZIM\u2019s actual global offices, and a branded digital hub that surfaced ZIM\u2019s own AI success stories alongside the learning content \u2014 each piece engineered to move employees through Awareness, Desire, Knowledge, Ability, and Reinforcement in sequence.' },
-
-      { type: 'h3',  text: '04 \u00B7 Forced application through a real workflow task.' },
-      { type: 'p',   text: 'The AI Alignment Task required participants to apply AI to real ZIM workflows after Module 1 \u2014 not a hypothetical exercise, not a sandbox. Application became the gate, not the goal.' },
-
-      { type: 'h3',  text: '05 \u00B7 An embedded champion network.' },
-      { type: 'p',   text: '35\u201340 Copilot Champions, jointly trained by Microsoft and ZIM, converted the program from a time-limited event into persistent infrastructure inside the business.' },
-
-      { type: 'figure', src: '', placeholder: 'Launch hub / video / EVP letter \u2014 brand assets', aspect: '16/9', caption: 'Placeholder \u2014 brand and launch assets to be added.' },
-
-      { type: 'pull', text: 'Dare to AI broke a 14-month plateau in a single program cycle.' },
-
-      { type: 'kicker', text: 'The Outcome' },
-      { type: 'h2',     text: '$822,740 of attested productivity in four weeks.' },
-      { type: 'p', text: 'A single four-week window generated $822,740 in Microsoft-attested productivity value \u2014 through 11,427 Copilot-assisted hours and 110,865 discrete actions. Active Copilot users doubled. Retention broke its 14-month plateau by 20 points. And 185 employees crossed the advanced threshold and deployed 134 production AI agents.' },
-
-      { type: 'outcomes', items: [
-        { num: '$822,740',         cap: 'Microsoft-attested productivity value in a four-week window.' },
-        { num: '11,427', unit: ' hrs', cap: 'Copilot-assisted hours \u00B7 110,865 discrete actions.' },
-        { num: '+124',  unit: '%', cap: 'Active Copilot users (846 \u2192 1,896).' },
-        { num: '+436',  unit: '%', cap: 'Weekly intensity \u2014 173 \u2192 927 active users.' },
-        { num: '83',    unit: '%', cap: 'Retention, vs. 60\u201365% 14-month baseline.' },
-        { num: '185',              cap: 'Employees crossed advanced threshold \u00B7 134 agents deployed.' },
-      ]},
-
-      { type: 'p', text: 'And the wider effect was structural. 1,730 employees are now active across ZIM\u2019s broader enterprise GenAI stack \u2014 Copilot accounts for only 22% of that activity. The capability built on Dare to AI is transferring across tools, exactly as the design intended.' },
-
-      { type: 'h3',  text: 'Resilience under disruption.' },
-      { type: 'p',   text: 'A program built on genuine capability held through disruption: a mid-program strike collapsed retention to 53%, and the cohort recovered to 83% within two months. Skill, not enthusiasm, was doing the work.' },
-
-      { type: 'figure', src: '', placeholder: 'Outcomes dashboard / metrics visualisation', aspect: '16/9', caption: 'Placeholder \u2014 outcomes visualisation to be added.' },
-
-      { type: 'kicker', text: 'Inside the program' },
-      { type: 'h2',     text: 'A look at the learner experience.' },
-      { type: 'gallery', items: [
-        { src: '', placeholder: 'Screenshot 1 \u2014 program hub home',         caption: 'The Dare to AI hub \u2014 cohort-segmented entry point.' },
-        { src: '', placeholder: 'Screenshot 2 \u2014 Module 1: Prompting',      caption: 'Module 1: diagnostic prompting fundamentals.' },
-        { src: '', placeholder: 'Screenshot 3 \u2014 Responsible AI module',    caption: 'Module 2: responsible-use judgement.' },
-        { src: '', placeholder: 'Screenshot 4 \u2014 AI Agents module',         caption: 'Module 3: AI agents \u2014 the advanced tier.' },
-        { src: '', placeholder: 'Screenshot 5 \u2014 AI Alignment Task',        caption: 'AI Alignment Task \u2014 forced application to real ZIM workflows.' },
-        { src: '', placeholder: 'Screenshot 6 \u2014 Champions network',        caption: 'Embedded Copilot Champions network \u2014 35\u201340 strong.' },
-      ]},
+      /* ─── CLOSING ─── */
+      { type: 'pull', text: 'Dare to AI proved that AI fluency, built against the right capability framework, doesn\u2019t stay inside the tool you trained it on. It moves.' },
+      { type: 'p', text: 'That is a different outcome from what enterprise AI training typically promises, and a more durable one.' },
     ],
-    quote: {
-      text: 'Dare to AI broke a 14-month plateau in a single program cycle. The capability is transferring across tools \u2014 which is exactly what we needed it to do.',
-      name: 'ZIM Integrated Shipping Services',
-      role: 'Executive sponsor team',
-      initials: 'ZIM',
-    },
   },
 
   'signature-aviation-ergonomics': {
+    heroVariant: 'plain',
     clientName: 'Signature Aviation',
+    clientLogo: 'assets/case-studies/signature/logo.webp',
+    showClientLogoBand: true,
     meta: {
       industry: 'Aviation',
-      region: 'Global \u2014 EN / ES / IT / FR',
+      region: 'Global ,  EN / ES / IT / FR',
       audience: 'On-site ground teams',
       year: '2025',
     },
     glance: [],
-    lede: 'Signature Aviation came to us with a familiar problem: an old ergonomics module full of text, data, and zero engagement. It was long. It was generic. It ticked the compliance box \u2014 but not much else. The goal was to turn it into something employees would actually enjoy, and remember.',
+    lede: 'Compliance modules get clicked through and forgotten. The injury risk they were meant to prevent doesn\u2019t go away, it just stops being tracked.',
     body: [
-      { type: 'kicker', text: 'The Challenge' },
-      { type: 'h2',     text: 'Compliant. Forgettable. Both at once.' },
-      { type: 'p', text: 'The legacy ergonomics training did what compliance modules typically do: it covered the regulatory surface, registered a completion, and left almost no residue. For an on-site workforce moving real equipment in real conditions, a slide deck of bullet points and stock photography wasn\u2019t a training \u2014 it was a tax. Signature wanted the time their teams spent on this to land.' },
-      { type: 'p', text: 'Their ask was specific: rebuild the module as something experiential and brand-aligned, in a runtime short enough to respect a working shift, in four languages, on a one-month clock.' },
 
-      { type: 'kicker', text: 'The Approach' },
-      { type: 'h2',     text: 'A new module, built around four moves.' },
-      { type: 'p', text: 'We rebuilt the module from scratch using a blend of custom animation and interactivity that matches how on-site learners actually take in information \u2014 short, embodied, scenario-led. Four design choices did most of the work.' },
+      /* ─── THE PROBLEM ─── */
+      { type: 'kicker', text: 'The Problem' },
+      { type: 'h2',     text: 'A module built for the audit, not the learner.' },
+      { type: 'p', text: 'Musculoskeletal disorders cost U.S. employers between $15 and $20 billion in workers\u2019 compensation annually, according to OSHA, and that figure doesn\u2019t touch lost productivity, turnover, or the downstream cost of retraining. The industry\u2019s answer has been to mandate training. The training, as a category, has largely failed to change behavior.' },
+      { type: 'p', text: 'The default ergonomics module is a sixty-minute slide deck no one finishes. Completion rates for mandatory compliance training routinely sit below 30 percent. What gets tracked is the click, not the transfer. Signature Aviation\u2019s existing module fit the pattern exactly: text-heavy, generic, brand-absent, and built for the audit trail rather than the learner. Ticking the box had become the entire point.' },
 
-      { type: 'figure', src: 'assets/case-studies/signature/04-strip.jpg', aspect: '840/195', caption: 'A few moments from the module \u2014 cold open, scenario, and completion. Brand-aligned end-to-end.', strip: true },
+      /* ─── THE STRATEGY ─── */
+      { type: 'kicker', text: 'The Strategy' },
+      { type: 'h2',     text: 'Don\u2019t improve the old module. Replace it.' },
+      { type: 'p', text: 'The brief was clear: don\u2019t improve the old module. Replace it with something employees would choose to finish.' },
+      { type: 'p', text: 'Knowaa rebuilt the program from concept as a custom animated interactive module, because passive content consumption predicts passive behavior change, and the goal was neither. The module opens with an animated sequence in which workplace pain literally sneaks up on an employee: a deliberate narrative hook designed to activate attention before instruction begins. Attention, once lost in the first ninety seconds, rarely returns.' },
+      { type: 'p', text: 'Every asset was built against Signature Aviation\u2019s actual environment. Backgrounds were constructed from real site photography, AI-enhanced for visual consistency. Characters wore the correct uniforms. Equipment matched what employees handle on shift.' },
+      { type: 'p', text: 'Content followed a conversational arc, proper lifting mechanics, stretch protocols, equipment use, safe-zone awareness, structured for twelve to fifteen minutes of active engagement rather than passive scroll. The module was then localized into English, Spanish, Italian, and French. Total time from concept to delivered package: under thirty days.' },
 
-      { type: 'h3',  text: '01 \u00B7 Storytelling meets safety.' },
-      { type: 'p',   text: 'The module opens with \u201Cpain\u201D \u2014 literally \u2014 sneaking up on an employee. A playful animated cold open sets the tone and grabs attention before a single fact is delivered. Humour, real-life scenarios, and conversational dialogue carry the content from there. The information density stays high; the texture stays light.' },
+      /* ─── PROGRAM STRIP, frames from the module ─── */
+      { type: 'figure', src: 'assets/case-studies/signature/04-strip.jpg', aspect: '840/195', wide: true, strip: true, style: { width: '91%', marginInline: 'auto' } },
 
-      { type: 'h3',  text: '02 \u00B7 Personalised to the core.' },
-      { type: 'p',   text: 'Every animation and screen was built using real Signature Aviation site photography and actual uniforms \u2014 not stock, not a generic ground-crew aesthetic. Where production photography didn\u2019t exist, we used AI-enhanced backgrounds to extend the brand world consistently across every interaction. Learners see their own workplace looking back at them.' },
-
-      { type: 'h3',  text: '03 \u00B7 Smart structure, not pretty slides.' },
-      { type: 'p',   text: 'Instead of dumping information in lists, we used creative writing and sequencing to walk learners through proper lifting, stretching, equipment usage, and safe zones \u2014 all in a clear, conversational flow. The structure does the teaching; the visuals carry the recall.' },
-
-      { type: 'h3',  text: '04 \u00B7 Multi-language, global ready.' },
-      { type: 'p',   text: 'Delivered in English, Spanish, Italian, and French from a single production master \u2014 sized for Signature\u2019s international ground operations from day one, without re-authoring per market.' },
-
+      /* ─── PAIRED GIFS, cold open + branded scene ─── */
       { type: 'figure-pair', items: [
         { src: 'assets/case-studies/signature/01-cold-open.gif', alt: 'Cold-open animation: pain character sneaks up on an employee at a real Signature Aviation site.' },
         { src: 'assets/case-studies/signature/02-branded-scene.gif', alt: 'Two ground-crew characters in real Signature uniforms working on the apron.' },
-      ], caption: 'Real Signature uniforms, real ground operations \u2014 with AI-extended backgrounds carrying the brand world consistently across every interaction.' },
+      ], caption: 'Real Signature uniforms, real ground operations ,  with AI-extended backgrounds carrying the brand world consistently across every interaction.' },
 
-      { type: 'pull', text: 'It ticked the compliance box \u2014 but it also did the harder thing. It got remembered.' },
+      /* ─── WHAT MOVED ─── */
+      { type: 'kicker', text: 'What Moved' },
+      { type: 'h2',     text: 'Shipped on a thirty-day clock, in four languages.' },
+      { type: 'p', text: 'The program launched across Signature Aviation\u2019s international teams and completed delivery on schedule across all four language variants.' },
+      { type: 'p', text: 'The thirty-day window covered concept, custom animation, interactivity build, and four-language localization, a scope that typically runs eight to twelve weeks at volume vendors.' },
+      { type: 'figure', src: 'assets/case-studies/signature/05-team.png', aspect: '4/3', caption: 'A compliance module that doesn\u2019t feel like one ,  made for, and starring, the Signature team itself.', strip: true },
 
-      { type: 'kicker', text: 'The Outcome' },
-      { type: 'h2',     text: 'A compliance module that doesn\u2019t feel like one.' },
-      { type: 'p', text: 'A 12\u201315 minute interactive build, shipped in four languages, produced end-to-end inside a single month. The module replaced a long, generic deck with something Signature\u2019s teams will actually finish, retain, and reference \u2014 without sacrificing the regulatory shape underneath.' },
-      { type: 'figure', src: 'assets/case-studies/signature/05-team.png', aspect: '4/3', caption: 'A compliance module that doesn\u2019t feel like one \u2014 made for, and starring, the Signature team itself.', strip: true },
+      /* ─── CLOSING ─── */
+      { type: 'pull', text: 'A twelve-minute module has to compete for attention the same way a twelve-minute video does.' },
+      { type: 'p', text: 'Compliance training fails when the learner\u2019s presence is assumed rather than earned. This program was built on the opposite premise, that a twelve-minute module has to compete for attention the same way a twelve-minute video does. The thirty-day delivery was the operational proof. The four languages were the scale proof. What the program actually changed in the body of the workforce is the number still worth chasing.' },
     ],
-    quote: {
-      text: 'It\u2019s the first ergonomics training our teams have actually talked about after finishing it. The brand sits inside it. The humour lands. And it shipped in four languages on the timeline we needed.',
-      name: 'Signature Aviation',
-      role: 'Onsite Training Lead',
-      initials: 'SA',
+  },
+
+  'kornit-digital-onboarding': {
+    heroVariant: 'plain',
+    clientName: 'Kornit Digital',
+    clientLogo: 'assets/case-studies/kornit/logo.png',
+    clientLogoSize: '160px',
+    showClientLogoBand: true,
+    meta: {
+      industry: 'Industrial Direct-to-Garment / Textile Printing Technology',
+      region: 'Global \u00B7 Israel HQ \u00B7 Englewood, NJ',
+      audience: 'New hires, global employee base',
+      year: '2024',
     },
+    glance: [],
+    lede: 'New hires at a global textile printing company were inheriting a culture built around craft, and receiving a Zoom link.',
+    body: [
+
+      /* ─── THE PROBLEM ─── */
+      { type: 'kicker', text: 'The Problem' },
+      { type: 'h2',     text: 'When the product is the story, onboarding should prove it.' },
+      { type: 'p', text: 'Most onboarding programs are not programs. They are parking lots: a folder of PDFs, a calendar invite, and three hours of recorded Zoom calls that nobody watches twice. The assumption is that information delivered equals knowledge retained. It doesn\u2019t.' },
+      { type: 'p', text: 'This problem is especially sharp at companies whose product is itself a feat of craft. Kornit Digital builds industrial printing systems that turn raw fabric into finished goods. Machines that require trained operators, informed salespeople, and employees who understand, at a felt level, what the technology actually does. Handing those new hires a slide deck is not an onboarding failure. It is a brand failure.' },
+
+      /* ─── THE STRATEGY ─── */
+      { type: 'kicker', text: 'The Strategy' },
+      { type: 'h2',     text: 'Cast the product as the narrator.' },
+      { type: 'p', text: 'The brief called for an onboarding suite. What it actually required was a reframe: the product itself had to do the teaching.' },
+      { type: 'p', text: 'Kornit\u2019s technology prints directly onto fabric. No screens, no dye baths, no intermediate steps. The output is a garment. So we cast one as the narrator. A printed shirt walks the offices, introduces the company, explains the culture, and sings. Not as a gimmick. Embodied, character-led learning activates narrative transportation in ways that presenter-to-camera never does, and narrative transportation predicts knowledge retention across transfer contexts.' },
+      { type: 'p', text: 'The flagship video anchored the suite. Around it, we built three supporting assets. A buddy video gave new hires a peer voice, a recognisable ground-level perspective distinct from the institutional tone of the hero piece. A platform introduction video oriented employees to the onboarding system itself, reducing friction before the learning began. And Kornit\u2019s archive of live Zoom onboarding sessions, recorded, unwatched, inaccessible, was converted into edited, chaptered, interactive eLearning modules: the same institutional knowledge, now navigable.' },
+      { type: 'p', text: 'The design decision that held all four together was specificity to Kornit\u2019s world. Every detail, office locations, product language, the visual texture of printed fabric, was drawn from their reality, not approximated from a template. New hires were not watching a generic welcome video. They were watching their company explain itself, in its own material language.' },
+
+      /* ─── LOOPING TEASER VIDEO ─── */
+      { type: 'video', src: 'assets/case-studies/kornit/teaser.mp4', aspect: '16/9', style: { width: '55%', marginInline: 'auto' } },
+
+      /* ─── WHAT MOVED ─── */
+      { type: 'kicker', text: 'What Moved' },
+      { type: 'h2',     text: 'A four-asset suite where none existed before.' },
+      { type: 'p', text: 'Kornit received a complete onboarding suite where none had existed in this form before. Four distinct assets covering cultural orientation, peer connection, platform navigation, and institutional knowledge access.' },
+      { type: 'p', text: 'The Zoom-to-module conversion addressed a specific structural problem: recorded sessions that represented hours of accumulated onboarding expertise were sitting in a folder, effectively lost. Converting them into interactive modules made that knowledge persistent and retrievable, accessible to a new hire on day one in Englewood the same way it was to one joining in Tel Aviv.' },
+      { type: 'p', text: 'The four-asset suite gave Kornit something a single video or a Zoom recording never could: a coherent onboarding arc. New hires moved through it in sequence, from cultural immersion to peer orientation to platform fluency to institutional depth, without a coordinator manually stitching the pieces together each time.' },
+
+      /* ─── INSIDE THE PROGRAM ─── */
+      { type: 'kicker', text: 'Inside the Program' },
+      { type: 'h2',     text: 'The shirt was not a metaphor. It was a production decision with a learning rationale behind it.' },
+      { type: 'p', text: 'Kornit\u2019s product is tactile: ink on fabric, garment out the other side. Their employees sell, service, and build around that physical output. An onboarding program that opened with a talking head in a conference room would have communicated, accurately or not, that the company\u2019s internal culture was disconnected from its product culture. Casting the printed shirt as the learning agent closed that gap. The character walked actual Kornit offices, referenced real teams by name, and moved through the physical spaces new hires would soon inhabit. Familiarity arrived before the first day did.' },
+      { type: 'p', text: 'The buddy video made a different creative bet. Where the flagship leaned cinematic, the buddy piece leaned human. A peer voice, unscripted in register if not in fact, designed to answer the questions new hires actually ask rather than the ones HR anticipates. The two pieces were written to feel like they came from the same company but not the same department, because that tension is true.' },
+      { type: 'p', text: 'The Zoom conversions required the least creativity and the most editorial discipline. The raw recordings were long, discursive, and non-linear, typical of live sessions that weren\u2019t designed to be watched asynchronously. Editing them into modules meant making decisions about what to cut, what to surface, and where to insert interaction points that would hold attention without patronising experienced professionals.' },
+
+      /* ─── CLOSING ─── */
+      { type: 'pull', text: 'A printed shirt walking the halls is either the best idea in the brief or the worst, depending entirely on whether the execution earns it. This one did.' },
+      { type: 'p', text: 'Kornit Digital makes things you can hold. The onboarding program needed to feel like the company made it, not like a vendor processed it.' },
+    ],
+  },
+
+  'teva-privacy-episodes': {
+    heroVariant: 'plain',
+    clientName: 'Teva',
+    clientLogo: 'assets/case-studies/teva-privacy/logo.png',
+    clientLogoSize: '160px',
+    showClientLogoBand: true,
+    meta: {
+      industry: 'Pharmaceutical',
+      region: 'Global',
+      audience: 'All employees',
+      year: '2024',
+    },
+    glance: [],
+    lede: 'Pharma employees aren\u2019t ignoring compliance training because they don\u2019t care. They\u2019re ignoring it because nobody made it worth watching.',
+    body: [
+
+      /* ─── THE PROBLEM ─── */
+      { type: 'kicker', text: 'The Problem' },
+      { type: 'h2',     text: 'Compliance training designed for obligation, not comprehension.' },
+      { type: 'p', text: 'Compliance training in regulated industries operates on a specific assumption: that obligation is enough. Employees must complete it, so they will absorb it. They don\u2019t.' },
+      { type: 'p', text: 'In pharma, the training burden is heavier than most. Data privacy sits alongside pharmacovigilance, anti-bribery, code of conduct, and a rotating cast of annual recertifications. Each arrives as a module. Each demands a click-through. The default result isn\u2019t comprehension, it\u2019s tolerance. Employees learn to finish, not to think.' },
+      { type: 'p', text: 'The problem was never motivation. It was design.' },
+
+      /* ─── THE STRATEGY ─── */
+      { type: 'kicker', text: 'The Strategy' },
+      { type: 'h2',     text: 'Eight episodes. One habit. A compliance program shaped like a campaign.' },
+      { type: 'p', text: 'The brief wasn\u2019t to build a course. It was to build a campaign.' },
+      { type: 'p', text: 'Eight episodes, each under sixty seconds, released across weeks rather than delivered as a single block. The format was deliberate: spaced distribution, because spacing practice across time reliably outperforms massed exposure for long-term retention. A principle the forgetting curve literature has documented for over a century, and that compliance programs continue to ignore.' },
+      { type: 'p', text: 'Each episode was written by a professional copywriter and produced by a specialist animator. The visual language, character design, color palette, and motion style were developed against Teva\u2019s brand identity, not adapted from a generic template. Humor was written in, not added as decoration. The instinct was correct: affective engagement predicts recall. Content that generates an emotional response, even mild amusement, is processed more deeply than neutral material.' },
+      { type: 'p', text: 'Companion assets extended the campaign beyond the screen. WhatsApp stickers and printed posters carried the characters into the ambient workplace, reinforcing recall through environmental repetition without requiring another scheduled session.' },
+      { type: 'p', text: 'The result was a data privacy program designed to behave like advertising: short, recurring, character-led, and impossible to ignore on a Tuesday morning.' },
+
+      /* ─── LOOPING TEASER VIDEO ─── */
+      { type: 'video', src: 'assets/case-studies/teva-privacy/teaser.mp4', aspect: '16/9', style: { width: '55%', marginInline: 'auto' } },
+
+      /* ─── WHAT MOVED ─── */
+      { type: 'kicker', text: 'What Moved' },
+      { type: 'h2',     text: 'A field note, not a headline outcome.' },
+      { type: 'p', text: 'This is a Tier 3 field note. Outcome metrics were not released by the client.' },
+      { type: 'p', text: 'What is on the record: the program ran to completion across all eight episodes, the campaign format was retained for distribution rather than collapsed into a single release, and the companion asset suite (stickers, posters) was produced and deployed alongside the episodes. These are production decisions that do not get made for programs that fail internal review.' },
+
+      /* ─── CLOSING ─── */
+      { type: 'pull', text: 'Data privacy training doesn\u2019t have to feel like a legal obligation wearing a PowerPoint. It has to feel like something worth sixty seconds of a Tuesday.' },
+      { type: 'p', text: 'Teva\u2019s employees got eight of them.' },
+    ],
+  },
+
+  'netafim-kaizen-prework': {
+    heroVariant: 'plain',
+    clientName: 'Netafim',
+    clientLogo: 'assets/case-studies/netafim/logo.png',
+    clientLogoSize: '180px',
+    showClientLogoBand: true,
+    meta: {
+      industry: 'Manufacturing / Agricultural Technology',
+      region: 'Global \u00B7 110 countries',
+      audience: 'Plant and operations employees attending kaizen events',
+      year: '2023',
+    },
+    glance: [],
+    lede: 'Kaizen events are expensive by design. The first morning shouldn\u2019t be the one where people learn what kaizen is.',
+    body: [
+
+      /* ─── THE PROBLEM ─── */
+      { type: 'kicker', text: 'The Problem' },
+      { type: 'h2',     text: 'Before the event starts, the work is already lost.' },
+      { type: 'p', text: 'Kaizen events are expensive by design. You pull people off the floor, fly them to a site, book a facilitator, and hold the calendar for three to five days. The assumption is that the work begins on Day 1. It rarely does.' },
+      { type: 'p', text: 'When participants arrive without a working understanding of kaizen, what it is, why the methodology works, what their role in it requires, the first morning becomes remedial. The facilitator teaches instead of leads. The team orients instead of improves. The clock runs, and the expensive part hasn\u2019t started yet.' },
+
+      /* ─── THE STRATEGY ─── */
+      { type: 'kicker', text: 'The Strategy' },
+      { type: 'h2',     text: 'Documentary footage from a real Netafim kaizen, not a generic simulation.' },
+      { type: 'p', text: 'The brief was to get employees ready before they arrived, not with a slide deck summarising lean principles, but with something that made the methodology feel real and worth engaging with.' },
+      { type: 'p', text: 'We filmed an actual kaizen event at a Netafim facility: the gemba walks, the process mapping sessions, the team discussions at the board. Then we edited it as documentary, short observational clips built around the people doing the work and their own accounts of what the methodology demanded of them. No narrator explaining kaizen from outside. The process explained itself through the people living it.' },
+      { type: 'p', text: 'We built the interactive module around that footage because contextual exposure before a performance event predicts faster orientation on arrival. Learners who have seen the environment, heard the vocabulary, and watched peers navigate the process don\u2019t need Day 1 to catch up. They arrive with a working mental model.' },
+      { type: 'p', text: 'Participants completed the unit before their assigned event. The module walked them through kaizen principles, the structure of a typical event, and what would be expected of them on the floor, grounded throughout in footage from a real Netafim event, not a generic manufacturing simulation.' },
+
+      /* ─── LOOPING TEASER VIDEO ─── */
+      { type: 'video', src: 'assets/case-studies/netafim/teaser.mp4', aspect: '16/9', style: { width: '55%', marginInline: 'auto' } },
+
+      /* ─── WHAT MOVED ─── */
+      { type: 'kicker', text: 'What Moved' },
+      { type: 'h2',     text: 'Day 1 stopped being remedial.' },
+      { type: 'p', text: 'Participants arrived at subsequent kaizen events with a baseline understanding of the methodology, the vocabulary, and their role in the process. Facilitators were able to move directly into improvement work rather than opening with remedial orientation.' },
+      { type: 'p', text: 'The unit ran as pre-work before events across Netafim\u2019s global operations. No additional orientation session was required.' },
+      { type: 'p', text: 'The work was documented as a field note rather than a flagged outcome study. Netafim did not commission a formal measurement program. What it demonstrates is the design logic: when pre-event preparation is built around real artifacts from real events, the event itself can start on time.' },
+
+      /* ─── CLOSING ─── */
+      { type: 'pull', text: 'Pre-event preparation is a design problem, not a scheduling one.' },
+      { type: 'p', text: 'The right artifact, built from the real event, not a description of it, is the difference between a kaizen event that starts and one that waits.' },
+
+      /* ─── GALLERY, frames from the module ─── */
+      { type: 'gallery', autoPlayMs: 3500, items: [
+        { src: 'assets/case-studies/netafim/06-thinking.jpg', caption: 'Kaizen Thinking: the framework, in two minutes.' },
+        { src: 'assets/case-studies/netafim/01-kickoff.jpg',  caption: 'The kick-off meeting: who is in the room and what each person owns.' },
+        { src: 'assets/case-studies/netafim/05-walkthrough.jpg', caption: 'A real Netafim plant walkthrough opens the module.' },
+        { src: 'assets/case-studies/netafim/02-board.jpg',    caption: 'Process mapping at the board, captured on-site.' },
+        { src: 'assets/case-studies/netafim/03-team.jpg',     caption: 'The team behind one Netafim setup-improvement event.' },
+        { src: 'assets/case-studies/netafim/04-change-good.jpg', caption: 'Kai, Zen: change, good.' },
+      ]},
+    ],
   },
 
   'teva-global-compliance': {
@@ -173,16 +287,16 @@ const CASE_BODIES = {
       { num: '42',           cap: 'Localised variants delivered in a single production cycle.' },
       { num: '−68', unit: '%', cap: 'Reduction in per-market authoring cost vs. the previous build.' },
     ],
-    lede: 'Teva\u2019s compliance program covered 42 markets, six languages, and a regulatory surface that varied country by country. Completion was stuck at 61% \u2014 not because the content was wrong, but because, for most learners, it wasn\u2019t about them.',
+    lede: 'Teva\u2019s compliance program covered 42 markets, six languages, and a regulatory surface that varied country by country. Completion was stuck at 61% ,  not because the content was wrong, but because, for most learners, it wasn\u2019t about them.',
     body: [
       { type: 'kicker', text: 'The Challenge' },
       { type: 'h2',     text: 'A program that read as generic, in a domain where context is everything.' },
-      { type: 'p', text: 'The previous compliance build was a single English master, manually re-versioned for each market. Updates were slow, translations drifted, and the on-screen examples were unmistakably from somewhere else \u2014 a hospital in Pennsylvania to a sales rep in S\u00E3o Paulo, an HR scenario from Tel Aviv to a plant operator in Hyderabad. Completion rates told the story long before the surveys did.' },
-      { type: 'p', text: 'Teva\u2019s compliance team didn\u2019t need a new course. They needed a system that could deliver 42 versions of the right course \u2014 fast, on-brand, and without the translation tax becoming a creative tax.' },
+      { type: 'p', text: 'The previous compliance build was a single English master, manually re-versioned for each market. Updates were slow, translations drifted, and the on-screen examples were unmistakably from somewhere else ,  a hospital in Pennsylvania to a sales rep in S\u00E3o Paulo, an HR scenario from Tel Aviv to a plant operator in Hyderabad. Completion rates told the story long before the surveys did.' },
+      { type: 'p', text: 'Teva\u2019s compliance team didn\u2019t need a new course. They needed a system that could deliver 42 versions of the right course ,  fast, on-brand, and without the translation tax becoming a creative tax.' },
 
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'One canonical narrative. Forty-two context-aware variants.' },
-      { type: 'p', text: 'We rebuilt the program from the bottom up around a small set of canonical learning moments \u2014 the moments where a decision actually has to be made. Each moment was authored once, with explicit slots for region, role, and regulatory frame. Examples, characters, and references became data. The narrative stayed constant; the texture changed.' },
+      { type: 'p', text: 'We rebuilt the program from the bottom up around a small set of canonical learning moments ,  the moments where a decision actually has to be made. Each moment was authored once, with explicit slots for region, role, and regulatory frame. Examples, characters, and references became data. The narrative stayed constant; the texture changed.' },
       { type: 'list', items: [
         'Mapped 18 canonical compliance decisions across the global program.',
         'Authored each decision once, with localisation slots baked in.',
@@ -195,7 +309,7 @@ const CASE_BODIES = {
 
       { type: 'kicker', text: 'The Outcome' },
       { type: 'h2',     text: 'Higher completion, lower production cost, faster updates.' },
-      { type: 'p', text: 'Within the first quarter, completion rose to 92% globally and exceeded 88% in every single market \u2014 the first time the program had cleared its regulatory threshold without escalations. Per-market authoring cost fell by 68%, because the regional layer was data, not bespoke craft. And when a regulatory change landed in the EU mid-rollout, the team pushed an update across all 27 affected markets in eleven days.' },
+      { type: 'p', text: 'Within the first quarter, completion rose to 92% globally and exceeded 88% in every single market ,  the first time the program had cleared its regulatory threshold without escalations. Per-market authoring cost fell by 68%, because the regional layer was data, not bespoke craft. And when a regulatory change landed in the EU mid-rollout, the team pushed an update across all 27 affected markets in eleven days.' },
       { type: 'outcomes', items: [
         { num: '92', unit: '%',  cap: 'Global completion rate at end of Q1, vs. 61% baseline.' },
         { num: '11', unit: ' days', cap: 'To roll a regulatory update across all 27 EU markets.' },
@@ -205,7 +319,7 @@ const CASE_BODIES = {
       { type: 'p', text: 'Two years in, the canonical-plus-variants model has become the default authoring shape for Teva\u2019s global learning team. New programs ship to 42 markets on day one, with the local texture already in place.' },
     ],
     quote: {
-      text: 'For the first time, our compliance training feels like it was built for our people \u2014 wherever they are. The completion numbers are real, but the change is bigger than that. Our learners stopped tolerating training and started using it.',
+      text: 'For the first time, our compliance training feels like it was built for our people ,  wherever they are. The completion numbers are real, but the change is bigger than that. Our learners stopped tolerating training and started using it.',
       name: 'Nurit Hevron',
       role: 'Employee Learning & Development, HR \u00B7 Teva',
       avatarSrc: 'assets/testimonials/avatars/avatar-nurit.jpg',
@@ -227,7 +341,7 @@ const CASE_BODIES = {
       { num: '6.4', unit: '\u00D7',  cap: 'Faster ramp on real production work vs. previous cohort.' },
       { num: '94',  unit: '%',     cap: 'Of new engineers reach \u201Cunblocked\u201D on day one.' },
     ],
-    lede: 'monday.com was hiring engineers faster than its onboarding could absorb them. The 90-day ramp was a kind of guided wander \u2014 thorough, well-meaning, and almost entirely passive. We rebuilt it around simulation, not documentation.',
+    lede: 'monday.com was hiring engineers faster than its onboarding could absorb them. The 90-day ramp was a kind of guided wander ,  thorough, well-meaning, and almost entirely passive. We rebuilt it around simulation, not documentation.',
     body: [
       { type: 'kicker', text: 'The Challenge' },
       { type: 'h2',     text: 'A 90-day onboarding designed for an org half the size.' },
@@ -235,7 +349,7 @@ const CASE_BODIES = {
 
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'Replace passive content with simulated production work.' },
-      { type: 'p', text: 'We re-scoped onboarding around the question every new engineer is actually asking: when can I ship something real? Then we built a 14-day path that answered it on day one. Day-one engineers ship a production-shaped change inside a high-fidelity sandbox. Every subsequent day is structured the same way \u2014 a real problem, a real review, a real outcome \u2014 with documentation pulled in only at the moment it\u2019s needed.' },
+      { type: 'p', text: 'We re-scoped onboarding around the question every new engineer is actually asking: when can I ship something real? Then we built a 14-day path that answered it on day one. Day-one engineers ship a production-shaped change inside a high-fidelity sandbox. Every subsequent day is structured the same way ,  a real problem, a real review, a real outcome ,  with documentation pulled in only at the moment it\u2019s needed.' },
       { type: 'list', items: [
         'Built a sandbox mirror of the monday.com codebase, with realistic data.',
         'Authored 14 production-shaped tasks of escalating complexity.',
@@ -256,7 +370,7 @@ const CASE_BODIES = {
       ]},
     ],
     quote: {
-      text: 'We stopped onboarding people into our wiki and started onboarding them into our work. Knowaa got the shape right \u2014 the rest was just removing the parts that weren\u2019t doing anything.',
+      text: 'We stopped onboarding people into our wiki and started onboarding them into our work. Knowaa got the shape right ,  the rest was just removing the parts that weren\u2019t doing anything.',
       name: 'Roy Mann',
       role: 'Engineering Lead \u00B7 monday.com',
       initials: 'RM',
@@ -274,14 +388,14 @@ const CASE_BODIES = {
     },
     glance: [
       { num: '3.4', unit: '\u00D7', cap: 'Phishing resilience improvement, measured at six months.' },
-      { num: '97',  unit: '%',     cap: 'Completion across all roles \u2014 first time the program has cleared the bar.' },
+      { num: '97',  unit: '%',     cap: 'Completion across all roles ,  first time the program has cleared the bar.' },
       { num: '\u2191 41', unit: '%', cap: 'Voluntary reporting of suspicious activity, sustained.' },
     ],
     lede: 'Check Point\u2019s security awareness program had two problems. People didn\u2019t finish it, and the people who did weren\u2019t safer afterwards. We rebuilt it around a simple premise: treat employees as defenders, not liabilities.',
     body: [
       { type: 'kicker', text: 'The Challenge' },
       { type: 'h2',     text: 'Awareness training that produced compliance, not capability.' },
-      { type: 'p', text: 'The previous program followed the standard shape \u2014 a quarterly module, a quiz, a phishing test. Completion was around 70%, phishing-test failure rates were stable, and incident reporting was flat. The program existed; it just wasn\u2019t doing the job. The internal assumption was that people couldn\u2019t be trusted with security. We thought the opposite was worth trying.' },
+      { type: 'p', text: 'The previous program followed the standard shape ,  a quarterly module, a quiz, a phishing test. Completion was around 70%, phishing-test failure rates were stable, and incident reporting was flat. The program existed; it just wasn\u2019t doing the job. The internal assumption was that people couldn\u2019t be trusted with security. We thought the opposite was worth trying.' },
 
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'A narrative program built around the defender, not the threat.' },
@@ -298,7 +412,7 @@ const CASE_BODIES = {
 
       { type: 'kicker', text: 'The Outcome' },
       { type: 'h2',     text: 'A measurably more resilient organisation.' },
-      { type: 'p', text: 'At six months, phishing resilience was 3.4\u00D7 the baseline and still climbing. Voluntary reporting of suspicious activity rose 41% and held. And for the first time, completion crossed 95% across every role \u2014 not because compliance pushed harder, but because the program had stopped feeling like compliance.' },
+      { type: 'p', text: 'At six months, phishing resilience was 3.4\u00D7 the baseline and still climbing. Voluntary reporting of suspicious activity rose 41% and held. And for the first time, completion crossed 95% across every role ,  not because compliance pushed harder, but because the program had stopped feeling like compliance.' },
       { type: 'outcomes', items: [
         { num: '3.4', unit: '\u00D7', cap: 'Phishing resilience at 6 months.' },
         { num: '97',  unit: '%',     cap: 'Completion across all roles.' },
@@ -307,7 +421,7 @@ const CASE_BODIES = {
       ]},
     ],
     quote: {
-      text: 'We expected better numbers. We did not expect a different relationship between our people and security. The program shifted the centre of gravity \u2014 our employees stopped waiting to be told what to do.',
+      text: 'We expected better numbers. We did not expect a different relationship between our people and security. The program shifted the centre of gravity ,  our employees stopped waiting to be told what to do.',
       name: 'Dorit Dor',
       role: 'Chief Product Officer \u00B7 Check Point',
       initials: 'DD',
@@ -328,15 +442,15 @@ const CASE_BODIES = {
       { num: '4.1', unit: '\u00D7', cap: 'More merged PRs touching AI-assisted code per developer.' },
       { num: '11', cap: 'Distinct role-paths, each with its own AI workflow & guardrails.' },
     ],
-    lede: 'Amdocs rolled out enterprise AI to 30,000 engineers. The licences arrived; the change didn\u2019t. We built a capability program structured by role, not by tool \u2014 and adoption shifted from a metric to a workflow.',
+    lede: 'Amdocs rolled out enterprise AI to 30,000 engineers. The licences arrived; the change didn\u2019t. We built a capability program structured by role, not by tool ,  and adoption shifted from a metric to a workflow.',
     body: [
       { type: 'kicker', text: 'The Challenge' },
       { type: 'h2',     text: 'Tool deployment is not capability. The numbers said so.' },
-      { type: 'p', text: 'At 60 days post-rollout, 22% of engineers had used the AI tooling more than once. The vendor benchmark, charitably, was the same. The program had been framed as a tool launch \u2014 demos, docs, an internal slack \u2014 and the result was the predictable shape of a tool launch. Amdocs needed it to be a capability program, structured the way capability is actually built.' },
+      { type: 'p', text: 'At 60 days post-rollout, 22% of engineers had used the AI tooling more than once. The vendor benchmark, charitably, was the same. The program had been framed as a tool launch ,  demos, docs, an internal slack ,  and the result was the predictable shape of a tool launch. Amdocs needed it to be a capability program, structured the way capability is actually built.' },
 
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'Eleven role-paths. Each one ending in a real workflow.' },
-      { type: 'p', text: 'We mapped 11 distinct engineer archetypes \u2014 backend, mobile, SRE, QA, data, integration, and so on \u2014 and built a path for each that ended in a concrete, AI-assisted workflow they\u2019d use that week. Every path included its own guardrails: what the tool was trusted with, what it wasn\u2019t, what review looked like.' },
+      { type: 'p', text: 'We mapped 11 distinct engineer archetypes ,  backend, mobile, SRE, QA, data, integration, and so on ,  and built a path for each that ended in a concrete, AI-assisted workflow they\u2019d use that week. Every path included its own guardrails: what the tool was trusted with, what it wasn\u2019t, what review looked like.' },
       { type: 'list', items: [
         'Mapped 11 engineering archetypes with actual day-one task data.',
         'Built role-specific paths ending in week-one AI workflows.',
@@ -348,7 +462,7 @@ const CASE_BODIES = {
 
       { type: 'kicker', text: 'The Outcome' },
       { type: 'h2',     text: 'AI as part of the workflow, not adjacent to it.' },
-      { type: 'p', text: 'At 90 days, 78% of engineers were using the tooling at least weekly on real production work. Merged PRs touching AI-assisted code rose 4.1\u00D7 per developer, while review-rejection rates fell. And the program kept compounding \u2014 the cohorts trained later by internal champions hit higher numbers than the original wave.' },
+      { type: 'p', text: 'At 90 days, 78% of engineers were using the tooling at least weekly on real production work. Merged PRs touching AI-assisted code rose 4.1\u00D7 per developer, while review-rejection rates fell. And the program kept compounding ,  the cohorts trained later by internal champions hit higher numbers than the original wave.' },
       { type: 'outcomes', items: [
         { num: '78',  unit: '%',    cap: 'Adoption at 90 days vs. 22% baseline.' },
         { num: '4.1', unit: '\u00D7', cap: 'More merged PRs with AI-assisted code.' },
@@ -357,7 +471,7 @@ const CASE_BODIES = {
       ]},
     ],
     quote: {
-      text: 'The licences were the easy part. Knowaa built the part that actually mattered \u2014 the work itself, redesigned around what the tools could do and where they couldn\u2019t be trusted yet.',
+      text: 'The licences were the easy part. Knowaa built the part that actually mattered ,  the work itself, redesigned around what the tools could do and where they couldn\u2019t be trusted yet.',
       name: 'Avishai Sharlin',
       role: 'Division President \u00B7 Amdocs',
       initials: 'AS',
@@ -369,7 +483,7 @@ const CASE_BODIES = {
     glance: [
       { num: '4.2', unit: '\u00D7', cap: 'Manager-rated impact vs. previous flagship leadership program.' },
       { num: '92', unit: '%',  cap: 'Completion across all manager levels.' },
-      { num: '0',              cap: 'Days off-site \u2014 the program runs inside the workweek.' },
+      { num: '0',              cap: 'Days off-site ,  the program runs inside the workweek.' },
     ],
     lede: 'Bank Leumi\u2019s leadership program had been the same shape for fifteen years: an annual offsite, a binder, a buddy. The shape was the problem. We rebuilt it as a coaching engine that runs inside the work, not next to it.',
     body: [
@@ -378,7 +492,7 @@ const CASE_BODIES = {
       { type: 'p', text: 'Fifteen years of the same offsite had produced fifteen years of the same survey results: well-rated in the moment, near-invisible in the work three months later. The instinct was a content refresh. The actual problem was structural.' },
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'A coaching engine, not a curriculum.' },
-      { type: 'p', text: 'We rebuilt the program around the conversations leaders were already having \u2014 with their team, their peers, their own manager \u2014 and put coaching scaffolding inside those conversations. The content became light. The structure around it did the work.' },
+      { type: 'p', text: 'We rebuilt the program around the conversations leaders were already having ,  with their team, their peers, their own manager ,  and put coaching scaffolding inside those conversations. The content became light. The structure around it did the work.' },
       { type: 'list', items: [
         'Mapped the 6 leadership conversations that already happen weekly.',
         'Built coaching scaffolds for each: prompts, frames, follow-through.',
@@ -396,7 +510,7 @@ const CASE_BODIES = {
       ]},
     ],
     quote: {
-      text: 'It stopped being a program and started being how we manage. The change wasn\u2019t louder \u2014 it was structural.',
+      text: 'It stopped being a program and started being how we manage. The change wasn\u2019t louder ,  it was structural.',
       name: 'Hanan Friedman', role: 'CEO \u00B7 Bank Leumi', initials: 'HF',
     },
   },
@@ -415,7 +529,7 @@ const CASE_BODIES = {
       { type: 'p', text: 'The previous program checked every regulatory box and moved no operational metric. The signal was clear: people were finishing it without absorbing it. The content wasn\u2019t wrong; the cadence was.' },
       { type: 'kicker', text: 'The Approach' },
       { type: 'h2',     text: 'Year-round, plant-specific, scenario-driven.' },
-      { type: 'p', text: 'We replaced one quarterly module with 52 short, scenario-based moments \u2014 each one drawn from a real (anonymised) incident from one of the 22 plants. Operators saw their own work, their own equipment, their own near-misses.' },
+      { type: 'p', text: 'We replaced one quarterly module with 52 short, scenario-based moments ,  each one drawn from a real (anonymised) incident from one of the 22 plants. Operators saw their own work, their own equipment, their own near-misses.' },
       { type: 'list', items: [
         'Catalogued 200+ real incidents across 22 plants.',
         'Authored 52 weekly scenarios, each tied to a specific class of risk.',
@@ -439,12 +553,18 @@ const CASE_BODIES = {
   },
 };
 
-/* Inline image carousel — used by `gallery` body blocks. Keeps its own
+/* Inline image carousel, used by `gallery` body blocks. Keeps its own
    active-index state so each instance is independent. Includes prev/next
    buttons, dot indicators, keyboard arrows, and a thumbnail strip. */
-function CSGallery({ items }) {
+function CSGallery({ items, autoPlayMs }) {
   const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
   const total = items.length;
+  React.useEffect(() => {
+    if (!autoPlayMs || paused || total < 2) return;
+    const id = setInterval(() => setActive(a => (a + 1) % total), autoPlayMs);
+    return () => clearInterval(id);
+  }, [autoPlayMs, paused, total]);
   if (!total) return null;
   const go = (i) => setActive((i + total) % total);
   const onKey = (e) => {
@@ -453,7 +573,7 @@ function CSGallery({ items }) {
   };
   const cur = items[active];
   return (
-    <figure className="cs__gallery" tabIndex={0} onKeyDown={onKey} aria-label="Program screenshots carousel">
+    <figure className="cs__gallery" tabIndex={0} onKeyDown={onKey} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)} aria-label="Program screenshots carousel">
       <div className="cs__gallery-stage">
         <button className="cs__gallery-nav cs__gallery-nav--prev" onClick={() => go(active - 1)} aria-label="Previous screenshot" type="button">
           <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden><path d="M9 2 L4 7 L9 12" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -494,7 +614,7 @@ function CSGallery({ items }) {
   );
 }
 
-/* Pick related — prefer other case studies, then articles */
+/* Pick related, prefer other case studies, then articles */
 function pickRelatedCS(currentId, count = 3) {
   const pool = (window.RESOURCES || []).filter(r => r.id !== currentId);
   const cases = pool.filter(r => r.type === 'case');
@@ -577,6 +697,13 @@ function CaseStudy({ resourceId }) {
         </header>
       </div>
 
+      {/* ─── CLIENT LOGO BAND ─── */}
+      {content.clientLogo && content.showClientLogoBand && (
+        <div className="cs__client-logo-band">
+          <img src={content.clientLogo} alt={content.clientName || ''} style={content.clientLogoSize ? { width: content.clientLogoSize } : undefined} />
+        </div>
+      )}
+
       {/* ─── CLIENT META STRIP ─── */}
       <div className="cs__strip-wrap">
         <div className="cs__strip">
@@ -624,12 +751,28 @@ function CaseStudy({ resourceId }) {
           {content.lede && <p className="cs__lede">{content.lede}</p>}
 
           {content.body.map((block, i) => {
+            if (block.type === 'header-pair') return (
+              <div key={i} className="cs__header-pair">
+                <img className="cs__header-pair-logo" src={block.logoSrc} alt={block.logoAlt || ''} />
+                <img className="cs__header-pair-banner" src={block.bannerSrc} alt={block.bannerAlt || ''} />
+              </div>
+            );
+            if (block.type === 'logo') return (
+              <div key={i} className="cs__client-logo">
+                <img src={block.src} alt={block.alt || ''} />
+              </div>
+            );
+            if (block.type === 'badge') return (
+              <div key={i} className="cs__program-badge">
+                <img src={block.src} alt={block.alt || ''} />
+              </div>
+            );
             if (block.type === 'kicker') return <div key={i} className="cs__sec-kicker">{block.text}</div>;
             if (block.type === 'h2')     return <h2 key={i} className="cs__h2">{block.text}</h2>;
             if (block.type === 'h3')     return <h3 key={i} className="cs__h3">{block.text}</h3>;
             if (block.type === 'p')      return <p key={i} className="cs__p">{block.text}</p>;
             if (block.type === 'figure') return (
-              <figure key={i} className={`cs__figure${block.strip ? ' cs__figure--strip' : ''}`}>
+              <figure key={i} className={`cs__figure${block.strip ? ' cs__figure--strip' : ''}${block.wide ? ' cs__figure--wide' : ''}`} style={block.style}>
                 <div className="cs__figure-img" style={{aspectRatio: block.aspect || '16/9'}}>
                   {block.src ? (
                     <img src={block.src} alt={block.caption || ''} style={block.strip ? {objectFit: 'contain'} : undefined} />
@@ -638,6 +781,14 @@ function CaseStudy({ resourceId }) {
                       <span className="cs__figure-placeholder-label">{block.placeholder || 'Image'}</span>
                     </div>
                   )}
+                </div>
+                {block.caption && <figcaption className="cs__figure-cap">{block.caption}</figcaption>}
+              </figure>
+            );
+            if (block.type === 'video') return (
+              <figure key={i} className="cs__figure" style={block.style}>
+                <div className="cs__figure-img" style={{aspectRatio: block.aspect || '16/9'}}>
+                  <video src={block.src} autoPlay loop muted playsInline preload="metadata" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
                 </div>
                 {block.caption && <figcaption className="cs__figure-cap">{block.caption}</figcaption>}
               </figure>
@@ -677,7 +828,39 @@ function CaseStudy({ resourceId }) {
               </div>
             );
             if (block.type === 'gallery') return (
-              <CSGallery key={i} items={block.items} />
+              <CSGallery key={i} items={block.items} autoPlayMs={block.autoPlayMs} />
+            );
+            if (block.type === 'metadata-strip') return (
+              <dl key={i} className="cs__meta-strip">
+                {block.items.map((it, j) => (
+                  <div key={j} className="cs__meta-row">
+                    <dt className="cs__meta-label">{it.label}</dt>
+                    <dd className="cs__meta-value">{it.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            );
+            if (block.type === 'stat-callout') return (
+              <section key={i} className="cs__stat-callout">
+                <div className="cs__stat-headline">
+                  {block.headline.eyebrow ? <div className="cs__stat-eyebrow">{block.headline.eyebrow}</div> : null}
+                  <div className="cs__stat-headline-num">{block.headline.num}</div>
+                  {block.headline.cap ? <p className="cs__stat-headline-cap">{block.headline.cap}</p> : null}
+                </div>
+                {block.supporting && block.supporting.length ? (
+                  <div className="cs__stat-supporting">
+                    {block.supportingEyebrow ? <div className="cs__stat-eyebrow cs__stat-eyebrow--alt">{block.supportingEyebrow}</div> : null}
+                    <div className="cs__stat-supporting-grid">
+                      {block.supporting.map((it, j) => (
+                        <div key={j} className="cs__stat-card">
+                          <div className="cs__stat-card-num">{it.num}</div>
+                          <div className="cs__stat-card-cap">{it.cap}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </section>
             );
             return null;
           })}

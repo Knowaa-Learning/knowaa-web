@@ -1,4 +1,4 @@
-// RESOURCES LANDING — Editorial (purple hero, half-overlap card, magenta newsletter).
+// RESOURCES LANDING, Editorial (purple hero, half-overlap card, magenta newsletter).
 // Homepage DNA:
 //   - Purple (#503594) hero ends mid-card; card straddles purple→white
 //   - Dense brand-shape texture pattern (testimonials density)
@@ -8,7 +8,7 @@
 
 const { useState: useStateA, useMemo: useMemoA } = React;
 
-// Reusable brand-shape texture — 6 Knowaa logo shapes scattered across
+// Reusable brand-shape texture, 6 Knowaa logo shapes scattered across
 // the viewBox at varied sizes, rotations, opacities. Dense (matches testimonials).
 // Color-configurable: pass accentColor to tint the glow, shapeOpacity to control density.
 function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594', glowCx = '72%', glowCy = '22%', subtle = false }) {
@@ -42,7 +42,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
       </defs>
       <rect width="1600" height="900" fill={`url(#${id}-glow)`} />
       <g>
-        {/* ============ s1 (small circles) — 14 placements ============ */}
+        {/* ============ s1 (small circles), 14 placements ============ */}
         <use href={`#${id}-s1`} x="100"  y="140" width="54" height="54" opacity="0.14" />
         <use href={`#${id}-s1`} x="1340" y="560" width="44" height="44" opacity="0.11" />
         <use href={`#${id}-s1`} x="820"  y="780" width="32" height="32" opacity="0.12" />
@@ -58,7 +58,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
         <use href={`#${id}-s1`} x="240"  y="260" width="24" height="24" opacity="0.09" />
         <use href={`#${id}-s1`} x="1560" y="740" width="30" height="30" opacity="0.10" />
 
-        {/* ============ s2 (circles) — 14 placements ============ */}
+        {/* ============ s2 (circles), 14 placements ============ */}
         <use href={`#${id}-s2`} x="480"  y="80"  width="50" height="50" opacity="0.13" />
         <use href={`#${id}-s2`} x="1460" y="220" width="36" height="36" opacity="0.10" />
         <use href={`#${id}-s2`} x="260"  y="660" width="40" height="40" opacity="0.12" />
@@ -74,7 +74,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
         <use href={`#${id}-s2`} x="1160" y="500" width="22" height="22" opacity="0.09" />
         <use href={`#${id}-s2`} x="340"  y="560" width="26" height="26" opacity="0.10" />
 
-        {/* ============ s3 (elongated) — 8 placements ============ */}
+        {/* ============ s3 (elongated), 8 placements ============ */}
         <use href={`#${id}-s3`} x="-30"  y="350" width="140" height="156" opacity="0.09" transform="rotate(18 40 428)" />
         <use href={`#${id}-s3`} x="980"  y="60"  width="120" height="134" opacity="0.08" transform="rotate(-40 1040 127)" />
         <use href={`#${id}-s3`} x="440"  y="700" width="110" height="122" opacity="0.09" transform="rotate(135 495 761)" />
@@ -84,7 +84,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
         <use href={`#${id}-s3`} x="1080" y="820" width="80"  height="89"  opacity="0.08" transform="rotate(45 1120 864)" />
         <use href={`#${id}-s3`} x="640"  y="350" width="72"  height="80"  opacity="0.06" transform="rotate(-60 676 390)" />
 
-        {/* ============ s4 — 7 placements ============ */}
+        {/* ============ s4, 7 placements ============ */}
         <use href={`#${id}-s4`} x="1380" y="30"  width="150" height="180" opacity="0.09" transform="rotate(195 1455 120)" />
         <use href={`#${id}-s4`} x="170"  y="640" width="110" height="132" opacity="0.08" transform="rotate(70 225 706)" />
         <use href={`#${id}-s4`} x="870"  y="400" width="100" height="120" opacity="0.07" transform="rotate(-85 920 460)" />
@@ -93,7 +93,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
         <use href={`#${id}-s4`} x="780"  y="720" width="84"  height="101" opacity="0.07" transform="rotate(115 822 770)" />
         <use href={`#${id}-s4`} x="40"   y="220" width="76"  height="91"  opacity="0.07" transform="rotate(200 78 265)" />
 
-        {/* ============ s5 (tall leaning) — 7 placements ============ */}
+        {/* ============ s5 (tall leaning), 7 placements ============ */}
         <use href={`#${id}-s5`} x="580"  y="160" width="160" height="196" opacity="0.07" transform="rotate(-25 660 258)" />
         <use href={`#${id}-s5`} x="1200" y="640" width="130" height="159" opacity="0.08" transform="rotate(55 1265 719)" />
         <use href={`#${id}-s5`} x="-20"  y="120" width="130" height="159" opacity="0.07" transform="rotate(45 45 199)" />
@@ -102,7 +102,7 @@ function ShapeTexture({ id = 'tex', glowColor = '#7C3AED', glowStop = '#503594',
         <use href={`#${id}-s5`} x="340"  y="360" width="90"  height="110" opacity="0.06" transform="rotate(160 385 415)" />
         <use href={`#${id}-s5`} x="1080" y="240" width="80"  height="98"  opacity="0.07" transform="rotate(-35 1120 289)" />
 
-        {/* ============ s6 — 7 placements ============ */}
+        {/* ============ s6, 7 placements ============ */}
         <use href={`#${id}-s6`} x="1080" y="360" width="130" height="146" opacity="0.08" transform="rotate(12 1145 433)" />
         <use href={`#${id}-s6`} x="320"  y="60"  width="130" height="146" opacity="0.07" transform="rotate(-50 385 133)" />
         <use href={`#${id}-s6`} x="60"   y="780" width="110" height="124" opacity="0.09" transform="rotate(105 115 842)" />
@@ -127,7 +127,7 @@ function ResourcesEditorial() {
   })();
   const [typeFilter, setTypeFilter] = useStateA(initialType);
   const [q, setQ] = useStateA('');
-  // Newsletter state — POSTs to knowaa-news API
+  // Newsletter state, POSTs to knowaa-news API
   const [nlEmail, setNlEmail] = useStateA('');
   const [nlSent, setNlSent] = useStateA(false);
   const [nlSubmitting, setNlSubmitting] = useStateA(false);
@@ -172,7 +172,7 @@ function ResourcesEditorial() {
           <ShapeTexture id="rc-hero" glowColor="#8B5CF6" glowStop="#3A2478" glowCx="78%" glowCy="18%" />
           <div className="rc__hero-inner">
             <div className="rc__kicker-row">
-              <span className="rc__kicker">Knowaa — Resources</span>
+              <span className="rc__kicker">Knowaa, Resources</span>
               <span className="rc__date">Updated weekly</span>
             </div>
           </div>
@@ -181,9 +181,9 @@ function ResourcesEditorial() {
         {/* Headline + intro on white */}
         <div className="rc__hero-light">
           <div className="rc__hero-inner">
-            <h1 className="rc__h1">{typeFilter === 'insight' ? 'Insights.' : typeFilter === 'case' ? 'Case studies.' : 'Resources.'}</h1>
+            <h1 className="rc__h1">{typeFilter === 'article' ? 'Insights.' : typeFilter === 'case' ? 'Case studies.' : 'Resources.'}</h1>
             <p className="rc__intro">
-              {typeFilter === 'insight'
+              {typeFilter === 'article'
                 ? 'Perspectives on learning design, content strategy, and the specific challenges of building effective programs inside regulated industries.'
                 : typeFilter === 'case'
                 ? 'Learning programs built for organizations where content has to earn attention, survive compliance review, and actually change how people perform.'
@@ -192,7 +192,7 @@ function ResourcesEditorial() {
           </div>
         </div>
 
-        {/* Featured card — same lavender-inner design as archive cards */}
+        {/* Featured card, same lavender-inner design as archive cards */}
         {hero && (
           <div className="rc__hero-feature-wrap">
             <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)}>
@@ -200,9 +200,7 @@ function ResourcesEditorial() {
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
                 ) : null}
-                {hero.type !== 'case' && (
-                  <span className="rc__arch-cover-label">{typeLabel(hero.type)}</span>
-                )}
+                <span className={`rc__type-badge rc__type-badge--${hero.type}`}>{typeLabel(hero.type)}</span>
                 <span className="rc__arch-cover-icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -244,7 +242,7 @@ function ResourcesEditorial() {
         </div>
       </div>
 
-      {/* ─── Archive — 3-col lavender grid of compact cards ─── */}
+      {/* ─── Archive, 3-col lavender grid of compact cards ─── */}
       {stream.length > 0 && (
         <section className="rc__stream">
           <div className="rc__sec-head">
@@ -259,9 +257,7 @@ function ResourcesEditorial() {
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />
                     ) : null}
-                    {r.type !== 'case' && (
-                      <span className="rc__arch-cover-label">{typeLabel(r.type)}</span>
-                    )}
+                    <span className={`rc__type-badge rc__type-badge--${r.type}`}>{typeLabel(r.type)}</span>
                     <span className="rc__arch-cover-icon" aria-hidden="true">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="3" />
@@ -333,9 +329,9 @@ const CSS = `
   z-index: 0;
 }
 
-/* ═══ HERO WRAP — purple band that ends mid-card ═══ */
+/* ═══ HERO WRAP, purple band that ends mid-card ═══ */
 .rc__hero-wrap { position: relative; background: #FFFFFF; }
-/* Subtle dark scrim at very top — helps the white nav read against the purple band */
+/* Subtle dark scrim at very top, helps the white nav read against the purple band */
 .rc__hero-wrap::before {
   content: '';
   position: absolute;
@@ -347,7 +343,7 @@ const CSS = `
 }
 .rc__hero-purple {
   position: relative;
-  /* Two-stop purple gradient — short, framed band behind the kicker */
+  /* Two-stop purple gradient, short, framed band behind the kicker */
   background:
     linear-gradient(180deg, #5A3BA3 0%, #503594 50%, #3A2478 100%);
   color: #FFFFFF;
@@ -384,7 +380,7 @@ const CSS = `
   max-width: 58ch; margin: 0;
 }
 
-/* Feature card — 30% smaller than original. Max width capped,
+/* Feature card, 30% smaller than original. Max width capped,
    centered. Now sits on pure white, just below the hero intro. */
 .rc__hero-feature-wrap {
   max-width: 840px; margin: 0 auto;
@@ -413,7 +409,7 @@ const CSS = `
 .rc__hero-feature-cover {
   overflow: hidden;
   background: #0A0A0A;
-  /* Let image fill the grid cell full-height — card size no longer
+  /* Let image fill the grid cell full-height, card size no longer
      dictated by image aspect. */
   align-self: stretch;
   min-height: 320px;
@@ -573,7 +569,7 @@ const CSS = `
   margin-top: auto;
 }
 
-/* Archive — 3-col lavender grid of compact cards (reference design) ==== */
+/* Archive, 3-col lavender grid of compact cards (reference design) ==== */
 .rc__stream { padding: 80px 72px; background: #F4F2FA; }
 .rc__stream-list {
   max-width: 1200px; margin: 0 auto;
@@ -634,6 +630,42 @@ const CSS = `
   display: inline-flex; align-items: center; justify-content: center;
   width: 28px; height: 28px;
 }
+
+/* Type badge — framed tag showing Article / Case study on every cover */
+.rc__type-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 7px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(13, 9, 89, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.rc__type-badge--case {
+  background: rgba(74, 15, 184, 0.88);
+}
+.rc__type-badge--article {
+  background: rgba(243, 113, 55, 0.92);
+}
+.rc__arch-card--hero .rc__type-badge {
+  top: 14px;
+  left: 14px;
+  padding: 4px 8px;
+  font-size: 10px;
+}
 .rc__arch-body { padding: 18px 8px 10px; display: flex; flex-direction: column; }
 .rc__arch-title {
   font-family: 'Poppins', sans-serif;
@@ -654,7 +686,7 @@ const CSS = `
 }
 .rc__arch-card:hover .rc__arch-more { gap: 10px; color: #0D0959; }
 
-/* Hero feature — same card, larger */
+/* Hero feature, same card, larger */
 .rc__arch-card--hero {
   max-width: 560px;
   margin: 0 auto;

@@ -1,4 +1,4 @@
-// Contact page — single-form layout, Web3Forms backed, matching site design system.
+// Contact page, single-form layout, Web3Forms backed, matching site design system.
 // Color tokens: navy #0D0959, indigo #3E33BB, lavender #E8E4FB, pink #ED1F80
 // Typography: Poppins
 // Mirrors the wordmark + lavender hero treatment used on Campaigns.
@@ -66,7 +66,7 @@ function Contact() {
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success !== false) {
         // If the user opted into the newsletter, also subscribe them via the dedicated API.
-        // We don't block success on this — the contact submission itself succeeded.
+        // We don't block success on this, the contact submission itself succeeded.
         if (data.newsletter_signup && data.email) {
           fetch('https://knowaa-info.com/api/subscribe', {
             method: 'POST',
@@ -75,9 +75,9 @@ function Contact() {
               email: data.email,
               name: `${data.first_name} ${data.last_name}`.trim(),
             }),
-          }).catch(() => { /* swallow — primary submit succeeded */ });
+          }).catch(() => { /* swallow, primary submit succeeded */ });
         }
-        setStatus({ type: 'ok', message: "Thanks — your message is on its way. We'll be in touch shortly." });
+        setStatus({ type: 'ok', message: "Thanks, your message is on its way. We'll be in touch shortly." });
         setData({
           first_name: '', last_name: '', email: '', phone: '', company: '',
           service_interest: '', inquiry: '', agree_terms: false, newsletter_signup: false, botcheck: false,
@@ -96,7 +96,7 @@ function Contact() {
     <main className="kw-contact">
       <style>{CONTACT_CSS}</style>
 
-      {/* Hero band — lavender strip with title */}
+      {/* Hero band, lavender strip with title */}
       <section className="kw-contact__hero">
         <div className="kw-contact__hero-inner">
           <p className="kw-contact__kicker">Contact</p>
@@ -104,14 +104,14 @@ function Contact() {
         </div>
       </section>
 
-      {/* Main grid — intro/socials + form */}
+      {/* Main grid, intro/socials + form */}
       <section className="kw-contact__main">
         <span className="kw-contact__brandmark" aria-hidden="true">
           <img src="assets/knowaa-mark.svg" alt="" />
         </span>
         <div className="kw-contact__grid">
 
-          {/* Left — intro, contact details, socials */}
+          {/* Left, intro, contact details, socials */}
           <aside className="kw-contact__intro">
             <h2 className="kw-contact__intro-h">Get in touch.</h2>
             <p className="kw-contact__intro-p">
@@ -151,7 +151,7 @@ function Contact() {
             </div>
           </aside>
 
-          {/* Right — form */}
+          {/* Right, form */}
           <form ref={formRef} className="kw-contact__form" onSubmit={handleSubmit} noValidate>
             {/* Honeypot */}
             <input
@@ -215,7 +215,7 @@ function Contact() {
               <label htmlFor="inquiry">How can we help? <span className="kw-contact__req">*</span></label>
               <textarea id="inquiry" name="inquiry" rows="6" maxLength={INQUIRY_MAX} required
                 value={data.inquiry} onChange={handleChange('inquiry')}
-                placeholder="A little context on the program, the audience, the timeline — anything that helps us respond well."
+                placeholder="A little context on the program, the audience, the timeline, anything that helps us respond well."
               />
               <div className={'kw-contact__counter' + (inquiryOver ? ' is-over' : '')}>
                 {inquiryRemaining} characters left

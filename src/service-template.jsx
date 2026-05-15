@@ -113,7 +113,7 @@ function ServiceHero({ eyebrow, title, intro }) {
           line-height: 1.5;
           margin-bottom: 4px;
         }
-        /* Statement line — pulls focus right after the lede. */
+        /* Statement line, pulls focus right after the lede. */
         .svc-hero__intro:nth-of-type(2) {
           font-size: clamp(20px, 1.65vw, 26px);
           font-weight: 700;
@@ -185,7 +185,7 @@ function ServiceShowcase({ samples, intervalMs = 7000 }) {
       const hidden = document.hidden;
       setTabHidden(hidden);
       if (!hidden) {
-        // Re-kick the centered video — browsers may have paused it.
+        // Re-kick the centered video, browsers may have paused it.
         const v = videoRefs.current[virtualIndex];
         if (v) {
           const p = v.play();
@@ -284,7 +284,7 @@ function ServiceShowcase({ samples, intervalMs = 7000 }) {
                   )}
                 </div>
 
-                {/* Caption — sits below the video, only readable on the active card */}
+                {/* Caption, sits below the video, only readable on the active card */}
                 <div className="svc-show__caption">
                   <div className="svc-show__caption-eyebrow">{s.label}</div>
                   <p className="svc-show__caption-text">{s.caption}</p>
@@ -295,7 +295,7 @@ function ServiceShowcase({ samples, intervalMs = 7000 }) {
         </div>
       </div>
 
-      {/* Progress dots — outside the strip viewport */}
+      {/* Progress dots, outside the strip viewport */}
       <div className="svc-show__dots" role="tablist" aria-label="Sample navigation">
         {samples.map((_, i) => (
           <button
@@ -403,7 +403,7 @@ function ServiceShowcase({ samples, intervalMs = 7000 }) {
           opacity: 0.75;
         }
 
-        /* Caption — sits below the video, only readable on the active card */
+        /* Caption, sits below the video, only readable on the active card */
         .svc-show__caption {
           padding: 20px 8px 0;
           opacity: 0;
@@ -431,7 +431,7 @@ function ServiceShowcase({ samples, intervalMs = 7000 }) {
           max-width: 720px;
         }
 
-        /* Dots — sit below the strip, centered */
+        /* Dots, sit below the strip, centered */
         .svc-show__dots {
           display: flex;
           justify-content: center;
@@ -503,7 +503,7 @@ function ServiceContentPlaceholder() {
         <div className="svc-next__rule" aria-hidden="true" />
         <div className="svc-next__label">More on this service</div>
         <p className="svc-next__copy">
-          Detailed explanation sections will live here — the methodology, the deliverables,
+          Detailed explanation sections will live here, the methodology, the deliverables,
           the way we work, and how it ties to outcomes.
         </p>
       </div>
@@ -555,12 +555,12 @@ function Recognition() {
           <img
             className="svc-recognition__badge"
             src="assets/testimonials/watch-list-2026.png"
-            alt="2026 Watch List Company — Custom Content Development — Training Industry"
+            alt="2026 Watch List Company, Custom Content Development, Training Industry"
           />
           <img
             className="svc-recognition__badge"
             src="assets/testimonials/badge-2.png"
-            alt="Top Content Providers for Custom eLearning 2026 — Featured on elearningindustry.com"
+            alt="Top Content Providers for Custom eLearning 2026, Featured on elearningindustry.com"
           />
         </div>
       </div>

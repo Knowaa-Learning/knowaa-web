@@ -1,4 +1,4 @@
-// Footer — knowaa edition modeled on the reference (gogopool style):
+// Footer, knowaa edition modeled on the reference (gogopool style):
 // 4-column link grid on the right, logo + subscribe block on the left,
 // copyright row beneath a thin rule.
 
@@ -78,7 +78,7 @@
     return (
       <footer id="contact" data-screen-label="Footer" className="kwfooter">
         <div className="kwfooter__inner">
-          {/* Left — logo, tagline, subscribe */}
+          {/* Left, logo, tagline, subscribe */}
           <div className="kwfooter__left">
             <a href="Knowaa Homepage.html" aria-label="Knowaa" className="kwfooter__logo">
               <img src="assets/knowaa-logo.svg" alt="Knowaa" />
@@ -112,7 +112,7 @@
             )}
           </div>
 
-          {/* Right — 4-col link grid */}
+          {/* Right, 4-col link grid */}
           <nav className="kwfooter__grid" aria-label="Footer">
             {COLUMNS.map((col) => (
               <div key={col.heading} className="kwfooter__col">
@@ -197,7 +197,7 @@
           }
           .kwfooter__form button:hover { background: #2D22A8; transform: translateY(-1px); }
 
-          /* ── Right — link grid ── */
+          /* ── Right, link grid ── */
           .kwfooter__grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0,1fr));

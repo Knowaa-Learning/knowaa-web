@@ -1,4 +1,4 @@
-// Tweaks — only exposes hero copy knobs for now.
+// Tweaks, only exposes hero copy knobs for now.
 const { useState: useStateT, useEffect: useEffectT } = React;
 
 function TweaksPanel({ tweaks, setTweaks }) {

@@ -1,4 +1,4 @@
-// Knowaa — Our Approach section
+// Knowaa, Our Approach section
 // Scroll-linked reveal + continuous floating purple boxes.
 // Plain-JSX adaptation of the provided Next/TSX spec. CSS inlined via <style>.
 
@@ -6,7 +6,7 @@ const { useEffect: useEffectApproach, useRef: useRefApproach } = React;
 
 // Edit this array to drop in real images later.
 // Keep three entries and the boxOnLeft pattern (true, false, true).
-// `body` is an array of segments — strings render plain, { hl: "…" }
+// `body` is an array of segments, strings render plain, { hl: "…" }
 // objects become sequentially-animated highlight words (indigo flash →
 // bold navy) when the row scrolls into view.
 const APPROACH_ROWS = [
@@ -202,7 +202,7 @@ function Approach() {
   return (
     <section className="kw-approach" aria-labelledby="kw-approach-title">
       <style>{`
-/* Knowaa — Our Approach section (scroll-linked + floating) */
+/* Knowaa, Our Approach section (scroll-linked + floating) */
 .kw-approach {
   position: relative;
   background: #ffffff;
@@ -349,7 +349,7 @@ function Approach() {
   object-fit: cover;
   display: block;
 }
-/* Float animations — negative delays = phase offset so boxes don't breathe in sync */
+/* Float animations, negative delays = phase offset so boxes don't breathe in sync */
 .kw-approach__row.is-revealed[data-approach-row="1"] .kw-approach__box {
   animation: kwApproachFloat1 7s ease-in-out -1s infinite;
 }

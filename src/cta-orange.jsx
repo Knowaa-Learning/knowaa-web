@@ -1,4 +1,4 @@
-// CTA — orange section with scroll-driven monitor frame animation.
+// CTA, orange section with scroll-driven monitor frame animation.
 // All 31 frames are mounted as stacked <img> elements; we toggle opacity
 // instead of swapping src, which eliminates decode-flash on scroll.
 
@@ -145,7 +145,7 @@ function CTAOrange({
     };
 
     const tick = () => {
-      // Ease currentIdx toward targetIdx — kills scroll-wheel jitter.
+      // Ease currentIdx toward targetIdx, kills scroll-wheel jitter.
       currentIdx += (targetIdx - currentIdx) * 0.25;
       const idx = Math.round(currentIdx);
       if (idx !== lastShownIdx) {
@@ -302,7 +302,7 @@ function CTAOrange({
           object-fit: contain;
           display: block;
           opacity: 0;
-          /* No transition here — instant swap is what we want, and the
+          /* No transition here, instant swap is what we want, and the
              stacked-opacity approach already prevents flicker because the
              next frame is fully decoded before being shown. */
           will-change: opacity;

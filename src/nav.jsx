@@ -6,7 +6,7 @@
 
 const { useState: useStateN, useEffect: useEffectN, useRef: useRefN } = React;
 
-// The "o" icon system — purple stroke circle, magenta accent. Each tells a different story.
+// The "o" icon system, purple stroke circle, magenta accent. Each tells a different story.
 const OIcons = {
   insights: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A0FB8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -62,7 +62,7 @@ const NAV = [
           heading: '',
           items: [
             { title: 'Case studies', desc: 'How we work, in practice', href: 'Knowaa Resources.html?type=case', iconSrc: 'assets/icons/nav-case-studies.svg' },
-            { title: 'Insights', desc: 'Field notes and essays from our studio', href: 'Knowaa Resources.html?type=insight', iconSrc: 'assets/icons/nav-insights.svg' },
+            { title: 'Insights', desc: 'Field notes and essays from our studio', href: 'Knowaa Resources.html?type=article', iconSrc: 'assets/icons/nav-insights.svg' },
             { title: 'Newsletter signup', desc: 'Weekly, under 5 minutes', iconSrc: 'assets/icons/nav-newsletter.svg' },
           ],
         },
@@ -274,7 +274,7 @@ function NewsletterForm({ onBack }) {
       padding: '6px 4px 4px 0',
       maxWidth: '480px',
     }}>
-      {/* Section title — matches other section headings */}
+      {/* Section title, matches other section headings */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px' }}>
         <img
           src="assets/nav/newsletter-envelope.svg"
@@ -303,7 +303,7 @@ function NewsletterForm({ onBack }) {
         A short weekly dispatch from our studio.
       </div>
 
-      {/* Light-grey form surface — contains the input + meta row so the form reads as a distinct panel. */}
+      {/* Light-grey form surface, contains the input + meta row so the form reads as a distinct panel. */}
       <div style={{
         background: '#F5F5F5',
         border: '1px solid #EAEAEA',
@@ -765,7 +765,7 @@ function MobileMenu({ isOpen, onClose, textColor, logoSrc, solid }) {
 
 function Nav({ solid = false, pinned = false }) {
   const { hidden: scrollHidden, atTop } = useNavScroll();
-  // When `pinned`, the nav never hides on scroll — it stays locked in place.
+  // When `pinned`, the nav never hides on scroll, it stays locked in place.
   const isHidden = pinned ? false : scrollHidden;
   const [open, setOpen] = useStateN(null); // index of open menu
   const [hover, setHover] = useStateN(null);
@@ -932,7 +932,7 @@ function Nav({ solid = false, pinned = false }) {
             ))}
           </nav>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger, mobile only */}
           <button
             type="button"
             className="nav-hamburger"
@@ -983,7 +983,7 @@ function Nav({ solid = false, pinned = false }) {
       </div>
     </header>
 
-    {/* Mobile menu — sibling of <header> so its fixed positioning is
+    {/* Mobile menu, sibling of <header> so its fixed positioning is
         relative to the viewport, not the header's transformed box. */}
     <MobileMenu
       isOpen={mobileOpen}

@@ -1,4 +1,4 @@
-// "Insight of the week" — editorial carousel (integration of spec'd component).
+// "Insight of the week", editorial carousel (integration of spec'd component).
 // Adapted from the provided Next.js/TSX spec to this project's Babel-JSX setup.
 // Video served from assets/insights/02-attention-threshold.mp4.
 
@@ -53,7 +53,7 @@ function Insight() {
         // Progress: -1 (section entering from below) -> 0 (centered) -> 1 (leaving above)
         const progress = (vh / 2 - (rect.top + rect.height / 2)) / (vh / 2 + rect.height / 2);
         const clamped = Math.max(-1, Math.min(1, progress));
-        // Plinth moves UP faster (parallax background feel) — pronounced range.
+        // Plinth moves UP faster (parallax background feel), pronounced range.
         const plinthY = clamped * -180;
         // Card drifts in opposite direction for stronger layered depth.
         const cardY = clamped * 48;
@@ -305,7 +305,7 @@ function Insight() {
             </div>
             <ol className="insights__track" data-track>
 
-              {/* SLIDE 1 — Generic Training / AI Strategy */}
+              {/* SLIDE 1, Generic Training / AI Strategy */}
               <li
                 className="insight-card"
                 data-slide="0"
@@ -338,13 +338,13 @@ function Insight() {
                   </a>
                 </div>
 
-                {/* Cover — Generic Training editorial image */}
+                {/* Cover, Generic Training editorial image */}
                 <div className="insight-card__cover insight-card__cover--1" aria-hidden="true">
                   <img src="assets/insights/generic-training-cover.jpg" alt="" loading="lazy" />
                 </div>
               </li>
 
-              {/* SLIDE 2 — Attention Threshold (DEFAULT active slide) */}
+              {/* SLIDE 2, Attention Threshold (DEFAULT active slide) */}
               <li
                 className="insight-card is-active"
                 data-slide="1"
@@ -377,7 +377,7 @@ function Insight() {
                   </a>
                 </div>
 
-                {/* Square video cover — 1080x1080, H.264, 7s silent loop */}
+                {/* Square video cover, 1080x1080, H.264, 7s silent loop */}
                 <div className="insight-card__cover insight-card__cover--2" aria-hidden="true">
                   <video
                     className="cover-video"
@@ -415,7 +415,7 @@ function Insight() {
             </button>
           </div>
 
-          {/* Progress bar — hidden via JS when AUTO_ADVANCE is false */}
+          {/* Progress bar, hidden via JS when AUTO_ADVANCE is false */}
           <div className="insights__progress" aria-hidden="true">
             <span className="insights__progress-bar" data-progress></span>
           </div>
@@ -499,7 +499,7 @@ const INSIGHTS_CSS = `
 }
 .insights__viewport { position: relative; }
 .insights__plinth {
-  display: none; /* removed — section background is now lavender */
+  display: none; /* removed, section background is now lavender */
 }
 .insights__plinth-svg { display: block; width: 100%; height: 100%; }
 .insights__plinth::after {
@@ -551,7 +551,7 @@ const INSIGHTS_CSS = `
   will-change: transform;
 }
 .insight-card::before {
-  content: none; /* removed — gogopool-style clean card without left stripe */
+  content: none; /* removed, gogopool-style clean card without left stripe */
 }
 
 .insight-card__body {

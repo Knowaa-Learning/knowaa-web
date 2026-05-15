@@ -1,6 +1,6 @@
 const { useState: useStateTest, useEffect: useEffectTest, useRef: useRefTest } = React;
 
-// NOTE: This carousel has NO manual controls by design — no arrows, no dots,
+// NOTE: This carousel has NO manual controls by design, no arrows, no dots,
 // no keyboard, no swipe. Auto-advance only, with pause-on-hover.
 
 const TESTIMONIALS = [
@@ -504,7 +504,7 @@ function Testimonials() {
   );
 }
 
-/* ─── Recognition strip — renders on white below testimonials. ─── */
+/* ─── Recognition strip, renders on white below testimonials. ─── */
 function Recognition() {
   return (
     <section className="kw-recognition" aria-label="Industry recognition">
@@ -514,12 +514,12 @@ function Recognition() {
           <img
             className="kw-recognition__badge"
             src="assets/testimonials/watch-list-2026.png"
-            alt="2026 Watch List Company — Custom Content Development — Training Industry"
+            alt="2026 Watch List Company, Custom Content Development, Training Industry"
           />
           <img
             className="kw-recognition__badge"
             src="assets/testimonials/badge-2.png"
-            alt="Top Content Providers for Custom eLearning 2026 — Featured on elearningindustry.com"
+            alt="Top Content Providers for Custom eLearning 2026, Featured on elearningindustry.com"
           />
         </div>
       </div>

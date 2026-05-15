@@ -1,4 +1,4 @@
-// RESOURCES LANDING — Variation B: MAGAZINE
+// RESOURCES LANDING, Variation B: MAGAZINE
 // Bold issue cover energy. Full-bleed hero with huge headline,
 // asymmetric grid of featured pieces, then a clean type-led list.
 // Feels like an Issue N of a design magazine. Matches homepage energy.
@@ -45,7 +45,7 @@ function ResourcesMagazine() {
           </h1>
           {hero && (
             <a className="rc-mag__cover-feature" href={`#article-${hero.id}`}>
-              <div className="rc-mag__cover-feature-label">On the cover \u2014</div>
+              <div className="rc-mag__cover-feature-label">On the cover , </div>
               <div className="rc-mag__cover-feature-title">{hero.title}</div>
               <div className="rc-mag__cover-feature-meta">
                 <span>{window.TYPES.find(t => t.key === hero.type)?.label}</span>
@@ -82,7 +82,7 @@ function ResourcesMagazine() {
         </div>
       </div>
 
-      {/* FEATURED MOSAIC — asymmetric 3 cards */}
+      {/* FEATURED MOSAIC, asymmetric 3 cards */}
       {(feature1 || feature2 || feature3) && (
         <section className="rc-mag__mosaic-wrap">
           <div className="rc-mag__section-head">
@@ -99,7 +99,7 @@ function ResourcesMagazine() {
         </section>
       )}
 
-      {/* REST — type-led grid, looks like a magazine contents page */}
+      {/* REST, type-led grid, looks like a magazine contents page */}
       {rest.length > 0 && (
         <section className="rc-mag__rest-wrap">
           <div className="rc-mag__section-head">
@@ -136,7 +136,7 @@ function ResourcesMagazine() {
         <div>
           <p className="rc-mag__coloph-kicker">Subscribe</p>
           <h3 className="rc-mag__coloph-title">Get the next issue <em>in your inbox.</em></h3>
-          <p className="rc-mag__coloph-sub">One email a week. New articles, case studies, and short insights \u2014 straight from the Knowaa studio.</p>
+          <p className="rc-mag__coloph-sub">One email a week. New articles, case studies, and short insights ,  straight from the Knowaa studio.</p>
         </div>
         <form className="rc-mag__coloph-form" onSubmit={(e) => e.preventDefault()}>
           <input type="email" placeholder="you@company.com" />

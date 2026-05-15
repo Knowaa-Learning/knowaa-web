@@ -1,4 +1,4 @@
-// Privacy Policy — content adapted from the legal copy, matching the Terms page styling.
+// Privacy Policy, content adapted from the legal copy, matching the Terms page styling.
 
 const PRIVACY_LEDE = { html: `This Privacy Policy describes how Knowaa LLC ("Knowaa," "we," "us," or "our") collects, uses, shares, and protects personal information when you visit <a href="https://www.knowaa.com">www.knowaa.com</a> (the "Site"), submit our contact form, or subscribe to our newsletter. For the purposes of the EU General Data Protection Regulation, the UK General Data Protection Regulation, and similar laws, Knowaa is the controller of personal information collected through the Site.` };
 
@@ -47,9 +47,9 @@ const SECTIONS = [
     children: [
       { type: 'p', text: 'If you are located in the European Economic Area, the United Kingdom, or Switzerland, our legal bases for processing your personal information are:' },
       { type: 'ul', items: [
-        { html: '<strong>Consent</strong> \u2014 for sending you the newsletter and for non-essential cookies.' },
-        { html: '<strong>Legitimate interests</strong> \u2014 for responding to your contact-form inquiry, securing and improving the Site, and conducting basic analytics. We balance these interests against your privacy rights.' },
-        { html: '<strong>Legal obligation</strong> \u2014 where we must process information to comply with applicable law.' },
+        { html: '<strong>Consent</strong> ,  for sending you the newsletter and for non-essential cookies.' },
+        { html: '<strong>Legitimate interests</strong> ,  for responding to your contact-form inquiry, securing and improving the Site, and conducting basic analytics. We balance these interests against your privacy rights.' },
+        { html: '<strong>Legal obligation</strong> ,  where we must process information to comply with applicable law.' },
       ] },
     ],
   },
@@ -59,8 +59,8 @@ const SECTIONS = [
       { type: 'p', text: 'Knowaa does not sell or rent personal information. We share personal information only in the limited circumstances below:' },
       { type: 'ul', items: [
         { html: '<strong>Service providers</strong> who process information on our behalf. Current providers include: <strong>Web3Forms</strong> (contact-form submission processing), <strong>Vercel</strong> (website hosting and server logs), and <strong>Google Workspace</strong> (business email used to receive and respond to inquiries and to send the newsletter). These providers are contractually limited to using the information only to deliver their services to us.' },
-        { html: '<strong>Legal and safety</strong> \u2014 where required by law, court order, or governmental request; to enforce our Terms; or to protect the rights, property, or safety of Knowaa, our users, or the public.' },
-        { html: '<strong>Business transfers</strong> \u2014 in connection with a merger, acquisition, financing, reorganization, or sale of assets, subject to standard confidentiality protections.' },
+        { html: '<strong>Legal and safety</strong> ,  where required by law, court order, or governmental request; to enforce our Terms; or to protect the rights, property, or safety of Knowaa, our users, or the public.' },
+        { html: '<strong>Business transfers</strong> ,  in connection with a merger, acquisition, financing, reorganization, or sale of assets, subject to standard confidentiality protections.' },
       ] },
       { type: 'h3', text: '4.1 Categories of personal information disclosed (CCPA/CPRA)' },
       { type: 'p', text: 'In the preceding twelve (12) months, we have disclosed the following categories of personal information to service providers for the business purposes described in Section 2: identifiers (name, email, phone); commercial information (company name, service of interest); internet or other network activity information (IP address, browser data); and inferences drawn from the foregoing (if any).' },
@@ -89,7 +89,7 @@ const SECTIONS = [
   {
     heading: 'International Data Transfers',
     children: [
-      { type: 'p', text: 'Knowaa is based in the United States, and our service providers may also be located in the United States or other countries. If you access the Site from outside the United States, your personal information will be transferred to and processed in countries that may have different data-protection laws than your country of residence. Where required by law, we rely on appropriate safeguards \u2014 such as the European Commission\u2019s Standard Contractual Clauses \u2014 to legitimize such transfers.' },
+      { type: 'p', text: 'Knowaa is based in the United States, and our service providers may also be located in the United States or other countries. If you access the Site from outside the United States, your personal information will be transferred to and processed in countries that may have different data-protection laws than your country of residence. Where required by law, we rely on appropriate safeguards ,  such as the European Commission\u2019s Standard Contractual Clauses ,  to legitimize such transfers.' },
     ],
   },
   {
@@ -109,7 +109,7 @@ const SECTIONS = [
       { type: 'h3', text: '8.2 Rights for EEA, UK, and Swiss residents (GDPR/UK GDPR)' },
       { type: 'p', text: 'Subject to applicable law, you have the right to access, rectify, erase, restrict processing of, port, and object to processing of your personal information; and to withdraw consent at any time where processing is based on consent. You also have the right to lodge a complaint with your local data-protection authority.' },
       { type: 'h3', text: '8.3 How to exercise your rights' },
-      { type: 'p', html: 'To exercise any of these rights, email us at <a href="mailto:info@knowaa.com">info@knowaa.com</a> with the subject line "Privacy Rights Request" and describe your request. We will verify your identity using information we already have on file (such as the email address from which you previously contacted us) and respond within the timeframes required by applicable law \u2014 typically forty-five (45) days under CCPA and thirty (30) days under GDPR.' },
+      { type: 'p', html: 'To exercise any of these rights, email us at <a href="mailto:info@knowaa.com">info@knowaa.com</a> with the subject line "Privacy Rights Request" and describe your request. We will verify your identity using information we already have on file (such as the email address from which you previously contacted us) and respond within the timeframes required by applicable law ,  typically forty-five (45) days under CCPA and thirty (30) days under GDPR.' },
       { type: 'p', text: 'You may also authorize an agent to submit a request on your behalf. We require written proof of authorization (such as a signed permission letter or a notarized statement), and we may verify your identity directly before fulfilling the request. We will not provide personal information to an agent without satisfactory verification.' },
     ],
   },

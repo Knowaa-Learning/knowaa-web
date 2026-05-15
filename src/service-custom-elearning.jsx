@@ -1,4 +1,4 @@
-// Custom eLearning service entry — provides data, mounts ServicePage.
+// Custom eLearning service entry, provides data, mounts ServicePage.
 const customElearningService = {
   eyebrow: 'Custom eLearning',
   banner: 'images/elearning-header.jpg',
@@ -16,13 +16,13 @@ const customElearningService = {
   samples: [
     {
       label: 'AI-powered learning',
-      caption: 'Adaptive content that reshapes itself around each learner — pace, depth, and examples tuned to what they already know and how they actually work.',
+      caption: 'Adaptive content that reshapes itself around each learner, pace, depth, and examples tuned to what they already know and how they actually work.',
       video: 'assets/elearning/sample-ai.mp4',
       accent: 'linear-gradient(135deg, #4A0FB8 0%, #3E33BB 100%)',
     },
     {
       label: 'Gamification',
-      caption: 'Progression, stakes, and narrative — designed so the game mechanic teaches the behavior, not just rewards completion.',
+      caption: 'Progression, stakes, and narrative, designed so the game mechanic teaches the behavior, not just rewards completion.',
       video: 'assets/elearning/sample-gamification.mp4',
       accent: 'linear-gradient(135deg, #F37137 0%, #ED1F80 100%)',
     },
@@ -31,6 +31,12 @@ const customElearningService = {
       caption: 'Hands-on simulations and branching decisions where learners practice the real workflow inside a safe sandbox before they ever touch production.',
       video: 'assets/elearning/sample-interactive.mp4',
       accent: 'linear-gradient(135deg, #0D0959 0%, #503594 100%)',
+    },
+    {
+      label: 'Polished UI',
+      caption: 'Considered interface design from typography to motion, training that looks and feels like the best product your learners use, not the worst.',
+      video: 'assets/elearning/sample-ui.mp4',
+      accent: 'linear-gradient(135deg, #4A0FB8 0%, #ED1F80 100%)',
     },
   ],
 };

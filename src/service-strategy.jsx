@@ -1,4 +1,4 @@
-// Custom eLearning service entry — provides data, mounts ServicePage.
+// Custom eLearning service entry, provides data, mounts ServicePage.
 const strategyService = {
   eyebrow: 'Strategy',
   banner: 'assets/strategy/header-banner.jpg',

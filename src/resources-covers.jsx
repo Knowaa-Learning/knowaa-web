@@ -1,4 +1,4 @@
-// Resource cover art — per-resource SVG compositions + case study imagery.
+// Resource cover art, per-resource SVG compositions + case study imagery.
 // Each composition pulls from the Knowaa visual system:
 //   purple field + orange sun + pink accents + white hairline grid + noise.
 // Keeps resources visually unified but individually recognizable.
@@ -39,7 +39,7 @@ function CoverPurpleSun({ seed = 0 }) {
   );
 }
 
-// Editorial cover — typographic abstraction of "attention"
+// Editorial cover, typographic abstraction of "attention"
 function CoverAttention() {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -68,7 +68,7 @@ function CoverAttention() {
   );
 }
 
-// Case study cover — with client logo and subtle outcome
+// Case study cover, with client logo and subtle outcome
 function CoverCase({ client, logo, accent = '#F37137' }) {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -98,7 +98,7 @@ function CoverCase({ client, logo, accent = '#F37137' }) {
   );
 }
 
-// Sim vs deck — two stacked rectangles, one alive one dead
+// Sim vs deck, two stacked rectangles, one alive one dead
 function CoverSimDeck() {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -130,7 +130,7 @@ function CoverSimDeck() {
   );
 }
 
-// Measurement — stylized chart that rejects a "quiz" score
+// Measurement, stylized chart that rejects a "quiz" score
 function CoverMeasure() {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -152,7 +152,7 @@ function CoverMeasure() {
   );
 }
 
-// Insight covers — smaller, typographic, minimal
+// Insight covers, smaller, typographic, minimal
 function CoverInsight({ word, accent }) {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -169,7 +169,7 @@ function CoverInsight({ word, accent }) {
   );
 }
 
-// AI personas — orbit of circles
+// AI personas, orbit of circles
 function CoverAIPersonas() {
   return (
     <svg className="rc-cover-art" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
@@ -198,7 +198,7 @@ function CoverAIPersonas() {
   );
 }
 
-// Dispatcher — picks the right cover per id/type
+// Dispatcher, picks the right cover per id/type
 function ResourceCover({ resource }) {
   const { id, cover, type, client } = resource;
   if (cover === 'purple-sun') return <CoverPurpleSun seed={1} />;

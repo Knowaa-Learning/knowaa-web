@@ -1,4 +1,4 @@
-// WhoWeAre — scroll-linked 91-frame animation with animated stat counters.
+// WhoWeAre, scroll-linked 91-frame animation with animated stat counters.
 // Replaces the old Industries section.
 
 const { useEffect: useEffectWWA, useRef: useRefWWA } = React;

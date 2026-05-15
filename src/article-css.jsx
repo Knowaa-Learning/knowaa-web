@@ -1,4 +1,4 @@
-// Article CSS — clean, narrow, editorial. Matches the case-study aesthetic but
+// Article CSS, clean, narrow, editorial. Matches the case-study aesthetic but
 // stripped to article essentials. White surface, navy ink, Poppins, subtle
 // orange accents, narrow reading column.
 
@@ -10,7 +10,7 @@ const CSS_ARTICLE = `
   position: relative;
 }
 
-/* Banner — when used inside an article, scale the title down and cap its width
+/* Banner, when used inside an article, scale the title down and cap its width
    so it doesn't overlap the illustration on the right side of the cover image. */
 .art__banner {
   position: relative;
@@ -247,13 +247,13 @@ const CSS_ARTICLE = `
   border: 0;
 }
 
-/* Inline figure — image breaks out slightly past the 720px reading column
+/* Inline figure, image breaks out slightly past the 720px reading column
    so the full-width infographic gets room to breathe. */
 .art__figure {
   margin: 48px auto;
   max-width: 100%;
   /* Break out of the 720px column to fill the available padded width */
-  width: min(960px, 100%);
+  width: min(768px, 100%);
   margin-left: 50%;
   transform: translateX(-50%);
   position: relative;
@@ -373,7 +373,7 @@ const CSS_ARTICLE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ARTICLE CTA — compact orange band, only on the article page.
+   ARTICLE CTA, compact orange band, only on the article page.
    Other pages keep the full CTAOrange treatment.
    ═══════════════════════════════════════════════════════════ */
 
@@ -458,7 +458,7 @@ const CSS_ARTICLE = `
   transform: translateY(-1px);
   box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.32);
 }
-/* Right column for the static frame — sits in the right ~28% strip with the
+/* Right column for the static frame, sits in the right ~28% strip with the
    image horizontally centered inside it. Negative top margin pulls the image
    above the band's top edge by ~20% of its height. */
 .art__cta-img-cell {

@@ -1,4 +1,4 @@
-// Custom eLearning — minimal content sections.
+// Custom eLearning, minimal content sections.
 // Just the source text, simple typography, lots of breathing room.
 // One subtle orange rule per section. Nothing else.
 
@@ -23,11 +23,11 @@ function CampaignsWordmark() {
     <div className="kw-wordmark" aria-label="Internal Campaigns, Marketing, Communications, Nudging, Branding">
       <span className="kw-wordmark__static">Internal&nbsp;</span>
       <span className="kw-wordmark__slot">
-        {/* Active word — in normal flow so the slot width matches it; centers the line */}
+        {/* Active word, in normal flow so the slot width matches it; centers the line */}
         <span key={'a-' + active} className="kw-wordmark__word kw-wordmark__word--in is-active">
           {WORDMARK_WORDS[active]}
         </span>
-        {/* Leaving word — absolute overlay; fades up + blurs out */}
+        {/* Leaving word, absolute overlay; fades up + blurs out */}
         {prev !== null && prev !== active && (
           <span key={'l-' + prev} className="kw-wordmark__word kw-wordmark__word--out">
             {WORDMARK_WORDS[prev]}
@@ -63,7 +63,7 @@ function CampaignsContent() {
 
   return (
     <div className="ce">
-      {/* 2.5 — Lavender strip with animated wordmark + aphorism */}
+      {/* 2.5, Lavender strip with animated wordmark + aphorism */}
       <section className="ce__sec ce__sec--grid">
         <div className="ce__inner ce__inner--wide">
           <CampaignsWordmark />
@@ -74,7 +74,7 @@ function CampaignsContent() {
         </div>
       </section>
 
-      {/* 5.5 — Process: tabs flow (Instructional → Creative → Production → Impact) */}
+      {/* 5.5, Process: tabs flow (Instructional → Creative → Production → Impact) */}
       <section className="ce__sec ce__sec--journey" ref={rJourney}>
         <div className="ce__inner ce__inner--wide">
           <div className="ce__journey-head">
@@ -89,7 +89,7 @@ function CampaignsContent() {
                 {
                   id: 'instructional',
                   label: 'Instructional Design',
-                  body: 'Spaced retrieval. Cognitive load management. Contextual transfer. These are not features we add after the fact — they are the architecture. Every sequence, every interaction, every moment of friction is placed deliberately, because the science tells us what sticks and what evaporates the moment the module closes.',
+                  body: 'Spaced retrieval. Cognitive load management. Contextual transfer. These are not features we add after the fact, they are the architecture. Every sequence, every interaction, every moment of friction is placed deliberately, because the science tells us what sticks and what evaporates the moment the module closes.',
                   icon: (
                     <svg className="tab-icon" viewBox="262.90 162.93 288.90 260.86" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path transform="matrix(1,0,0,-1,374.0558,411.78553)" d="M0 0C-18.95 0-34.367 15.417-34.367 34.367V48.852C-34.367 50.26-33.226 51.402-31.817 51.402-30.408 51.402-29.267 50.26-29.267 48.852V34.367C-29.267 18.229-16.138 5.1 0 5.1 16.138 5.1 29.267 18.229 29.267 34.367V204.965C29.267 219.737 17.248 231.755 2.476 231.755-12.296 231.755-24.315 219.737-24.315 204.965V203.923C-24.315 202.514-25.456 201.373-26.865 201.373-28.273 201.373-29.415 202.514-29.415 203.923V204.965C-29.415 222.549-15.108 236.855 2.476 236.855 20.06 236.855 34.367 222.549 34.367 204.965V34.367C34.367 15.417 18.95 0 0 0" fill="currentColor"/>
@@ -107,7 +107,7 @@ function CampaignsContent() {
                 {
                   id: 'creative',
                   label: 'Creative Layer',
-                  body: 'Visual rhythm, motion, sound, and story. The creative layer is what turns a structurally sound module into something people actually want to spend time with — and what carries the science across the threshold of attention into long-term memory.',
+                  body: 'Visual rhythm, motion, sound, and story. The creative layer is what turns a structurally sound module into something people actually want to spend time with, and what carries the science across the threshold of attention into long-term memory.',
                   icon: (
                     <svg className="tab-icon" viewBox="222.32 476.35 351.53 324.53" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path transform="matrix(1,0,0,-1,449.7775,751.01467)" d="M0 0H-53.293C-55.183 0-56.714 1.532-56.714 3.421-56.714 5.309-55.183 6.841-53.293 6.841H0C1.89 6.841 3.421 5.309 3.421 3.421 3.421 1.532 1.89 0 0 0" fill="currentColor"/>
@@ -138,7 +138,7 @@ function CampaignsContent() {
                 {
                   id: 'production',
                   label: 'Production',
-                  body: 'Studio-grade craft applied at programme scale. Voiceover, motion, illustration, code, and interaction — built by a team that has shipped award-winning learning across regulated industries — so the polish your learners feel was engineered, not improvised.',
+                  body: 'Studio-grade craft applied at programme scale. Voiceover, motion, illustration, code, and interaction, built by a team that has shipped award-winning learning across regulated industries, so the polish your learners feel was engineered, not improvised.',
                   icon: (
                     <svg className="tab-icon" viewBox="296.16 914.09 314.07 317.80" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path transform="matrix(1,0,0,-1,431.4622,932.0745)" d="M0 0C-23.273 0-47.444-6.888-68.346-23.994-136.541-79.809-119.475-162.441-101.196-185.916-101.163-185.959-101.131-186.004-101.1-186.047-100.915-186.314-82.339-212.838-62.865-224.809-48.624-233.562-36.014-235.971-26.396-231.775-16.564-227.482-9.596-216.309-6.243-199.463-1.515-175.711 2.583-172.666 14.823-166.629 19.616-164.264 25.918-164.094 33.215-163.898 50.15-163.443 71.227-162.877 89.291-136.526 102.076-117.877 106.615-95.243 102.07-72.795 97.512-50.271 84.467-31.108 65.342-18.84 47.748-7.555 24.367 0 0 0M-36.466-239.781C-45.355-239.781-55.356-236.469-66.008-229.922-86.256-217.475-104.688-191.391-105.98-189.539-125.264-164.664-143.464-77.721-72.146-19.352-27.041 17.563 32.42 9.408 68.58-13.789 89.084-26.942 103.066-47.475 107.951-71.604 112.82-95.657 107.951-119.919 94.24-139.919 74.445-168.791 50.709-169.43 33.377-169.896 26.783-170.074 21.091-170.227 17.478-172.01 6.869-177.242 4.018-178.648-.358-200.635-4.111-219.492-12.285-232.16-23.996-237.273-27.834-238.949-32.011-239.781-36.466-239.781" fill="currentColor"/>
@@ -157,7 +157,7 @@ function CampaignsContent() {
                 {
                   id: 'impact',
                   label: 'Impact',
-                  body: 'Behaviour change, not completion rates. We instrument every programme to measure the things that actually matter to your business — and feed the data back into the next iteration so the work keeps getting sharper.',
+                  body: 'Behaviour change, not completion rates. We instrument every programme to measure the things that actually matter to your business, and feed the data back into the next iteration so the work keeps getting sharper.',
                   icon: (
                     <svg className="tab-icon" viewBox="336.08 1303.42 246.81 229.78" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path transform="matrix(1,0,0,-1,549.1906,1521.1948)" d="M0 0C-1.365 0-2.473 1.108-2.473 2.473V156.321C-2.473 157.687-1.365 158.794 0 158.794H13.673L-23.092 199.646-59.855 158.794H-46.184C-44.818 158.794-43.711 157.687-43.711 156.321V2.473C-43.711 1.108-44.818 0-46.184 0H-76.231C-77.597 0-78.704 1.108-78.704 2.473V114.618C-90.886 100.837-104.73 89.312-119.947 80.292V2.473C-119.947 1.108-121.055 0-122.42 0H-152.467C-153.833 0-154.941 1.108-154.941 2.473V64.88C-168.327 60.839-182.169 58.683-196.167 58.454V2.473C-196.167 1.108-197.275 0-198.64 0-200.005 0-201.113 1.108-201.113 2.473V60.908C-201.113 62.273-200.005 63.381-198.64 63.381-183.186 63.381-167.91 65.809-153.235 70.599-152.484 70.845-151.658 70.717-151.015 70.25-150.374 69.785-149.994 69.041-149.994 68.248V4.946H-124.893V81.707C-124.893 82.588-124.424 83.403-123.663 83.845-106.606 93.757-91.29 106.898-78.142 122.903-77.477 123.709-76.383 124.016-75.397 123.661-74.413 123.31-73.758 122.377-73.758 121.333V4.946H-48.657V153.848H-65.408C-66.385 153.848-67.27 154.423-67.667 155.315-68.065 156.207-67.899 157.249-67.247 157.976L-24.931 204.997C-23.99 206.039-22.193 206.039-21.253 204.997L21.065 157.976C21.717 157.249 21.883 156.207 21.485 155.315 21.087 154.423 20.203 153.848 19.226 153.848H2.473V2.473C2.473 1.108 1.365 0 0 0" fill="currentColor"/>
@@ -360,7 +360,7 @@ function CampaignsContent() {
           border-bottom: 1px solid rgba(13, 9, 89, 0.08);
         }
 
-        /* ── Animated wordmark — "Internal [rotating word]" ── */
+        /* ── Animated wordmark, "Internal [rotating word]" ── */
         .kw-wordmark {
           display: flex;
           align-items: baseline;
@@ -390,7 +390,7 @@ function CampaignsContent() {
           white-space: nowrap;
           display: inline-block;
         }
-        /* Active word is in flow — drives slot width and lets the parent centering land on the visible text */
+        /* Active word is in flow, drives slot width and lets the parent centering land on the visible text */
         .kw-wordmark__word--in {
           animation: kwWordIn 540ms cubic-bezier(0.34, 1.32, 0.64, 1) both;
         }
@@ -515,7 +515,7 @@ function CampaignsContent() {
           .ce__grid { grid-template-columns: 1fr; gap: 14px; }
         }
 
-        /* —— Process tabs flow (Instructional → Creative → Production → Impact) —— */
+        /* ,, Process tabs flow (Instructional → Creative → Production → Impact) ,, */
         .ce__sec--journey {
           padding-top: clamp(48px, 5vw, 80px);
           padding-bottom: clamp(48px, 5vw, 80px);
@@ -723,7 +723,7 @@ function CampaignsContent() {
           .tab-label { font-size: 13px; margin-top: 8px; }
         }
 
-        /* —— Methodology pyramid (signature) —— */
+        /* ,, Methodology pyramid (signature) ,, */
         .ce__sec--pyramid {
           padding-top: clamp(56px, 6vw, 96px);
           padding-bottom: clamp(56px, 6vw, 96px);
@@ -777,7 +777,7 @@ function CampaignsContent() {
           height: auto;
         }
 
-        /* SVG text — set inside <text> elements via CSS */
+        /* SVG text, set inside <text> elements via CSS */
         .ce__pyr-label-num {
           font-family: 'Poppins', sans-serif;
           font-size: 14px;
@@ -798,7 +798,7 @@ function CampaignsContent() {
         .ce__pyr-label-name--md { font-size: 20px; }
         .ce__pyr-label-name--lg { font-size: 26px; }
 
-        /* Layer reveal — bottom-up */
+        /* Layer reveal, bottom-up */
         .ce__pyr-layer {
           opacity: 0;
           transform: translateY(20px);
@@ -815,7 +815,7 @@ function CampaignsContent() {
           transform: none;
         }
 
-        /* —— Side callouts —— */
+        /* ,, Side callouts ,, */
         .ce__pyr-callouts {
           position: absolute;
           inset: 0;

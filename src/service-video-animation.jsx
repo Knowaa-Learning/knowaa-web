@@ -1,4 +1,4 @@
-// Custom eLearning service entry — provides data, mounts ServicePage.
+// Custom eLearning service entry, provides data, mounts ServicePage.
 const videoAnimationService = {
   eyebrow: 'Video & Animation',
   banner: 'images/animation-header.jpg',
@@ -22,6 +22,12 @@ const videoAnimationService = {
   },
   samples: [
     {
+      label: 'Learning campaign',
+      caption: 'A learning campaign produced with the craft and pacing of a creative-agency commercial, brand-built, character-led, and made for repeat viewing.',
+      video: 'assets/video-animation/kornit-campaign.mp4',
+      accent: 'linear-gradient(135deg, #ED1F80 0%, #4A0FB8 100%)',
+    },
+    {
       label: 'Motion graphics',
       caption: 'Bold, clean motion design that turns abstract ideas into something a viewer can follow, remember, and act on.',
       video: 'assets/video-animation/growth-mindset.mp4',
@@ -29,25 +35,25 @@ const videoAnimationService = {
     },
     {
       label: '3D animation',
-      caption: 'Photoreal environments and scientific visualizations that show what cameras can\u2019t — inside machines, processes, and molecules.',
+      caption: 'Photoreal environments and scientific visualizations that show what cameras can\u2019t, inside machines, processes, and molecules.',
       video: 'assets/video-animation/factory.mp4',
       accent: 'linear-gradient(135deg, #F37137 0%, #ED1F80 100%)',
     },
     {
       label: 'Scientific visualisation',
-      caption: 'Precise, on-message animation of laboratory and analytical workflows — built so the science reads at a glance.',
+      caption: 'Precise, on-message animation of laboratory and analytical workflows, built so the science reads at a glance.',
       video: 'assets/video-animation/hplc.mp4',
       accent: 'linear-gradient(135deg, #0D0959 0%, #503594 100%)',
     },
     {
       label: 'Character animation',
-      caption: 'Stylized characters with clear staging and timing — used to land culture, behavior, and brand stories with warmth.',
+      caption: 'Stylized characters with clear staging and timing, used to land culture, behavior, and brand stories with warmth.',
       video: 'assets/video-animation/signature.mp4',
       accent: 'linear-gradient(135deg, #4A0FB8 0%, #ED1F80 100%)',
     },
     {
       label: 'Compliance &amp; awareness',
-      caption: 'Short-form animation that makes mandatory topics — privacy, security, ethics — actually watchable and retainable.',
+      caption: 'Short-form animation that makes mandatory topics, privacy, security, ethics, actually watchable and retainable.',
       video: 'assets/video-animation/teva-privacy.mp4',
       accent: 'linear-gradient(135deg, #3E33BB 0%, #F37137 100%)',
     },

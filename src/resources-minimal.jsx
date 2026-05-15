@@ -1,4 +1,4 @@
-// RESOURCES LANDING — Variation C: MINIMAL
+// RESOURCES LANDING, Variation C: MINIMAL
 // Contrarian: the content is the design. No cards, no thumbnails up top.
 // A huge editorial index, where type is the structure. One subtle featured
 // piece inset. Visually quiet, radically readable. Trust the reader.
@@ -82,7 +82,7 @@ function ResourcesMinimal() {
         </div>
       </div>
 
-      {/* INDEX — the whole point */}
+      {/* INDEX, the whole point */}
       <ol className="rc-min__index">
         {filtered.map((r, i) => (
           <li key={r.id} className="rc-min__row">

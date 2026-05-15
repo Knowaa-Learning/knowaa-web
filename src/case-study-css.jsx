@@ -1,4 +1,4 @@
-// Case Study CSS — same skeleton as Article (purple hero, narrow body,
+// Case Study CSS, same skeleton as Article (purple hero, narrow body,
 // share, 3-up related), with case-specific blocks: client meta strip,
 // at-a-glance metrics, challenge/approach/outcome rhythm, pull-quote,
 // testimonial card.
@@ -185,7 +185,7 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   CLIENT META STRIP — Industry / Location / Team / Year
+   CLIENT META STRIP, Industry / Location / Team / Year
    ═══════════════════════════════════════════════════════════ */
 .cs__strip-wrap {
   padding: 40px 40px 0;
@@ -238,7 +238,7 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   AT-A-GLANCE METRICS — purple gradient card with 3 stats
+   AT-A-GLANCE METRICS, purple gradient card with 3 stats
    ═══════════════════════════════════════════════════════════ */
 .cs__glance-wrap {
   padding: 40px 40px 0;
@@ -297,19 +297,32 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   BODY — narrow column, editorial rhythm
+   BODY, narrow column, editorial rhythm
    ═══════════════════════════════════════════════════════════ */
 .cs__body-wrap {
   padding: 56px 40px 40px;
   background: #FFFFFF;
 }
 .cs__body {
-  max-width: 720px;
+  max-width: 840px;
   margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px);
   color: #0A0A0A;
+  background: #FFFFFF;
+  border: 1px solid rgba(13, 9, 89, 0.09);
+  border-radius: 20px;
+  box-shadow:
+    0 1px 0 rgba(13, 9, 89, 0.04),
+    0 18px 40px -20px rgba(13, 9, 89, 0.10);
+}
+.cs__body .cs__sec-kicker,
+.cs__body .cs__h2,
+.cs__body .cs__h3 { text-align: center; }
+.cs__body .cs__h2 { margin-left: auto; margin-right: auto; }
+.cs__body .cs__h3 { margin-left: auto; margin-right: auto; }
 }
 
-/* Section opener — small kicker + h2 */
+/* Section opener, small kicker + h2 */
 .cs__sec-kicker {
   font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
   color: #FF7A29; text-transform: uppercase;
@@ -346,7 +359,7 @@ const CSS_CASE = `
 }
 .cs__p:last-child { margin-bottom: 0; }
 
-/* Bulleted list — used for "what we did" inside Approach */
+/* Bulleted list, used for "what we did" inside Approach */
 .cs__list {
   list-style: none;
   padding: 0;
@@ -367,7 +380,7 @@ const CSS_CASE = `
   background: #FF7A29;
 }
 
-/* Pull quote — orange left rule, large emphasised text */
+/* Pull quote, orange left rule, large emphasised text */
 .cs__pull {
   margin: 36px 0;
   padding: 4px 0 4px 22px;
@@ -439,7 +452,7 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   GALLERY — inline image carousel for gallery body blocks.
+   GALLERY, inline image carousel for gallery body blocks.
    Stage with prev/next chevrons, caption + counter, thumb strip.
    ═══════════════════════════════════════════════════════════ */
 .cs__gallery {
@@ -554,7 +567,7 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   OUTCOME GRID — 2x2 result cards inside the body column
+   OUTCOME GRID, 2x2 result cards inside the body column
    ═══════════════════════════════════════════════════════════ */
 .cs__outcomes {
   display: grid;
@@ -667,7 +680,7 @@ const CSS_CASE = `
 }
 
 /* ═══════════════════════════════════════════════════════════
-   CTA STRIP — "Want results like this?" → /contact
+   CTA STRIP, "Want results like this?" → /contact
    ═══════════════════════════════════════════════════════════ */
 .cs__cta-wrap {
   padding: 16px 40px 64px;
@@ -711,7 +724,7 @@ const CSS_CASE = `
 .cs__cta-btn:hover { background: #FF8E47; transform: translateY(-1px); }
 
 /* ═══════════════════════════════════════════════════════════
-   RELATED — 3-up grid of other case studies / articles
+   RELATED, 3-up grid of other case studies / articles
    ═══════════════════════════════════════════════════════════ */
 .cs__related {
   padding: 16px 40px 80px;
@@ -795,7 +808,8 @@ const CSS_CASE = `
   .cs__glance-cell { padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.18); }
   .cs__glance-cell:first-child { padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.18); }
 
-  .cs__body-wrap { padding: 36px 20px 24px; }
+  .cs__body-wrap { padding: 28px 16px 24px; }
+  .cs__body { padding: 32px 22px; border-radius: 14px; }
   .cs__h2 { font-size: 20px; }
 
   .cs__outcomes { grid-template-columns: 1fr; gap: 10px; }
@@ -813,6 +827,299 @@ const CSS_CASE = `
   .cs__related { padding: 8px 20px 64px; }
   .cs__related-grid { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CLIENT METADATA STRIP, clean label/value grid under the hero
+   ═══════════════════════════════════════════════════════════ */
+
+/* Wide figure, breaks out of the body column to near-full viewport width */
+.cs__client-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 36px;
+}
+
+/* Plain hero, no background image; title sits on white */
+.cs__hero--plain .cs__hero-bg,
+.cs__hero--plain .cs__hero-bg-shade { display: none !important; }
+.cs__hero--plain {
+  background: #FFFFFF !important;
+  color: var(--cs-ink, #0D0959) !important;
+  min-height: 0 !important;
+  padding: 24px 32px 28px !important;
+}
+.cs__hero--plain .cs__tag,
+.cs__hero--plain .cs__title,
+.cs__hero--plain .cs__hero-dek,
+.cs__hero--plain .cs__hero-meta {
+  color: var(--cs-ink, #0D0959) !important;
+  text-shadow: none !important;
+}
+.cs__hero--plain .cs__back {
+  color: rgba(13, 9, 89, 0.65) !important;
+  border-color: rgba(13, 9, 89, 0.18) !important;
+}
+.cs__client-logo img {
+  width: clamp(96px, 12vw, 160px);
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  filter: none;
+  opacity: 1;
+}
+
+/* Centered client-logo band, sits between hero and meta strip */
+.cs__client-logo-band {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 32px 28px;
+  background: #FFFFFF;
+}
+.cs__client-logo-band img {
+  width: clamp(80px, 8vw, 120px);
+  height: auto;
+  display: block;
+}
+.cs__program-badge {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 56px;
+}
+.cs__program-badge img {
+  width: clamp(420px, 65vw, 820px);
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Plain hero, clean, no chrome: hide back link, tags, dek, metadata, glance */
+.cs__hero--plain .cs__back,
+.cs__hero--plain .cs__hero-dek,
+.cs__hero--plain .cs__hero-meta,
+.cs__hero--plain .cs__client-card,
+.cs__hero--plain .cs__glance,
+.cs__hero--plain .cs__glance-wrap { display: none !important; }
+.cs__hero--plain .cs__tag-row {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.cs__hero--plain .cs__tag {
+  display: inline-block;
+  background: transparent !important;
+  color: #4A0FB8 !important;
+  border: 1px solid rgba(74, 15, 184, 0.32) !important;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+  text-shadow: none !important;
+}
+.cs__hero--plain .cs__tag--accent {
+  background: #4A0FB8 !important;
+  color: #FFFFFF !important;
+  border-color: #4A0FB8 !important;
+}
+/* Hide secondary category tag, keep only the "Case study" label */
+.cs__hero--plain .cs__tag-row .cs__tag:not(.cs__tag--accent) { display: none !important; }
+.cs__hero--plain .cs__hero-grid {
+  grid-template-columns: 1fr !important;
+  text-align: center;
+}
+.cs__hero--plain .cs__hero-text {
+  max-width: none !important;
+  width: 100%;
+  margin: 0 auto !important;
+  padding-bottom: 0;
+}
+.cs__hero--plain .cs__dek,
+.cs__hero--plain .cs__meta {
+  color: #0D0959 !important;
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.cs__hero--plain .cs__dek { max-width: 60ch; }
+.cs__hero--plain .cs__meta { justify-content: center; }
+
+.cs__hero--plain .cs__h1 {
+  margin: 0 auto !important;
+  max-width: 24ch;
+  color: #0D0959 !important;
+  text-shadow: none !important;
+  text-align: center !important;
+}
+
+.cs__figure--wide {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: none;
+  padding: 0 clamp(16px, 4vw, 64px);
+  box-sizing: border-box;
+}
+.cs__figure--wide .cs__figure-img {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CLIENT METADATA STRIP, clean label/value grid under the hero
+   ═══════════════════════════════════════════════════════════ */
+
+.cs__meta-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 32px;
+  margin: 28px 0 48px;
+  padding: 28px 0 32px;
+  border-top: 1px solid rgba(13, 9, 89, 0.12);
+  border-bottom: 1px solid rgba(13, 9, 89, 0.12);
+}
+.cs__meta-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 2fr);
+  align-items: baseline;
+  gap: 16px;
+}
+.cs__meta-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(13, 9, 89, 0.5);
+  margin: 0;
+}
+.cs__meta-value {
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--cs-ink, #0D0959);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .cs__meta-strip { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; margin: 22px 0 32px; }
+  .cs__meta-row { grid-template-columns: 1fr; gap: 4px; }
+  .cs__meta-value { font-size: 15px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STAT CALLOUT BLOCK, big headline metric + supporting cards
+   ═══════════════════════════════════════════════════════════ */
+
+.cs__stat-callout {
+  margin: 32px 0 48px;
+  padding: 40px 36px 36px;
+  background: linear-gradient(160deg, #F4F2FA 0%, #EDE9F8 100%);
+  border-radius: 18px;
+  position: relative;
+}
+.cs__stat-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4A0FB8;
+  margin: 0 0 12px;
+}
+.cs__stat-eyebrow--alt {
+  color: rgba(13, 9, 89, 0.6);
+  margin-bottom: 16px;
+}
+.cs__stat-headline-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--cs-ink, #0D0959);
+  margin: 0;
+}
+.cs__stat-headline-cap {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(13, 9, 89, 0.7);
+  max-width: 58ch;
+}
+.cs__stat-supporting {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(13, 9, 89, 0.1);
+}
+.cs__stat-supporting-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.cs__stat-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 0 rgba(13, 9, 89, 0.05);
+}
+.cs__stat-card-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #4A0FB8;
+}
+.cs__stat-card-cap {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(13, 9, 89, 0.72);
+}
+@media (max-width: 960px) {
+  .cs__stat-supporting-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .cs__stat-callout { padding: 28px 22px 24px; }
+  .cs__stat-supporting-grid { grid-template-columns: 1fr; }
+  .cs__stat-card-num { font-size: 24px; }
+}
 `;
 
-window.CSS_CASE = CSS_CASE;
+window.CSS_CASE = CSS_CASE + `
+/* ZIM header pair, logo + banner side-by-side, breaks out of narrow body column */
+.cs__header-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.4vw, 28px);
+  margin: 0 0 56px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.cs__header-pair-logo {
+  width: clamp(72px, 9vw, 120px);
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  flex: 0 0 auto;
+}
+.cs__header-pair-banner {
+  width: auto;
+  max-width: 100%;
+  height: clamp(86px, 11vw, 144px);
+  display: block;
+  border-radius: 14px;
+  flex: 0 1 auto;
+}
+@media (max-width: 540px) {
+  .cs__header-pair { flex-wrap: wrap; gap: 14px; }
+  .cs__header-pair-banner { height: auto; width: 100%; max-width: 360px; }
+}
+`;

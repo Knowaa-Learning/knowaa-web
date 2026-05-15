@@ -1,4 +1,4 @@
-// ARTICLE READING PAGE — clean, narrow, editorial.
+// ARTICLE READING PAGE, clean, narrow, editorial.
 // Body content is keyed by resource id so we can add more articles over time.
 
 const { useEffect: useEffectArt, useRef: useRefArt, useMemo: useMemoArt } = React;
@@ -6,14 +6,14 @@ const { useEffect: useEffectArt, useRef: useRefArt, useMemo: useMemoArt } = Reac
 /* ─────────────────────── Article bodies ───────────────────────
    Each entry provides the structured content the template renders.
    Block types:
-     { type: 'lede', text }              — opening paragraph, larger weight
-     { type: 'h2',   text }              — section heading
-     { type: 'h3',   text }              — sub-heading
-     { type: 'p',    text }              — paragraph
-     { type: 'p',    html }              — paragraph with inline HTML (links, em, strong)
-     { type: 'ul',   items: [...] }      — bulleted list
-     { type: 'pull', text }              — pull quote (orange left rule, bold)
-     { type: 'divider' }                 — thin horizontal rule
+     { type: 'lede', text }             , opening paragraph, larger weight
+     { type: 'h2',   text }             , section heading
+     { type: 'h3',   text }             , sub-heading
+     { type: 'p',    text }             , paragraph
+     { type: 'p',    html }             , paragraph with inline HTML (links, em, strong)
+     { type: 'ul',   items: [...] }     , bulleted list
+     { type: 'pull', text }             , pull quote (orange left rule, bold)
+     { type: 'divider' }                , thin horizontal rule
    ──────────────────────────────────────────────────────────── */
 
 const ARTICLE_BODIES = {
@@ -27,7 +27,7 @@ const ARTICLE_BODIES = {
 
       { type: 'h2', text: 'The production constraint that shaped an industry.' },
       { type: 'p',
-        text: 'For twenty years the honest answer to why is our training so abstract was a production constraint. Building contextual learning \u2014 content built around specific roles, real decisions, and actual work environments \u2014 required scriptwriters, subject matter experts, video crews, and timelines that made role-specific variants economically impossible at scale. That constraint is gone.'
+        text: 'For twenty years the honest answer to why is our training so abstract was a production constraint. Building contextual learning, content built around specific roles, real decisions, and actual work environments, required scriptwriters, subject matter experts, video crews, and timelines that made role-specific variants economically impossible at scale. That constraint is gone.'
       },
       { type: 'p',
         text: 'Generative AI has reduced contextual content development from months to days. The question is no longer can we afford to build training that reflects how our people actually work. It is why are we still commissioning content that we know will not change behavior.'
@@ -35,10 +35,10 @@ const ARTICLE_BODIES = {
 
       { type: 'h2', text: 'Generic content was never a design choice. It was a workaround.' },
       { type: 'p',
-        text: 'The learning industry normalized abstract, one-size-fits-all content because specificity was expensive. A single generic compliance module could serve 40,000 employees across functions and geographies \u2014 one production budget, universal deployment. Building role-specific variants \u2014 a version for warehouse supervisors that used their language, their scenarios, their actual decision points \u2014 required multiples of budget and timeline that most organizations could not justify.'
+        text: 'The learning industry normalized abstract, one-size-fits-all content because specificity was expensive. A single generic compliance module could serve 40,000 employees across functions and geographies, one production budget, universal deployment. Building role-specific variants, a version for warehouse supervisors that used their language, their scenarios, their actual decision points ,  required multiples of budget and timeline that most organizations could not justify.'
       },
       { type: 'p',
-        text: 'So the field invented a rationalization called transferable principles. Learners would apply abstract frameworks to their own contexts. The research on that claim is not generous. John Sweller\u2019s work on cognitive load established that when learners must simultaneously process unfamiliar content and translate it into their own context, working memory is split between the task and the translation. The transfer rarely happens automatically. What gets lost is not motivation \u2014 it is the contextual cues that trigger retrieval in the moment the behavior is needed.'
+        text: 'So the field invented a rationalization called transferable principles. Learners would apply abstract frameworks to their own contexts. The research on that claim is not generous. John Sweller\u2019s work on cognitive load established that when learners must simultaneously process unfamiliar content and translate it into their own context, working memory is split between the task and the translation. The transfer rarely happens automatically. What gets lost is not motivation ,  it is the contextual cues that trigger retrieval in the moment the behavior is needed.'
       },
 
       { type: 'pull', text: 'Generic training did not fail because learners were disengaged. It failed because the gap between the training scenario and the real situation was too wide for most people to bridge.' },
@@ -52,10 +52,10 @@ const ARTICLE_BODIES = {
         text: 'The relevant shift is not that AI makes content development faster. It is that AI decouples contextual specificity from production cost. Those two things were previously inseparable. More specific content required more production resources, always. That relationship no longer holds.'
       },
       { type: 'p',
-        text: 'Consider what that means in operational terms. A learning team previously commissioning a single role-specific video scenario \u2014 with a vendor, a script review cycle, and a six-to-eight-week production timeline \u2014 can now develop multiple role-specific variants using AI-assisted scripting, voice synthesis, and scenario generation in a fraction of that time and at a fraction of that cost.'
+        text: 'Consider what that means in operational terms. A learning team previously commissioning a single role-specific video scenario, with a vendor, a script review cycle, and a six-to-eight-week production timeline, can now develop multiple role-specific variants using AI-assisted scripting, voice synthesis, and scenario generation in a fraction of that time and at a fraction of that cost.'
       },
       { type: 'p',
-        text: 'When the cost of specificity collapses, the economic argument for generic content stops being a budget decision. It becomes a performance decision with a known outcome. An organization commissioning abstract leadership development built around a fictional mid-size company \u2014 or a generic safety program using scenarios that bear no resemblance to the actual site conditions a technician works in \u2014 is not managing a constraint. It is choosing to accept a lower probability of behavior change when an alternative is now operationally available at comparable cost.'
+        text: 'When the cost of specificity collapses, the economic argument for generic content stops being a budget decision. It becomes a performance decision with a known outcome. An organization commissioning abstract leadership development built around a fictional mid-size company, or a generic safety program using scenarios that bear no resemblance to the actual site conditions a technician works in, is not managing a constraint. It is choosing to accept a lower probability of behavior change when an alternative is now operationally available at comparable cost.'
       },
       { type: 'p',
         text: 'The production barrier was real. The strategy barrier that has replaced it belongs to a different conversation, with different people accountable for the answer.'
@@ -63,13 +63,13 @@ const ARTICLE_BODIES = {
 
       { type: 'h2', text: 'Contextual specificity has a measurable performance mechanism.' },
       { type: 'p',
-        text: 'The case for contextual learning is not that learners prefer it \u2014 though the evidence suggests they do. The case is mechanistic, because context determines retrieval. Memory research on encoding specificity, developed by Endel Tulving in the 1970s and consistently replicated since, establishes that learning is most likely to be retrieved in conditions that match the conditions under which it was encoded.'
+        text: 'The case for contextual learning is not that learners prefer it, though the evidence suggests they do. The case is mechanistic, because context determines retrieval. Memory research on encoding specificity, developed by Endel Tulving in the 1970s and consistently replicated since, establishes that learning is most likely to be retrieved in conditions that match the conditions under which it was encoded.'
       },
       { type: 'p',
         text: 'A technician trained on a safety procedure using the actual equipment names, the actual fault codes, and the actual sequence of decisions she faces on shift is more likely to retrieve that training when it is needed than a technician trained on a generalized version of the same content. This is not an argument for engagement. It is an argument for architecture. The specificity of the learning environment is a design variable with a direct effect on whether behavior changes in the real environment.'
       },
       { type: 'p',
-        text: 'What contextual learning actually requires is a different starting point, not a larger budget. Instead of beginning with a topic \u2014 we need a module on managing difficult conversations \u2014 the work begins with a behavior in a specific situation. When a regional sales manager is six weeks from quarter close and a deal is stalling because procurement has introduced a new approval layer the rep has never navigated before, what does an effective conversation with the procurement lead look like, and what does an ineffective one cost the business?'
+        text: 'What contextual learning actually requires is a different starting point, not a larger budget. Instead of beginning with a topic, we need a module on managing difficult conversations, the work begins with a behavior in a specific situation. When a regional sales manager is six weeks from quarter close and a deal is stalling because procurement has introduced a new approval layer the rep has never navigated before, what does an effective conversation with the procurement lead look like, and what does an ineffective one cost the business?'
       },
       { type: 'p',
         text: 'The counterargument worth taking seriously is that contextual content requires ongoing maintenance. A module built around specific systems, terminology, and workflows becomes outdated as the organization changes. This is a real operational cost, and AI-assisted development does not eliminate it. What it does is reduce the update burden enough to make continuous iteration feasible where it previously was not.'
@@ -77,13 +77,13 @@ const ARTICLE_BODIES = {
 
       { type: 'h2', text: 'The production constraint gave L&D cover. That cover is gone.' },
       { type: 'p',
-        text: 'For two decades, when a business leader asked why the leadership program was built around fictional scenarios \u2014 or why the compliance training bore no resemblance to the actual decisions people faced \u2014 the honest answer was available. Building something more specific costs more than the budget allows. That answer carried real weight. It was true.'
+        text: 'For two decades, when a business leader asked why the leadership program was built around fictional scenarios, or why the compliance training bore no resemblance to the actual decisions people faced, the honest answer was available. Building something more specific costs more than the budget allows. That answer carried real weight. It was true.'
       },
       { type: 'p',
         text: 'That answer is no longer available in the same form. The next program brief your team writes, the next vendor conversation you have, the next budget request you approve carries a question that cannot be deflected by pointing at production timelines. The question is whether the learning being commissioned is designed around how work actually happens in your organization, or around what was easiest to build when building things was hard.'
       },
 
-      { type: 'pull', text: 'For the role this program targets, can we name the three decisions where performance most visibly breaks down \u2014 and does the learning we are about to buy put the learner inside those exact decisions?' },
+      { type: 'pull', text: 'For the role this program targets, can we name the three decisions where performance most visibly breaks down, and does the learning we are about to buy put the learner inside those exact decisions?' },
 
       { type: 'p',
         text: 'If the answer is no, the program will produce completion data. It will not produce the behavior change the business is waiting for. That is now a choice, not a constraint. The accountability for it has moved.'
@@ -136,9 +136,9 @@ const ARTICLE_BODIES = {
       },
 
       { type: 'figure',
-        src: 'assets/articles/attention-threshold-modern-learner.png',
-        alt: 'Knowaa — The Modern Learner: insights for companies with 500+ employees. Statistics across office and remote workers showing attention, distractions, and learning preferences.',
-        caption: 'The modern learner — attention, distractions, and learning preferences across office and remote workers.',
+        src: 'assets/articles/modern-learner-infographic.jpg',
+        alt: 'Knowaa, The Modern Learner: insights for companies with 500+ employees. Statistics across office and remote workers showing attention, distractions, and learning preferences.',
+        caption: 'The modern learner, attention, distractions, and learning preferences across office and remote workers.',
       },
 
       { type: 'h2', text: 'The threshold is crossed early.' },
@@ -177,7 +177,7 @@ const ARTICLE_BODIES = {
   },
 };
 
-/* Related — prefers articles, falls back to anything else in the library */
+/* Related, prefers articles, falls back to anything else in the library */
 function pickRelatedArticles(currentId, count = 3) {
   const pool = (window.RESOURCES || []).filter(r => r.id !== currentId);
   const articles = pool.filter(r => r.type === 'article');
@@ -247,7 +247,7 @@ function Article({ resourceId }) {
         <span ref={progressRef} />
       </div>
 
-      {/* ─── BANNER (when set) — custom hero with title + byline overlaid on the left ─── */}
+      {/* ─── BANNER (when set), custom hero with title + byline overlaid on the left ─── */}
       {banner ? (
         <section
           className={
@@ -300,7 +300,7 @@ function Article({ resourceId }) {
         </div>
       </div>
 
-      {/* ─── ARTICLE CTA — empty purple strip ─── */}
+      {/* ─── ARTICLE CTA, empty purple strip ─── */}
       <section className="art__cta" aria-hidden="true">
         <div className="art__cta-inner" />
       </section>

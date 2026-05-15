@@ -1,4 +1,4 @@
-// Hero — edge-to-edge video contained in a rounded frame with white margin.
+// Hero, edge-to-edge video contained in a rounded frame with white margin.
 // Style modeled on ELB Learning: white page, inset video panel, overlay headline + CTAs.
 
 const { useState: useStateH, useEffect: useEffectH, useRef: useRefH } = React;
@@ -101,7 +101,7 @@ function Hero({ tweaks }) {
           <source src={`assets/hero.mp4?v=${Date.now()}`} type="video/mp4" />
         </video>
 
-        {/* Legibility scrim — stronger at bottom for copy */}
+        {/* Legibility scrim, stronger at bottom for copy */}
         <div
           aria-hidden
           style={{
@@ -155,7 +155,7 @@ function Hero({ tweaks }) {
             </span>
           </h1>
 
-          {/* CTAs row — under the headline, left-aligned */}
+          {/* CTAs row, under the headline, left-aligned */}
           <div
             style={{
               marginTop: 'clamp(28px, 3.5vw, 44px)',
