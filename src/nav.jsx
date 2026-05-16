@@ -993,6 +993,14 @@ function Nav({ solid = false, pinned = false }) {
       logoSrc={logoSrc}
       solid={solid}
     />
+    {/* Skip-link target. Empty focusable anchor placed after the nav so the
+        in-page "Skip to main content" link jumps past nav for keyboard users. */}
+    <a
+      id="main-anchor"
+      tabIndex={-1}
+      aria-hidden="true"
+      style={{ display: 'block', height: 0, width: 0, outline: 'none' }}
+    />
     </React.Fragment>
   );
 }

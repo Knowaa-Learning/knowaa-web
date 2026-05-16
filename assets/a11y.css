@@ -1,0 +1,97 @@
+/* ============================================================
+   Knowaa, global accessibility layer.
+   Loaded by every HTML page in <head>.
+
+   Goals:
+   - Visually hidden "Skip to main content" link, visible on focus
+   - Keyboard-only focus rings via :focus-visible (no change on mouse)
+   - Global prefers-reduced-motion catch-all for fades/scroll animations
+   - Honour the marquee + autoplay video reductions handled in components
+   ============================================================ */
+
+/* ── Skip link ──────────────────────────────────────────────── */
+.kw-skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  padding: 10px 16px;
+  background: #0D0959;
+  color: #FFFFFF;
+  font-family: 'Urbanist', 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.18s ease;
+}
+.kw-skip-link:focus,
+.kw-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #FF7A29;
+  outline-offset: 2px;
+}
+
+/* ── Global keyboard focus ring ─────────────────────────────────
+   :focus-visible only fires on keyboard navigation, never mouse click,
+   so this is invisible to mouse users. Two variants:
+     - Dark ring on light backgrounds
+     - Light ring inside dark sections (capabilities, footer, hero overlay)
+   The default is the dark ring; components on dark backgrounds can opt in
+   to the .on-dark variant by adding that class to their wrapper.
+   ─────────────────────────────────────────────────────────────── */
+a:focus,
+button:focus,
+[role="button"]:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: none; /* suppressed; we use :focus-visible below */
+}
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #4A0FB8;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* Inside intentionally dark sections, swap to an orange ring so it's visible */
+.kw-cta__band a:focus-visible,
+.kw-cta__band button:focus-visible,
+.capabilities a:focus-visible,
+.capabilities button:focus-visible,
+.kwfooter a:focus-visible,
+.kwfooter button:focus-visible,
+.kw-testimonials a:focus-visible,
+.kw-testimonials button:focus-visible,
+.hero-h1 + * a:focus-visible {
+  outline-color: #FF7A29;
+  outline-offset: 3px;
+}
+
+/* ── Reduced motion catch-all ───────────────────────────────────
+   Components that already register prefers-reduced-motion handle
+   their own animations. This is a defensive net for anything that
+   slipped through, plus a soft fade-cap so big movement is muted. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Disable autoplay for any video with reduced-motion preference set.
+     Note: the hero <video> conditionally drops the autoplay attribute,
+     so this is just a backstop for any future videos. */
+  video[autoplay] {
+    animation-play-state: paused !important;
+  }
+}

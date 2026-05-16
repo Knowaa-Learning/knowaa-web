@@ -1,0 +1,13 @@
+# Knowaa robots.txt
+User-agent: *
+Allow: /
+
+# Disallow internal scaffolding and previews
+Disallow: /vercel-build/
+Disallow: /uploads/
+Disallow: /scraps/
+Disallow: /screenshots/
+Disallow: /sanity/
+Disallow: /nextjs/
+
+Sitemap: https://knowaa.com/sitemap.xml

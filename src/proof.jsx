@@ -45,6 +45,11 @@ function Proof() {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
+        /* Respect reduced-motion: pause the marquee. The row stays visible,
+           gradient mask still trims edges so it looks intentional. */
+        @media (prefers-reduced-motion: reduce) {
+          .proof-row { animation: none !important; }
+        }
       `}</style>
     </section>
   );

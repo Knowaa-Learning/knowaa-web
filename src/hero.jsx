@@ -80,13 +80,16 @@ function Hero({ tweaks }) {
           transition: 'opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)',
         }}
       >
-        {/* Video well */}
+        {/* Video well — autoplay is conditional on the user's reduced-motion preference.
+            When prefers-reduced-motion is "reduce" we omit autoPlay so the poster stays
+            visible (the video element pauses on the first frame). */}
         <video
           ref={videoRef}
-          autoPlay
+          autoPlay={typeof window !== 'undefined' && window.matchMedia ? !window.matchMedia('(prefers-reduced-motion: reduce)').matches : true}
           muted
           loop
           playsInline
+          aria-label="Knowaa intro: learners and trainers at work"
           poster="assets/hero-poster.jpg"
           style={{
             position: 'absolute',

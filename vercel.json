@@ -2,6 +2,27 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/",                              "destination": "/Knowaa Homepage.html" },
+    { "source": "/solutions/strategy",            "destination": "/Knowaa Strategy.html" },
+    { "source": "/solutions/custom-elearning",    "destination": "/Knowaa Custom eLearning.html" },
+    { "source": "/solutions/video-animation",     "destination": "/Knowaa Video and Animation.html" },
+    { "source": "/solutions/campaigns",           "destination": "/Knowaa Campaigns.html" },
+    { "source": "/resources",                     "destination": "/Knowaa Resources.html" },
+    { "source": "/resources/",                    "destination": "/Knowaa Resources.html" },
+    { "source": "/resources/attention-threshold",                     "destination": "/Knowaa Article - Attention Threshold.html" },
+    { "source": "/resources/personalized-safety-environment",         "destination": "/Knowaa Article - Personalized Safety.html" },
+    { "source": "/resources/generic-training-production-ai-strategy", "destination": "/Knowaa Article - Generic Training.html" },
+    { "source": "/resources/zim-dare-to-ai",                          "destination": "/Knowaa Case Study - ZIM.html" },
+    { "source": "/resources/signature-aviation-ergonomics",           "destination": "/Knowaa Case Study - Signature Aviation.html" },
+    { "source": "/resources/netafim-kaizen-prework",                  "destination": "/Knowaa Case Study - Netafim.html" },
+    { "source": "/resources/teva-privacy-episodes",                   "destination": "/Knowaa Case Study - Teva.html" },
+    { "source": "/resources/kornit-digital-onboarding",               "destination": "/Knowaa Case Study - Kornit.html" },
+    { "source": "/contact",                       "destination": "/Knowaa Contact.html" },
+    { "source": "/contact/",                      "destination": "/Knowaa Contact.html" },
+    { "source": "/terms",                         "destination": "/Knowaa Terms.html" },
+    { "source": "/privacy",                       "destination": "/Knowaa Privacy.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -22,6 +43,20 @@
       "source": "/(.*)\\.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type",  "value": "application/xml" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type",  "value": "text/plain" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
   ]
