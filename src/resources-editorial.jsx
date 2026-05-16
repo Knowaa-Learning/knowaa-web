@@ -657,6 +657,9 @@ const CSS = `
 .rc__type-badge--case {
   background: rgba(74, 15, 184, 0.88);
 }
+.rc__type-badge--insight {
+  background: rgba(237, 31, 128, 0.92);
+}
 .rc__type-badge--article {
   background: rgba(243, 113, 55, 0.92);
 }

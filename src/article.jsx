@@ -17,6 +17,72 @@ const { useEffect: useEffectArt, useRef: useRefArt, useMemo: useMemoArt } = Reac
    ──────────────────────────────────────────────────────────── */
 
 const ARTICLE_BODIES = {
+  'personalized-safety-environment': {
+    banner: 'assets/articles/header-personalized-safety.jpg',
+    bannerVariant: 'flush-left',
+    body: [
+      { type: 'lede',
+        text: 'Generic safety content teaches the rule. Personalized safety content makes the learner recognize the risk, because it is their floor, their machine, their exit.'
+      },
+
+      { type: 'h2', text: 'Safety training has a recognition problem, not a content problem.' },
+
+      { type: 'p',
+        text: 'Most programs teach hazard awareness using stock environments. Anonymous warehouses. Generic offices. Actors in borrowed PPE. The learner absorbs the rule. They do not absorb the risk. Because nothing on screen looks like the place where they actually work.'
+      },
+      { type: 'p',
+        text: 'Attention follows familiarity. When the training environment is unfamiliar, the lesson stays abstract, and abstract lessons do not change behavior at the moment the hazard appears. The gap between the scenario on the screen and the floor under the learner\u2019s feet is the gap where safety training quietly fails.'
+      },
+
+      { type: 'pull', text: 'The learner absorbs the rule. They do not absorb the risk.' },
+
+      { type: 'h2', text: 'The process starts with a phone camera.' },
+
+      { type: 'p',
+        text: 'The client walks their site and shoots. Real floors. Real machinery. Real signage. Real exits. No crew, no setup, no production overhead. Those photos go to Knowaa.'
+      },
+      { type: 'p',
+        text: 'AI enhancement converts raw phone photography into production-quality environments. Lighting corrected. Geometry cleaned. Visual fidelity raised to broadcast standard. The result is a safety animation that takes place, unmistakably, in the learner\u2019s actual workplace.'
+      },
+      { type: 'p',
+        text: 'We built the program this way because environmental familiarity is what cognitive load theory calls a \u201Ccontext cue.\u201D When the physical setting matches the training stimulus, retrieval at the point of performance is measurably faster and more reliable than recall from a generic scene. The learner does not have to translate. The hazard looks exactly like the hazard they will encounter tomorrow morning.'
+      },
+      { type: 'p',
+        text: 'The interactive layer puts the learner inside a decision: spot the risk, choose the response, see the consequence, in an environment they already recognize. No actors in someone else\u2019s warehouse. No borrowed PPE. Their building. Their team\u2019s gear. Their exit route.'
+      },
+
+      { type: 'video',
+        src: 'assets/articles/personalized-safety-demo.mp4',
+        poster: 'assets/articles/personalized-safety-poster.jpg',
+        caption: 'A personalized safety module, built from client phone photography and enhanced into broadcast-quality animation.',
+      },
+
+      { type: 'h2', text: 'The shift that personalization produces is not cosmetic.' },
+
+      { type: 'p',
+        text: 'When learners recognize the environment on screen, engagement is no longer a design challenge. It is a default. Completion without prompting increases. Questions about why this applies to me disappear.'
+      },
+      { type: 'p',
+        text: 'Safety leads report that post-training floor conversations change. Workers reference scenarios by location, not by lesson number. A near-miss on aisle four is recalled against a scene shot on aisle four, not against a stock animation set in a warehouse that could be anywhere.'
+      },
+
+      { type: 'pull', text: 'Workers reference scenarios by location, not by lesson number.' },
+
+      { type: 'p',
+        text: 'The program also compresses production time that bespoke animation would require. Because the environment is sourced from the client\u2019s own photography rather than built from scratch, a fully personalized module ships in a fraction of the time of traditional custom production, without sacrificing the specificity that makes the learning transfer.'
+      },
+
+      { type: 'h2', text: 'The hazard on screen is the hazard in the room.' },
+
+      { type: 'p',
+        text: 'Generic safety content assumes the learner will do the translation work, from the screen to their floor, from the scenario to their actual risk. Most learners do not. Most learners cannot, not because the content was poorly designed, but because the cognitive bridge they were asked to build is wider than working memory allows in the moment the hazard appears.'
+      },
+      { type: 'p',
+        text: 'Personalized environment training removes that assumption entirely. The hazard on screen is the hazard in the room. That is not a stylistic choice. It is what makes the training transfer.'
+      },
+    ],
+  },
+
   'generic-training-production-ai-strategy': {
     banner: 'assets/articles/header-generic-training.jpg',
     bannerAlign: 'center',
@@ -136,7 +202,7 @@ const ARTICLE_BODIES = {
       },
 
       { type: 'figure',
-        src: 'assets/articles/modern-learner-infographic.jpg',
+        src: 'assets/articles/attention-threshold-modern-learner.png',
         alt: 'Knowaa, The Modern Learner: insights for companies with 500+ employees. Statistics across office and remote workers showing attention, distractions, and learning preferences.',
         caption: 'The modern learner, attention, distractions, and learning preferences across office and remote workers.',
       },
@@ -180,9 +246,10 @@ const ARTICLE_BODIES = {
 /* Related, prefers articles, falls back to anything else in the library */
 function pickRelatedArticles(currentId, count = 3) {
   const pool = (window.RESOURCES || []).filter(r => r.id !== currentId);
-  const articles = pool.filter(r => r.type === 'article');
-  const others = pool.filter(r => r.type !== 'article');
-  return [...articles, ...others].slice(0, count);
+  // Insights are treated like articles — same template, same related rail.
+  const editorial = pool.filter(r => r.type === 'article' || r.type === 'insight');
+  const others = pool.filter(r => r.type !== 'article' && r.type !== 'insight');
+  return [...editorial, ...others].slice(0, count);
 }
 
 /* Resolve the URL each related card should link to. */
@@ -193,7 +260,7 @@ function relatedHref(r) {
 function Article({ resourceId }) {
   const resource = useMemoArt(() => {
     const id = resourceId
-      || (window.RESOURCES && window.RESOURCES.find(r => r.type === 'article')?.id)
+      || (window.RESOURCES && window.RESOURCES.find(r => r.type === 'article' || r.type === 'insight')?.id)
       || (window.RESOURCES && window.RESOURCES[0]?.id);
     return (window.RESOURCES || []).find(r => r.id === id);
   }, [resourceId]);
@@ -338,6 +405,20 @@ function renderBlock(block, key) {
       return (
         <figure key={key} className="art__figure">
           <img src={block.src} alt={block.alt || ''} loading="lazy" />
+          {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+        </figure>
+      );
+    case 'video':
+      return (
+        <figure key={key} className="art__figure art__figure--video">
+          <video
+            src={block.src}
+            poster={block.poster}
+            controls
+            playsInline
+            preload="metadata"
+            {...(block.autoplay ? { autoPlay: true, muted: true, loop: true } : {})}
+          />
           {block.caption ? <figcaption>{block.caption}</figcaption> : null}
         </figure>
       );

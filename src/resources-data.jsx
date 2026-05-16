@@ -17,6 +17,19 @@ const RESOURCES = [
     image: 'assets/insights/modern-learner.jpg',
   },
 {
+    id: 'personalized-safety-environment',
+    type: 'insight',
+    category: 'Methodology',
+    title: 'Safety Training Finally Set Where the Hazard Actually Lives',
+    dek: 'Generic safety content teaches the rule. Personalized safety content makes the learner recognize the risk, because it\u2019s their floor, their machine, their exit.',
+    author: 'Noam Herz',
+    role: 'Founder & Creative Director',
+    readTime: '9 min read',
+    publishedAt: '2026-01-22',
+    featured: true,
+    image: 'assets/articles/cover-personalized-safety.png',
+  },
+{
     id: 'generic-training-production-ai-strategy',
     type: 'article',
     category: 'AI & Strategy',
@@ -101,10 +114,11 @@ const RESOURCES = [
   },
             ];
 
-const CATEGORIES = ['All', 'AI & Strategy', 'Learning Science', 'Design', 'Measurement', 'Pharma', 'SaaS', 'Cybersecurity', 'Telecom'];
+const CATEGORIES = ['All', 'AI & Strategy', 'Learning Science', 'Methodology', 'Design', 'Measurement', 'Pharma', 'SaaS', 'Cybersecurity', 'Telecom'];
 const TYPES = [
   { key: 'all', label: 'All', plural: 'All' },
   { key: 'article', label: 'Article', plural: 'Articles' },
+  { key: 'insight', label: 'Insight', plural: 'Insights' },
   { key: 'case', label: 'Case study', plural: 'Case studies' },
 ];
 
@@ -121,6 +135,7 @@ Object.assign(window, { RESOURCES, CATEGORIES, TYPES, formatDate });
 const RESOURCE_PAGES = {
   'attention-threshold': 'Knowaa Article - Attention Threshold.html',
   'generic-training-production-ai-strategy': 'Knowaa Article - Generic Training.html',
+  'personalized-safety-environment': 'Knowaa Article - Personalized Safety.html',
   'zim-dare-to-ai': 'Knowaa Case Study - ZIM.html',
   'signature-aviation-ergonomics': 'Knowaa Case Study - Signature Aviation.html',
   'netafim-kaizen-prework': 'Knowaa Case Study - Netafim.html',
@@ -132,6 +147,7 @@ function resourceHref(r) {
   if (!r) return '#';
   const dedicated = RESOURCE_PAGES[r.id];
   if (dedicated) return dedicated;
+  // Insights and articles share the same template (article page); only case studies differ.
   const base = r.type === 'case' ? 'Knowaa Case Study.html' : 'Knowaa Article.html';
   return base + '?id=' + r.id;
 }

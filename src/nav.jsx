@@ -899,9 +899,8 @@ function Nav({ solid = false, pinned = false }) {
             {NAV.map((it, i) => (
               <a
                 key={it.label}
-                href={it.label === 'Resources' ? undefined : it.href}
+                href={it.href}
                 data-cta={it.label === 'Contact us' ? 'nav_desktop_contact' : undefined}
-                onClick={it.label === 'Resources' ? (e) => e.preventDefault() : undefined}
                 onMouseEnter={() => { setHover(i); scheduleOpen(i); }}
                 onMouseLeave={() => setHover(null)}
                 style={{
@@ -913,7 +912,7 @@ function Nav({ solid = false, pinned = false }) {
                   color: textColor,
                   whiteSpace: 'nowrap',
                   textDecoration: 'none',
-                  cursor: it.label === 'Resources' ? 'default' : 'pointer',
+                  cursor: 'pointer',
                   transition: 'color 0.3s ease',
                 }}
               >

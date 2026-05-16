@@ -17,6 +17,7 @@ vercel-build/
 ├── Knowaa Resources.html
 ├── Knowaa Article - Attention Threshold.html
 ├── Knowaa Article - Generic Training.html
+├── Knowaa Article - Personalized Safety.html
 ├── Knowaa Case Study.html
 ├── Knowaa Case Study - ZIM.html
 ├── Knowaa Case Study - Signature Aviation.html

@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case Study, Knowaa</title>
-  <meta name="description" content="How Knowaa builds learning that performs, case studies from the field." />
+  <title>Article, Knowaa</title>
+  <meta name="description" content="Field notes and essays from the Knowaa studio." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#4A0FB8" />
   <link rel="canonical" href="https://knowaa.com/resources/" />
 
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Knowaa" />
-  <meta property="og:title" content="Case Study, Knowaa" />
-  <meta property="og:description" content="Case studies from the Knowaa studio." />
+  <meta property="og:title" content="Article, Knowaa" />
+  <meta property="og:description" content="Field notes and essays from the Knowaa studio." />
   <meta property="og:url" content="https://knowaa.com/resources/" />
   <meta property="og:image" content="https://knowaa.com/assets/og/knowaa-og.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -20,8 +20,8 @@
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Case Study, Knowaa" />
-  <meta name="twitter:description" content="Case studies from the Knowaa studio." />
+  <meta name="twitter:title" content="Article, Knowaa" />
+  <meta name="twitter:description" content="Field notes and essays from the Knowaa studio." />
   <meta name="twitter:image" content="https://knowaa.com/assets/og/knowaa-og.jpg" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -30,8 +30,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: #F2F2F2; }
@@ -55,7 +55,7 @@
     }
     @media (max-width: 768px) { :root { --page-gutter: 0px; } }
 
-    /* Global title color, applied to major headings site-wide. */
+    /* Global title color */
     .who-we-are__title,
     .kw-faq-title,
     .kw-approach__title,
@@ -72,7 +72,9 @@
     .terms__h2,
     .article__title,
     .article__h2,
-    .cs__h2 {
+    .cs__h2,
+    .art__title,
+    .art__h2 {
       color: var(--title);
     }
   </style>
@@ -167,13 +169,14 @@
 
   <noscript>
     <div style="max-width:680px;margin:80px auto;padding:40px 24px;font-family:system-ui,-apple-system,sans-serif;color:#0A0A0A;text-align:center;">
-      <h1 style="font-size:28px;margin:0 0 16px;font-weight:700;">Knowaa Case Study</h1>
+      <h1 style="font-size:28px;margin:0 0 16px;font-weight:700;">Knowaa Article</h1>
       <p style="font-size:17px;line-height:1.5;color:#555;">
-        This case study requires JavaScript to load. Visit
+        This article requires JavaScript to load. Visit
         <a href="/resources/" style="color:#4A0FB8;">knowaa.com/resources</a> for the full library.
       </p>
     </div>
   </noscript>
+
   <style>
     #root { position: relative; }
     #root::before {
@@ -182,7 +185,7 @@
     }
     #root > *:not(header) { background: #FFFFFF; position: relative; }
     #root > header { background: transparent !important; }
-    #root > .cs { background: transparent; }
+    #root > .art { background: transparent; }
   </style>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -191,14 +194,15 @@
 
   <script type="text/babel" src="src/nav.jsx?v=10"></script>
   <script type="text/babel" src="src/footer.jsx?v=7"></script>
+  <script type="text/babel" src="src/service-template.jsx?v=25"></script>
   <script type="text/babel" src="src/resources-data.jsx?v=7"></script>
-  <script type="text/babel" src="src/case-study-css.jsx?v=5"></script>
-  <script type="text/babel" src="src/case-study.jsx?v=5"></script>
+  <script type="text/babel" src="src/article-css.jsx?v=16"></script>
+  <script type="text/babel" src="src/article.jsx?v=23"></script>
 
   <script type="text/babel">
     function App() {
       const params = new URLSearchParams(window.location.search);
-      const id = params.get('id') || 'teva-global-compliance';
+      const id = params.get('id') || 'personalized-safety-environment';
 
       React.useEffect(() => {
         const r = (window.RESOURCES || []).find(x => x.id === id);
@@ -206,7 +210,7 @@
         const canonical = `https://knowaa.com/resources/${r.id}`;
         const ogImage = r.image && r.image.startsWith('http') ? r.image : `https://knowaa.com/${r.image || 'assets/og/knowaa-og.jpg'}`;
         const desc = (r.dek || '').slice(0, 200);
-        const title = `${r.title}, Case Study | Knowaa`;
+        const title = `${r.title} | Knowaa`;
 
         document.title = title;
         const setMeta = (sel, attr, val) => {
@@ -232,14 +236,15 @@
               "description": desc,
               "image": [ogImage],
               "datePublished": r.publishedAt || null,
-              "author": { "@type": "Organization", "name": "Knowaa" },
+              "author": r.author
+                ? { "@type": "Person", "name": r.author, "jobTitle": r.role || undefined }
+                : { "@type": "Organization", "name": "Knowaa" },
               "publisher": {
                 "@type": "Organization",
                 "name": "Knowaa",
                 "logo": { "@type": "ImageObject", "url": "https://knowaa.com/assets/knowaa-logo.png" }
               },
-              "mainEntityOfPage": canonical,
-              "articleSection": "Case Study"
+              "mainEntityOfPage": canonical
             },
             {
               "@type": "BreadcrumbList",
@@ -251,11 +256,11 @@
             }
           ]
         };
-        let script = document.getElementById('case-jsonld');
+        let script = document.getElementById('article-jsonld');
         if (!script) {
           script = document.createElement('script');
           script.type = 'application/ld+json';
-          script.id = 'case-jsonld';
+          script.id = 'article-jsonld';
           document.head.appendChild(script);
         }
         script.textContent = JSON.stringify(ld);
@@ -264,7 +269,7 @@
       return (
         <>
           <window.Nav solid pinned />
-          <window.CaseStudy resourceId={id} />
+          <window.Article resourceId={id} />
           <window.Footer />
         </>
       );

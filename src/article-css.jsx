@@ -265,6 +265,17 @@ const CSS_ARTICLE = `
   border-radius: 14px;
   background: #F4F2FA;
 }
+.art__figure--video {
+  max-width: 560px;
+}
+.art__figure--video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  background: #0D0959;
+  object-fit: cover;
+}
 .art__figure figcaption {
   margin-top: 12px;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
