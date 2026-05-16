@@ -121,7 +121,10 @@ function ResourcesEditorial() {
   const initialType = (() => {
     try {
       const t = new URLSearchParams(window.location.search).get('type');
-      if (t && ['article','case','insight'].includes(t)) return t;
+      // 'insight' is a legacy URL param — treat it as 'article' so old links
+      // still land on the right filtered view.
+      if (t === 'insight') return 'article';
+      if (t && ['article','case'].includes(t)) return t;
     } catch (e) {}
     return 'all';
   })();
@@ -151,7 +154,13 @@ function ResourcesEditorial() {
 
   const filtered = useMemoA(() => {
     return window.RESOURCES.filter((r) => {
-      if (typeFilter !== 'all' && r.type !== typeFilter) return false;
+      // 'article' filter includes 'insight' too — insights are surfaced as articles in the UI.
+      const matchesType = (
+        typeFilter === 'all' ||
+        r.type === typeFilter ||
+        (typeFilter === 'article' && r.type === 'insight')
+      );
+      if (!matchesType) return false;
       if (q && !(r.title + ' ' + r.dek + ' ' + r.category).toLowerCase().includes(q.toLowerCase())) return false;
       return true;
     });
@@ -160,7 +169,9 @@ function ResourcesEditorial() {
   const hero = filtered[0];
   const stream = filtered.slice(1);
 
-  const typeLabel = (k) => window.TYPES.find(t => t.key === k)?.label || k;
+  // Display helper: 'insight' is shown as 'Article' on the card badges.
+  const displayType = (k) => (k === 'insight' ? 'article' : k);
+  const typeLabel = (k) => window.TYPES.find(t => t.key === displayType(k))?.label || displayType(k);
 
   return (
     <div className="rc">
@@ -200,7 +211,7 @@ function ResourcesEditorial() {
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
                 ) : null}
-                <span className={`rc__type-badge rc__type-badge--${hero.type}`}>{typeLabel(hero.type)}</span>
+                <span className={`rc__type-badge rc__type-badge--${displayType(hero.type)}`}>{typeLabel(hero.type)}</span>
                 <span className="rc__arch-cover-icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -257,7 +268,7 @@ function ResourcesEditorial() {
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />
                     ) : null}
-                    <span className={`rc__type-badge rc__type-badge--${r.type}`}>{typeLabel(r.type)}</span>
+                    <span className={`rc__type-badge rc__type-badge--${displayType(r.type)}`}>{typeLabel(r.type)}</span>
                     <span className="rc__arch-cover-icon" aria-hidden="true">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="3" />

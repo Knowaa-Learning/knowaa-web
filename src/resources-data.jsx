@@ -115,10 +115,13 @@ const RESOURCES = [
             ];
 
 const CATEGORIES = ['All', 'AI & Strategy', 'Learning Science', 'Methodology', 'Design', 'Measurement', 'Pharma', 'SaaS', 'Cybersecurity', 'Telecom'];
+// "Insight" entries are surfaced under the "article" filter and styled as
+// articles on the cards — they're editorial pieces, not a distinct format.
+// Keeping the data field intact in case we want to re-introduce the
+// distinction later, but the UI treats them as articles.
 const TYPES = [
   { key: 'all', label: 'All', plural: 'All' },
   { key: 'article', label: 'Article', plural: 'Articles' },
-  { key: 'insight', label: 'Insight', plural: 'Insights' },
   { key: 'case', label: 'Case study', plural: 'Case studies' },
 ];
 
