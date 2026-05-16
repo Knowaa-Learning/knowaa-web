@@ -189,7 +189,7 @@ function Hero({ tweaks }) {
               </a>
               <a
                 href="Knowaa Resources.html?type=case"
-                data-cta="hero_secondary_see_work"
+                data-cta="hero_secondary"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',

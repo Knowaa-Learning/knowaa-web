@@ -106,11 +106,11 @@ function WhoWeAre() {
               <span className="who-we-are__stat-label">Years</span>
             </li>
             <li className="who-we-are__stat">
-              <span className="who-we-are__stat-number" data-count-to="350">+350</span>
+              <span className="who-we-are__stat-number" data-count-to="200">+200</span>
               <span className="who-we-are__stat-label">Projects a year</span>
             </li>
             <li className="who-we-are__stat">
-              <span className="who-we-are__stat-number" data-count-to="15000">+15,000</span>
+              <span className="who-we-are__stat-number" data-count-to="10000">+10,000</span>
               <span className="who-we-are__stat-label">Minutes of learning a year</span>
             </li>
           </ul>

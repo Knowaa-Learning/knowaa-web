@@ -192,7 +192,7 @@ function CTAOrange({
         <div className="kw-cta__inner">
           <div className="kw-cta__copy">
             <h2 className="kw-cta__heading" style={{ whiteSpace: 'pre-line' }}>{heading}</h2>
-            <a href={ctaHref} className="kw-cta__btn" data-cta="cta_orange_bottom">{ctaLabel}</a>
+            <a href={ctaHref} className="kw-cta__btn" data-cta="cta_bottom">{ctaLabel}</a>
           </div>
 
           <div className="kw-cta__visual" style={{ opacity: ready ? 1 : 0 }}>

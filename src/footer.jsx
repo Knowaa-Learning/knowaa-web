@@ -98,7 +98,7 @@
                 onChange={(e) => setEmail(e.target.value)}
                 aria-label="Email address"
               />
-              <button type="submit" disabled={submitting}>
+              <button type="submit" disabled={submitting} data-cta="newsletter_signup">
                 {sent ? 'Subscribed' : submitting ? 'Subscribing…' : 'Subscribe'}
               </button>
             </form>

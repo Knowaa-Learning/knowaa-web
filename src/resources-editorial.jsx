@@ -195,7 +195,7 @@ function ResourcesEditorial() {
         {/* Featured card, same lavender-inner design as archive cards */}
         {hero && (
           <div className="rc__hero-feature-wrap">
-            <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)} data-cta="resource_card_hero" data-resource-id={hero.id} data-resource-type={hero.type}>
+            <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)} data-cta="resource_card" data-resource-id={hero.id} data-resource-type={hero.type}>
               <div className="rc__arch-cover">
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
@@ -296,7 +296,7 @@ function ResourcesEditorial() {
               disabled={nlSent || nlSubmitting}
               required
             />
-            <button type="submit" disabled={nlSubmitting || nlSent}>
+            <button type="submit" disabled={nlSubmitting || nlSent} data-cta="newsletter_signup">
               {nlSent ? 'Subscribed' : nlSubmitting ? 'Subscribing…' : 'Subscribe'}
             </button>
           </form>
