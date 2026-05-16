@@ -115,13 +115,13 @@ const RESOURCES = [
             ];
 
 const CATEGORIES = ['All', 'AI & Strategy', 'Learning Science', 'Methodology', 'Design', 'Measurement', 'Pharma', 'SaaS', 'Cybersecurity', 'Telecom'];
-// "Insight" entries are surfaced under the "article" filter and styled as
-// articles on the cards — they're editorial pieces, not a distinct format.
-// Keeping the data field intact in case we want to re-introduce the
-// distinction later, but the UI treats them as articles.
+// 'Insight' is a real card type with its own badge, but the filter UI groups
+// insights under the 'Articles' tab. The Insights filter button is therefore
+// removed; insights surface via 'All' and 'Articles'.
 const TYPES = [
   { key: 'all', label: 'All', plural: 'All' },
   { key: 'article', label: 'Article', plural: 'Articles' },
+  { key: 'insight', label: 'Insight', plural: 'Insights' },
   { key: 'case', label: 'Case study', plural: 'Case studies' },
 ];
 

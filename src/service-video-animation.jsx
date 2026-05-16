@@ -12,6 +12,9 @@ const videoAnimationService = {
     "Every brief we take begins with a question about the learner, not the content. What does this person already know? What do they need to feel before they can act? What does the moment of need actually look like for them? The answers shape everything: pacing, visual language, narrative structure, even where silence communicates more than voiceover.",
     "The result is learning that earns attention before it asks for behavior change. Video and animation conceived at the right scale for the idea, not at the scale of the template library."
   ],
+  // Insert the video showcase between paragraph 2 ("decision made at the brief")
+  // and paragraph 3 ("Knowaa's animation and video studio builds...").
+  samplesAfter: 2,
   contentComponent: () => <VideoAnimationContent />,
   showRecognition: true,
   intervalMs: 9000,

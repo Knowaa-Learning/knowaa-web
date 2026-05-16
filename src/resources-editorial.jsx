@@ -169,9 +169,8 @@ function ResourcesEditorial() {
   const hero = filtered[0];
   const stream = filtered.slice(1);
 
-  // Display helper: 'insight' is shown as 'Article' on the card badges.
-  const displayType = (k) => (k === 'insight' ? 'article' : k);
-  const typeLabel = (k) => window.TYPES.find(t => t.key === displayType(k))?.label || displayType(k);
+  // Display helper: cards keep their own type label/badge (insights stay 'Insight').
+  const typeLabel = (k) => window.TYPES.find(t => t.key === k)?.label || k;
 
   return (
     <div className="rc">
@@ -211,7 +210,7 @@ function ResourcesEditorial() {
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
                 ) : null}
-                <span className={`rc__type-badge rc__type-badge--${displayType(hero.type)}`}>{typeLabel(hero.type)}</span>
+                <span className={`rc__type-badge rc__type-badge--${hero.type}`}>{typeLabel(hero.type)}</span>
                 <span className="rc__arch-cover-icon" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -236,7 +235,7 @@ function ResourcesEditorial() {
       <div className="rc__controls-wrap">
         <div className="rc__controls">
           <div className="rc__types">
-            {window.TYPES.map((t) => (
+            {window.TYPES.filter(t => t.key !== 'insight').map((t) => (
               <button key={t.key}
                 className={`rc__type ${typeFilter === t.key ? 'is-active' : ''}`}
                 onClick={() => setTypeFilter(t.key)}>
@@ -268,7 +267,7 @@ function ResourcesEditorial() {
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />
                     ) : null}
-                    <span className={`rc__type-badge rc__type-badge--${displayType(r.type)}`}>{typeLabel(r.type)}</span>
+                    <span className={`rc__type-badge rc__type-badge--${r.type}`}>{typeLabel(r.type)}</span>
                     <span className="rc__arch-cover-icon" aria-hidden="true">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3E33BB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="3" />

@@ -52,21 +52,23 @@ function ServiceBanner({ title, image, titleColor }) {
   );
 }
 
-function ServiceHero({ eyebrow, title, intro }) {
+function ServiceHero({ eyebrow, title, intro, hideCta, continueIntro }) {
   return (
-    <section className="svc-hero">
+    <section className={`svc-hero ${continueIntro ? 'svc-hero--continue' : ''}`}>
       <div className="svc-hero__inner">
         {eyebrow ? <div className="svc-hero__eyebrow">{eyebrow}</div> : null}
-        <h1 className="svc-hero__title">{title}</h1>
+        {title ? <h1 className="svc-hero__title">{title}</h1> : null}
         {Array.isArray(intro)
           ? intro.map((p, i) => <p key={i} className="svc-hero__intro">{p}</p>)
           : <p className="svc-hero__intro">{intro}</p>}
-        <a className="svc-hero__cta" href="Knowaa Contact.html" data-cta="cta_book_demo">
-          <span>Book a demo</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </a>
+        {hideCta ? null : (
+          <a className="svc-hero__cta" href="Knowaa Contact.html" data-cta="cta_book_demo">
+            <span>Book a demo</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        )}
       </div>
       <style>{`
         .svc-hero {
@@ -148,6 +150,20 @@ function ServiceHero({ eyebrow, title, intro }) {
         }
         .svc-hero__cta svg { transition: transform 180ms ease; }
         .svc-hero__cta:hover svg { transform: translateX(3px); }
+        /* Continuation hero (rendered after the showcase strip on services that
+           split the intro). Skip the lede / statement-line treatments so the
+           remaining paragraphs read as ordinary body copy. */
+        .svc-hero--continue { padding-top: clamp(40px, 4vw, 64px); }
+        .svc-hero--continue .svc-hero__intro:first-of-type,
+        .svc-hero--continue .svc-hero__intro:nth-of-type(2) {
+          font-size: clamp(16px, 1.15vw, 18px);
+          font-weight: 400;
+          color: #2a2840;
+          line-height: 1.6;
+          margin-top: 0;
+          max-width: 64ch;
+        }
+        .svc-hero--continue .svc-hero__intro + .svc-hero__intro { margin-top: 16px; }
         @media (max-width: 768px) {
           .svc-hero { padding: 56px 24px 40px; }
           .svc-hero__title { font-size: 30px; }
@@ -612,6 +628,14 @@ function Recognition() {
 
 function ServicePage({ service }) {
   const Content = service.contentComponent || ServiceContentPlaceholder;
+  const hasSamples = service.samples && service.samples.length > 0;
+  // If samplesAfter is set, the showcase strip is inserted between two halves of
+  // the intro copy. Used by the Video & Animation page to place the strip right
+  // after the "decision made at the brief" line, before the studio explainer.
+  const splitIntro = hasSamples && Number.isInteger(service.samplesAfter) && Array.isArray(service.intro);
+  const introHead = splitIntro ? service.intro.slice(0, service.samplesAfter) : service.intro;
+  const introTail = splitIntro ? service.intro.slice(service.samplesAfter) : null;
+
   return (
     <>
       <Nav pinned solid />
@@ -619,10 +643,14 @@ function ServicePage({ service }) {
       <ServiceHero
         eyebrow={service.banner ? null : service.eyebrow}
         title={service.title}
-        intro={service.intro}
+        intro={introHead}
+        hideCta={splitIntro}
       />
-      {service.samples && service.samples.length > 0 ? (
+      {hasSamples ? (
         <ServiceShowcase samples={service.samples} intervalMs={service.intervalMs || 7000} />
+      ) : null}
+      {splitIntro ? (
+        <ServiceHero intro={introTail} continueIntro />
       ) : null}
       <Content />
       {service.cta ? <CTAOrange {...service.cta} /> : null}
