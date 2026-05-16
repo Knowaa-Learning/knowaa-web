@@ -168,6 +168,7 @@ function Hero({ tweaks }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0, flexWrap: 'wrap' }}>
               <a
                 href="Knowaa Contact.html"
+                data-cta="hero_primary"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -188,6 +189,7 @@ function Hero({ tweaks }) {
               </a>
               <a
                 href="Knowaa Resources.html?type=case"
+                data-cta="hero_secondary_see_work"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',

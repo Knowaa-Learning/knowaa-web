@@ -44,7 +44,7 @@ function ResourcesMagazine() {
             Field notes from <em>building learning that performs.</em>
           </h1>
           {hero && (
-            <a className="rc-mag__cover-feature" href={`#article-${hero.id}`}>
+            <a className="rc-mag__cover-feature" href={`#article-${hero.id}`} data-cta="resource_mag_cover" data-resource-id={hero.id} data-resource-type={hero.type}>
               <div className="rc-mag__cover-feature-label">On the cover , </div>
               <div className="rc-mag__cover-feature-title">{hero.title}</div>
               <div className="rc-mag__cover-feature-meta">
@@ -108,7 +108,7 @@ function ResourcesMagazine() {
           </div>
           <div className="rc-mag__rest">
             {rest.map((r, i) => (
-              <a key={r.id} className="rc-mag__rest-card" href={`#article-${r.id}`}>
+              <a key={r.id} className="rc-mag__rest-card" href={`#article-${r.id}`} data-cta="resource_mag_rest" data-resource-id={r.id} data-resource-type={r.type}>
                 <div className="rc-mag__rest-num">{String(i + 4).padStart(2, '0')}</div>
                 <div className="rc-mag__rest-cover"><window.ResourceCover resource={r} /></div>
                 <div className="rc-mag__rest-body">
@@ -149,7 +149,7 @@ function ResourcesMagazine() {
 
 function MosaicCard({ r, size }) {
   return (
-    <a className={`rc-mag__mosaic-card rc-mag__mosaic-card--${size}`} href={`#article-${r.id}`}>
+    <a className={`rc-mag__mosaic-card rc-mag__mosaic-card--${size}`} href={`#article-${r.id}`} data-cta="resource_mag_mosaic" data-resource-id={r.id} data-resource-type={r.type}>
       <div className="rc-mag__mosaic-cover"><window.ResourceCover resource={r} /></div>
       <div className="rc-mag__mosaic-body">
         <div className="rc-mag__tag-row">

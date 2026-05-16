@@ -195,7 +195,7 @@ function ResourcesEditorial() {
         {/* Featured card, same lavender-inner design as archive cards */}
         {hero && (
           <div className="rc__hero-feature-wrap">
-            <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)}>
+            <a className="rc__arch-card rc__arch-card--hero" href={window.resourceHref(hero)} data-cta="resource_card_hero" data-resource-id={hero.id} data-resource-type={hero.type}>
               <div className="rc__arch-cover">
                 {hero.image ? (
                   <img className="rc__arch-cover-img" src={hero.image} alt="" loading="eager" />
@@ -252,7 +252,7 @@ function ResourcesEditorial() {
           <ul className="rc__stream-list">
             {stream.map((r) => (
               <li key={r.id} className="rc__arch-item">
-                <a href={window.resourceHref(r)} className="rc__arch-card">
+                <a href={window.resourceHref(r)} className="rc__arch-card" data-cta="resource_card" data-resource-id={r.id} data-resource-type={r.type}>
                   <div className="rc__arch-cover">
                     {r.image ? (
                       <img className="rc__arch-cover-img" src={r.image} alt="" loading="lazy" />

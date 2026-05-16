@@ -744,6 +744,7 @@ function MobileMenu({ isOpen, onClose, textColor, logoSrc, solid }) {
         {/* Contact CTA at bottom */}
         <a
           href="Knowaa Contact.html"
+          data-cta="nav_mobile_start_project"
           style={{
             marginTop: '32px',
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
@@ -899,6 +900,7 @@ function Nav({ solid = false, pinned = false }) {
               <a
                 key={it.label}
                 href={it.label === 'Resources' ? undefined : it.href}
+                data-cta={it.label === 'Contact us' ? 'nav_desktop_contact' : undefined}
                 onClick={it.label === 'Resources' ? (e) => e.preventDefault() : undefined}
                 onMouseEnter={() => { setHover(i); scheduleOpen(i); }}
                 onMouseLeave={() => setHover(null)}
