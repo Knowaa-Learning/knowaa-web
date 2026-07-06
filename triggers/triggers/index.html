@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The 5 Triggers Scorecard — Knowaa</title>
+  <meta name="description" content="Run any course through the five cognitive triggers in about ten minutes. Free scorecard from the ATD DemoCast by Knowaa.">
+  <meta property="og:title" content="The 5 Triggers Scorecard — Knowaa">
+  <meta property="og:description" content="Run any course through the five cognitive triggers in about ten minutes. See exactly where it is built to stick, and where it is being forgotten.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #FFFFFF; }
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0A0A0A;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection { background: #4A0FB8; color: #fff; }
+
+    header { padding: 28px 24px 0; max-width: 640px; margin: 0 auto; }
+    header img { height: 34px; width: auto; display: block; }
+    main { max-width: 640px; margin: 0 auto; padding: 52px 24px 0; }
+
+    .eyebrow {
+      margin: 0 0 18px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: #ED1F80;
+    }
+    h1 {
+      margin: 0 0 22px; font-family: 'Urbanist', sans-serif; font-weight: 800;
+      font-size: clamp(46px, 10.5vw, 80px); line-height: 1.0;
+      letter-spacing: -0.02em; color: #0D0959; text-wrap: balance;
+    }
+    .stroke { position: relative; display: inline-block; }
+    .stroke::before {
+      content: ""; position: absolute; left: -2%; right: -2%; bottom: 6%;
+      height: 26%; background: linear-gradient(90deg, #FF66A8, #ED1F80);
+      border-radius: 3px; opacity: 0.9;
+    }
+    .stroke span { position: relative; }
+    .sub {
+      margin: 0 0 50px; font-size: clamp(17px, 1.4vw, 19px); font-weight: 500;
+      line-height: 1.65; color: #444; max-width: 54ch; text-wrap: pretty;
+    }
+
+    .card-wrap { display: flex; justify-content: center; padding: 8px 0 54px; }
+    .scorecard {
+      transform: rotate(-2.5deg); width: min(330px, 80vw); aspect-ratio: 8.5 / 11;
+      background: #fff; border: 1px solid rgba(13,9,89,0.08); border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(13,9,89,0.04), 0 20px 44px -14px rgba(74,15,184,0.22);
+      padding: 26px 24px; display: flex; flex-direction: column; gap: 14px;
+    }
+    .sc-head { display: flex; justify-content: space-between; align-items: center; }
+    .sc-head img { height: 16px; width: auto; }
+    .sc-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,10,10,0.4); }
+    .scorecard > img { width: 100%; height: auto; display: block; margin: 2px 0; }
+    .sc-title { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: 18px; line-height: 1.15; color: #0D0959; }
+    .sc-rows { display: flex; flex-direction: column; gap: 11px; flex: 1; }
+    .sc-row { display: flex; align-items: center; gap: 10px; }
+    .sc-num {
+      width: 17px; height: 17px; border-radius: 50%; border: 1.5px solid #4A0FB8;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; color: #0D0959; flex-shrink: 0;
+    }
+    .sc-body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .sc-label { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; color: #0D0959; }
+    .sc-bars { display: flex; gap: 4px; }
+    .sc-bars i { height: 3.5px; flex: 1; background: rgba(10,10,10,0.10); border-radius: 2px; }
+    .sc-bars i:nth-child(1) { background: #4A0FB8; }
+    .sc-bars i:nth-child(2) { background: #4A0FB8; opacity: 0.4; }
+    .sc-foot {
+      border-top: 1px solid rgba(13,9,89,0.09); padding-top: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .sc-foot em { font-size: 11px; font-weight: 600; font-style: normal; color: #ED1F80; }
+
+    .cta { display: flex; flex-direction: column; align-items: center; padding-bottom: 60px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+      min-height: 56px; padding: 0 30px; background: #4A0FB8; color: #fff;
+      font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 999px;
+      box-shadow: 0 8px 22px -10px rgba(74,15,184,0.55); transition: background 200ms ease;
+    }
+    .btn-primary:hover { background: #3C0C99; }
+    .btn-primary:active { transform: translateY(1px); }
+    .cta p { margin: 13px 0 0; font-size: 13px; font-weight: 500; color: rgba(10,10,10,0.5); }
+
+    .strip { padding-bottom: 60px; display: flex; flex-direction: column; gap: 18px; }
+    .strip .kicker {
+      margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: #503594;
+    }
+    .marquee {
+      overflow: hidden; margin: 0 -24px; padding: 4px 0 8px;
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    }
+    .marquee-track {
+      display: flex; gap: 14px; width: max-content;
+      animation: marquee 36s linear infinite;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track video {
+      width: min(240px, 62vw); aspect-ratio: 16 / 10; object-fit: cover;
+      border-radius: 12px; background: #0D0959; border: 1px solid rgba(13,9,89,0.08);
+      box-shadow: 0 1px 2px rgba(13,9,89,0.04), 0 8px 24px rgba(13,9,89,0.04);
+      display: block; pointer-events: none; flex: 0 0 auto;
+    }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+    .divider { display: flex; align-items: center; gap: 16px; padding-bottom: 52px; }
+    .divider .line { flex: 1; height: 1px; background: rgba(10,10,10,0.10); }
+    .divider .dots { display: flex; gap: 6px; }
+    .divider .dots i { width: 5px; height: 5px; border-radius: 50%; }
+    .divider .dots i:nth-child(1) { background: #FF7A29; }
+    .divider .dots i:nth-child(2) { background: #FF2D87; }
+    .divider .dots i:nth-child(3) { background: #9B3DFF; }
+
+    .talk { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 0 8px; }
+    .talk h2 {
+      margin: 0; font-family: 'Urbanist', sans-serif; font-weight: 800;
+      font-size: clamp(24px, 4.5vw, 30px); line-height: 1.15;
+      letter-spacing: -0.015em; color: #0D0959; text-wrap: pretty;
+    }
+    .talk p { margin: 0; font-size: 16px; line-height: 1.65; color: #444; max-width: 44ch; text-wrap: pretty; }
+    .btn-ghost {
+      margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+      min-height: 52px; padding: 0 26px; background: transparent; color: #0D0959;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+      border: 1.5px solid #0D0959; border-radius: 999px;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .btn-ghost:hover { background: #0D0959; color: #fff; }
+    .btn-ghost:active { transform: translateY(1px); }
+
+    .close-line {
+      margin: 0; padding: 68px 0 44px; text-align: center;
+      font-size: 13px; font-weight: 500; color: rgba(10,10,10,0.5);
+    }
+    .close-line span { color: rgba(10,10,10,0.7); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/knowaa-logo.svg" alt="Knowaa">
+  </header>
+
+  <main>
+    <p class="eyebrow">From the ATD DemoCast by Knowaa</p>
+
+    <h1>The <span class="stroke"><span>5 Triggers</span></span><br>Scorecard</h1>
+
+    <p class="sub">Run any course through the five triggers, in about ten minutes. See exactly where it is built to stick, and where it is being forgotten.</p>
+
+    <div class="card-wrap">
+      <div class="scorecard">
+        <div class="sc-head">
+          <img src="assets/knowaa-logo.svg" alt="">
+          <div class="sc-tag">Scorecard</div>
+        </div>
+        <img src="assets/scorecard-brain.png" alt="Brain with five glowing triggers">
+        <div class="sc-title">The 5 Cognitive Triggers</div>
+        <div class="sc-rows">
+          <div class="sc-row"><div class="sc-num">1</div><div class="sc-body"><div class="sc-label">ATTENTION</div><div class="sc-bars"><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="sc-row"><div class="sc-num">2</div><div class="sc-body"><div class="sc-label">EMOTION</div><div class="sc-bars"><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="sc-row"><div class="sc-num">3</div><div class="sc-body"><div class="sc-label">SPACING</div><div class="sc-bars"><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="sc-row"><div class="sc-num">4</div><div class="sc-body"><div class="sc-label">RETRIEVAL</div><div class="sc-bars"><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="sc-row"><div class="sc-num">5</div><div class="sc-body"><div class="sc-label">CONTEXT</div><div class="sc-bars"><i></i><i></i><i></i><i></i></div></div></div>
+        </div>
+        <div class="sc-foot">
+          <div class="sc-tag">Bottom line</div>
+          <em>built to stick?</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn-primary" href="assets/Knowaa_5_Triggers_Scorecard.pdf" download="Knowaa_5_Triggers_Scorecard.pdf" data-cta="download_scorecard">Download the Scorecard <span aria-hidden="true">&rarr;</span></a>
+      <p>Direct PDF download. No form, no email.</p>
+    </div>
+
+    <section class="strip">
+      <p class="kicker">From the session</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <video src="assets/a1.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a2.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a3.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a4.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a5.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a6.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <video src="assets/a1.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <video src="assets/a2.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <video src="assets/a3.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <video src="assets/a4.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <video src="assets/a5.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+          <video src="assets/a6.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="line"></div>
+    </div>
+
+    <section class="talk">
+      <h2>Want to talk about your learning content?</h2>
+      <p>Bring a course, bring a question, bring nothing. We will figure it out together.</p>
+      <a class="btn-ghost" href="https://calendly.com/noam-knowaa/30min" target="_blank" rel="noopener" data-cta="book_time">Book a time</a>
+    </section>
+
+    <p class="close-line">Knowaa, a custom eLearning studio &middot; <span>knowaa.com</span></p>
+  </main>
+
+  <script>
+    // Belt-and-braces: some browsers still block autoplay until muted is set via JS
+    document.querySelectorAll('video').forEach(function (v) {
+      v.muted = true; v.volume = 0; v.loop = true;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+  </script>
+</body>
+</html>
