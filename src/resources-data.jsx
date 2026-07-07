@@ -17,6 +17,19 @@ const RESOURCES = [
     image: 'assets/insights/modern-learner.jpg',
   },
 {
+    id: '5-cognitive-triggers-webinar',
+    type: 'webinar',
+    category: 'Learning Science',
+    title: 'Webinar - 5 Cognitive Triggers That Drive Behavior Change',
+    dek: 'Recorded at the ATD DemoCast series. Noam, founder of Knowaa, breaks down the five cognitive triggers that make the brain keep one piece of content, and delete the rest.',
+    author: 'Noam Herz',
+    role: 'Founder & Creative Director',
+    readTime: '25 min watch',
+    publishedAt: '2026-07-06T12:00:00',
+    featured: false,
+    image: 'assets/webinars/democast-cover.png',
+  },
+{
     id: 'personalized-safety-environment',
     type: 'insight',
     category: 'Methodology',
@@ -123,6 +136,8 @@ const TYPES = [
   { key: 'article', label: 'Article', plural: 'Articles' },
   { key: 'insight', label: 'Insight', plural: 'Insights' },
   { key: 'case', label: 'Case study', plural: 'Case studies' },
+  // Webinars surface via 'All' only, no dedicated filter tab yet.
+  { key: 'webinar', label: 'Webinar', plural: 'Webinars' },
 ];
 
 function formatDate(iso) {
@@ -139,6 +154,7 @@ const RESOURCE_PAGES = {
   'attention-threshold': 'Knowaa Article - Attention Threshold.html',
   'generic-training-production-ai-strategy': 'Knowaa Article - Generic Training.html',
   'personalized-safety-environment': 'Knowaa Article - Personalized Safety.html',
+  '5-cognitive-triggers-webinar': 'Knowaa Webinar - 5 Cognitive Triggers.html',
   'zim-dare-to-ai': 'Knowaa Case Study - ZIM.html',
   'signature-aviation-ergonomics': 'Knowaa Case Study - Signature Aviation.html',
   'netafim-kaizen-prework': 'Knowaa Case Study - Netafim.html',

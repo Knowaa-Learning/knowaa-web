@@ -2,9 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
- "rewrites": [
+  "rewrites": [
     { "source": "/",                              "destination": "/Knowaa Homepage.html" },
-    { "source": "/triggers",                      "destination": "/triggers/index.html" },
     { "source": "/solutions/strategy",            "destination": "/Knowaa Strategy.html" },
     { "source": "/solutions/custom-elearning",    "destination": "/Knowaa Custom eLearning.html" },
     { "source": "/solutions/video-animation",     "destination": "/Knowaa Video and Animation.html" },
@@ -19,6 +18,7 @@
     { "source": "/resources/netafim-kaizen-prework",                  "destination": "/Knowaa Case Study - Netafim.html" },
     { "source": "/resources/teva-privacy-episodes",                   "destination": "/Knowaa Case Study - Teva.html" },
     { "source": "/resources/kornit-digital-onboarding",               "destination": "/Knowaa Case Study - Kornit.html" },
+    { "source": "/resources/5-cognitive-triggers-webinar",            "destination": "/Knowaa Webinar - 5 Cognitive Triggers.html" },
     { "source": "/contact",                       "destination": "/Knowaa Contact.html" },
     { "source": "/contact/",                      "destination": "/Knowaa Contact.html" },
     { "source": "/terms",                         "destination": "/Knowaa Terms.html" },

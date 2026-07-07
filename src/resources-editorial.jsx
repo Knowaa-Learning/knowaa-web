@@ -235,7 +235,7 @@ function ResourcesEditorial() {
       <div className="rc__controls-wrap">
         <div className="rc__controls">
           <div className="rc__types">
-            {window.TYPES.filter(t => t.key !== 'insight').map((t) => (
+            {window.TYPES.filter(t => t.key !== 'insight' && t.key !== 'webinar').map((t) => (
               <button key={t.key}
                 className={`rc__type ${typeFilter === t.key ? 'is-active' : ''}`}
                 onClick={() => setTypeFilter(t.key)}>
@@ -669,6 +669,9 @@ const CSS = `
 }
 .rc__type-badge--insight {
   background: rgba(237, 31, 128, 0.92);
+}
+.rc__type-badge--webinar {
+  background: rgba(74, 15, 184, 0.92);
 }
 .rc__type-badge--article {
   background: rgba(243, 113, 55, 0.92);
