@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security Awareness Training, interactive demo | Knowaa</title>
+<meta name="description" content="An interactive security awareness module built by Knowaa. Scenario-based decisions, filmed video, and immediate consequence feedback." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#4A0FB8" />
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script>
+window.__ANALYTICS_ENABLED__ = (function () {
+  var ANALYTICS_HOSTS = ['knowaa.com', 'www.knowaa.com', 'knowaa.vercel.app'];
+  try { return ANALYTICS_HOSTS.indexOf(location.hostname) !== -1; } catch (e) { return false; }
+})();
+</script>
+<script>
+if (window.__ANALYTICS_ENABLED__) {
+  ['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'].forEach(function (src) {
+    var s = document.createElement('script'); s.defer = true; s.src = src; document.head.appendChild(s);
+  });
+}
+</script>
+<script>
+if (window.__ANALYTICS_ENABLED__) {
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_n4SRE2nGoQapriVUr2JKa2CfyGvXztdTVi47Ve5KTodP', {
+  api_host: 'https://us.i.posthog.com',
+  person_profiles: 'identified_only',
+  capture_pageview: true,
+  capture_pageleave: true,
+});
+}
+</script>
+<script>
+if (window.__ANALYTICS_ENABLED__) (function () {
+  function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+  ready(function () {
+    var ctaWords = /talk to us|book|demo|contact|get started|let'?s talk|work with us|schedule/i;
+    document.body.addEventListener('click', function (e) {
+      var el = e.target.closest('a, button, [data-cta]');
+      if (!el) return;
+      var label = el.getAttribute('data-cta') || (el.textContent || '').trim().slice(0,80);
+      var href  = el.getAttribute('href') || null;
+      var isCta = el.hasAttribute('data-cta') || ctaWords.test(label);
+      if (!isCta && !href) return;
+      var evt = isCta ? 'cta_click' : (href && /^https?:/i.test(href) && !href.includes(location.hostname) ? 'outbound_click' : null);
+      if (!evt) return;
+      if (window.posthog && posthog.capture) { posthog.capture(evt, { label: label, href: href, page: location.pathname }); }
+    }, { passive: true });
+    setTimeout(function () {
+      if (window.posthog && posthog.capture) { posthog.capture('engaged_read', { page: location.pathname, seconds: 30 }); }
+    }, 30000);
+  });
+})();
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#F2F2F2;font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#0A0A0A}
+img,svg,iframe{display:block;max-width:100%}
+a{color:#4A0FB8;text-decoration:none}
+a:hover{color:#3A0C91}
+button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:inherit;padding:0}
+::selection{background:#4A0FB8;color:#fff}
+:root{--purple:#4A0FB8;--title:#0D0959}
+
+/* Banner back to homepage */
+.dm__banner{background:var(--purple);color:#fff;padding:0 clamp(20px,4vw,56px)}
+.dm__banner-in{max-width:1240px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.dm__banner-in img{height:24px;width:auto}
+.dm__home{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.88);font-size:13.5px;font-weight:600;letter-spacing:-.005em;padding:9px 16px;border:1px solid rgba(255,255,255,.32);border-radius:999px;transition:background 160ms,border-color 160ms,color 160ms}
+.dm__home:hover{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+
+/* Shell */
+.dm__shell{max-width:1240px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,4vw,56px) clamp(56px,7vw,96px)}
+.dm__head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(28px,3.5vw,40px)}
+.dm__badge{align-self:flex-start;color:rgba(13,9,89,.55);font-size:13px;font-weight:500;letter-spacing:0}
+.dm__title{font-family:'Urbanist',sans-serif;font-size:clamp(30px,4.4vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.06;color:var(--title);margin:0;text-wrap:pretty}
+.dm__meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;color:rgba(13,9,89,.6)}
+.dm__meta img{height:19px;width:auto;opacity:.9}
+.dm__dot{width:4px;height:4px;border-radius:50%;background:rgba(13,9,89,.28)}
+.dm__intro{font-size:16.5px;line-height:1.65;color:rgba(13,9,89,.82);max-width:66ch;margin:0}
+
+/* Module window */
+.dm__win{background:#fff;border:1px solid rgba(13,9,89,.09);border-radius:16px;overflow:hidden;box-shadow:0 4px 12px -6px rgba(13,9,89,.1),0 24px 48px -16px rgba(13,9,89,.16);margin-top:clamp(28px,3.5vw,40px)}
+.dm__bar{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid rgba(13,9,89,.08);background:#FBFAFE}
+.dm__lights{display:flex;gap:7px}
+.dm__lights span{width:11px;height:11px;border-radius:50%;background:rgba(13,9,89,.14)}
+.dm__bar-label{flex:1;text-align:center;font-size:12.5px;font-weight:500;color:rgba(13,9,89,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dm__expand{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--purple);padding:6px 12px;border-radius:999px;transition:background 160ms}
+.dm__expand:hover{background:rgba(74,15,184,.08)}
+.dm__frame{position:relative;width:100%;aspect-ratio:16/9;background:#F4F2FA}
+.dm__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.dm__win:fullscreen{border-radius:0;border:0;box-shadow:none;display:flex;flex-direction:column;background:#000}
+.dm__win:fullscreen .dm__frame{flex:1;aspect-ratio:auto;height:auto}
+
+.dm__note{margin:16px 0 0;font-size:13px;color:rgba(13,9,89,.5)}
+
+/* After-module block */
+.dm__after{margin:clamp(44px,5.5vw,72px) 0 0;padding-top:clamp(30px,4vw,44px);border-top:1px solid rgba(13,9,89,.1);max-width:70ch}
+.dm__h2{font-family:'Urbanist',sans-serif;font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.022em;line-height:1.18;color:var(--title);margin:0 0 14px;text-wrap:pretty}
+.dm__after-p{font-size:16.5px;line-height:1.65;color:rgba(13,9,89,.82);margin:0 0 26px}
+.dm__link{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;font-weight:700;font-size:15px;letter-spacing:-.005em;padding:13px 26px;border-radius:999px;transition:transform 160ms cubic-bezier(.4,0,.2,1),box-shadow 160ms,background 160ms}
+.dm__link:hover{color:#fff;background:#3A0C91;transform:translateY(-1px);box-shadow:0 10px 22px -8px rgba(74,15,184,.5)}
+
+/* Footer */
+.dm__footer{border-top:1px solid rgba(13,9,89,.1);background:#fff;padding:0 clamp(20px,4vw,56px)}
+.dm__footer-in{max-width:1240px;margin:0 auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:20px 0;font-size:13.5px;color:rgba(13,9,89,.55)}
+.dm__footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.dm__footer-links a{color:rgba(13,9,89,.55)}
+.dm__footer-links a:hover{color:var(--purple)}
+
+@media (max-width:768px){
+  .dm__banner-in{height:54px}
+  .dm__banner-in img{height:21px}
+  .dm__home{font-size:12.5px;padding:8px 13px}
+  .dm__bar-label{display:none}
+  .dm__frame{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+
+<div class="dm__banner">
+  <div class="dm__banner-in">
+    <a href="../../" aria-label="Knowaa home"><img src="../../assets/knowaa-logo-white.svg" alt="Knowaa" /></a>
+    <a class="dm__home" href="../../" data-cta="demo_back_home">Back to knowaa.com &rarr;</a>
+  </div>
+</div>
+
+<main class="dm__shell">
+  <header class="dm__head">
+    <div class="dm__badge">Interactive sample</div>
+    <h1 class="dm__title">Cybersecurity decisions are rarely obvious in the moment.</h1>
+    <p class="dm__intro">This short interactive sample puts employees inside a familiar workplace situation and asks them to decide what happens next. It was created for teams responsible for security awareness, compliance, and employee learning.</p>
+  </header>
+
+  <section class="dm__win" id="demo-window">
+    <div class="dm__bar">
+      <div class="dm__lights" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="dm__bar-label">Interactive cybersecurity sample</div>
+      <button class="dm__expand" id="expand-btn" type="button">Fullscreen</button>
+    </div>
+    <div class="dm__frame">
+      <iframe src="module/story.html" title="Interactive cybersecurity sample module" allow="fullscreen; autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </section>
+  <p class="dm__note">Best viewed on a desktop browser with sound on.</p>
+
+  <section class="dm__after">
+    <h2 class="dm__h2">Could this approach work for your employees?</h2>
+    <p class="dm__after-p">We create custom learning experiences around each organization&rsquo;s risks, policies, culture, and voice, while keeping the experience relatable, memorable, and genuinely engaging.</p>
+    <a class="dm__link" href="../../" data-cta="cta_bottom">Learn more about Knowaa &rarr;</a>
+  </section>
+</main>
+
+<footer class="dm__footer">
+  <div class="dm__footer-in">
+    <span class="dm__footer-name">&copy; 2026 Knowaa, Inc.</span>
+    <span class="dm__footer-links">
+      <a href="../../Knowaa%20Privacy.html">Privacy policy</a>
+      <a href="mailto:hello@knowaa.com">hello@knowaa.com</a>
+      <a href="../../">knowaa.com</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var win = document.getElementById('demo-window');
+  var btn = document.getElementById('expand-btn');
+  btn.addEventListener('click', function(){
+    if (document.fullscreenElement) { document.exitFullscreen(); }
+    else if (win.requestFullscreen) { win.requestFullscreen(); }
+  });
+  document.addEventListener('fullscreenchange', function(){
+    btn.textContent = document.fullscreenElement ? 'Exit fullscreen' : 'Fullscreen';
+  });
+})();
+</script>
+</body>
+</html>
