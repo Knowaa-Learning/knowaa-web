@@ -336,14 +336,14 @@ function Testimonials() {
         }
 
         /* Carousel */
-        .kw-carousel { position: relative; padding: 0; min-height: 200px; outline: none; }
-        .kw-deck { position: relative; height: 200px; perspective: 1600px; transform-style: preserve-3d; }
+        .kw-carousel { position: relative; padding: 0; min-height: 246px; outline: none; }
+        .kw-deck { position: relative; height: 246px; perspective: 1600px; transform-style: preserve-3d; }
         .kw-card {
           position: absolute; top: 0; left: 50%;
           width: 100%; max-width: 460px;
           height: 100%;
           transform: translateX(-50%);
-          padding: 14px 20px 16px;
+          padding: 14px 20px 66px;
           background: #ffffff;
           border: 1px solid rgba(0, 0, 0, 0.06);
           border-radius: 14px;
@@ -396,9 +396,9 @@ function Testimonials() {
           overflow: hidden;
         }
         .kw-avatar-img { object-fit: cover; }
-        .kw-person-text { min-width: 0; line-height: 1.2; }
-        .kw-name { margin: 0 0 1px; font-size: 15px; font-weight: 700; color: #111111; letter-spacing: 0.01em; }
-        .kw-role { margin: 0; font-size: 11px; line-height: 1.3; color: #777777; }
+        .kw-person-text { min-width: 0; line-height: 1.2; text-align: left; }
+        .kw-name { margin: 0 0 1px; font-size: 13px; font-weight: 700; color: #111111; letter-spacing: 0.01em; }
+        .kw-role { margin: 0; font-size: 10px; line-height: 1.3; color: #777777; }
 
         .kw-quote {
           margin: 0;
@@ -410,9 +410,9 @@ function Testimonials() {
           position: absolute;
           bottom: 10px;
           right: 14px;
-          height: 28px;
+          height: 48px;
           width: auto;
-          max-width: 140px;
+          max-width: 220px;
           opacity: 0.9;
           pointer-events: none;
           user-select: none;
@@ -481,9 +481,9 @@ function Testimonials() {
           .kw-testimonials { padding: 40px 0 88px; }
           .kw-container { padding: 0 20px; }
           .kw-left { gap: 16px; }
-          .kw-carousel { min-height: 240px; }
-          .kw-deck { height: 230px; }
-          .kw-card { max-width: calc(100% - 16px); padding: 14px 18px 14px; }
+          .kw-carousel { min-height: 286px; }
+          .kw-deck { height: 276px; }
+          .kw-card { max-width: calc(100% - 16px); padding: 14px 18px 64px; }
           .kw-quote { font-size: 15px; }
           .kw-card[data-pos='prev'],
           .kw-card[data-pos='next'] { opacity: 0; pointer-events: none; }
@@ -521,6 +521,21 @@ function Recognition() {
             src="assets/testimonials/badge-2.png"
             alt="Top Content Providers for Custom eLearning 2026, Featured on elearningindustry.com"
           />
+          <img
+            className="kw-recognition__badge kw-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-learning-development.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, Gold, Learning and Development"
+          />
+          <img
+            className="kw-recognition__badge kw-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-learning-development.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, second Gold, Learning and Development"
+          />
+          <img
+            className="kw-recognition__badge kw-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-future-of-work.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, Gold, Future of Work"
+          />
         </div>
       </div>
       <style>{`
@@ -548,21 +563,23 @@ function Recognition() {
         .kw-recognition__badges {
           display: flex;
           align-items: center;
-          gap: 36px;
+          gap: 22px;
           flex-wrap: wrap;
           justify-content: center;
         }
         .kw-recognition__badge {
-          width: 180px;
+          width: 132px;
           height: auto;
           display: block;
           filter: drop-shadow(0 6px 14px rgba(13, 9, 89, 0.10));
         }
+        .kw-recognition__badge--lg { width: 152px; }
         @media (max-width: 600px) {
           .kw-recognition { padding: 32px 16px 40px; }
           .kw-recognition__inner { gap: 18px; }
           .kw-recognition__badges { gap: 20px; }
-          .kw-recognition__badge { width: 130px; }
+          .kw-recognition__badge { width: 118px; }
+          .kw-recognition__badge--lg { width: 136px; }
         }
       `}</style>
     </section>

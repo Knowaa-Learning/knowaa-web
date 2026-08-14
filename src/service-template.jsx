@@ -578,6 +578,21 @@ function Recognition() {
             src="assets/testimonials/badge-2.png"
             alt="Top Content Providers for Custom eLearning 2026, Featured on elearningindustry.com"
           />
+          <img
+            className="svc-recognition__badge svc-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-learning-development.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, Gold, Learning and Development"
+          />
+          <img
+            className="svc-recognition__badge svc-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-learning-development.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, second Gold, Learning and Development"
+          />
+          <img
+            className="svc-recognition__badge svc-recognition__badge--lg"
+            src="assets/testimonials/badge-bhg-future-of-work.png"
+            alt="Brandon Hall Group HCM Excellence Awards 2026, Gold, Future of Work"
+          />
         </div>
       </div>
       <style>{`
@@ -611,15 +626,17 @@ function Recognition() {
           justify-content: center;
         }
         .svc-recognition__badge {
-          width: 144px;
+          width: 124px;
           height: auto;
           display: block;
           filter: drop-shadow(0 4px 10px rgba(13, 9, 89, 0.10));
         }
+        .svc-recognition__badge--lg { width: 143px; }
         @media (max-width: 600px) {
           .svc-recognition { padding: 20px 16px 28px; }
           .svc-recognition__inner { gap: 16px; }
           .svc-recognition__badge { width: 114px; }
+          .svc-recognition__badge--lg { width: 131px; }
         }
       `}</style>
     </section>
