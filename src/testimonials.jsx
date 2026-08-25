@@ -568,18 +568,18 @@ function Recognition() {
           justify-content: center;
         }
         .kw-recognition__badge {
-          width: 132px;
+          width: clamp(120px, 11vw, 168px);
           height: auto;
           display: block;
           filter: drop-shadow(0 6px 14px rgba(13, 9, 89, 0.10));
         }
-        .kw-recognition__badge--lg { width: 152px; }
+        .kw-recognition__badge--lg { width: clamp(138px, 12.7vw, 193px); }
         @media (max-width: 600px) {
           .kw-recognition { padding: 32px 16px 40px; }
           .kw-recognition__inner { gap: 18px; }
           .kw-recognition__badges { gap: 20px; }
-          .kw-recognition__badge { width: 118px; }
-          .kw-recognition__badge--lg { width: 136px; }
+          .kw-recognition__badge { width: 138px; }
+          .kw-recognition__badge--lg { width: 159px; }
         }
       `}</style>
     </section>

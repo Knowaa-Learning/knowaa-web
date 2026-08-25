@@ -626,17 +626,17 @@ function Recognition() {
           justify-content: center;
         }
         .svc-recognition__badge {
-          width: 124px;
+          width: clamp(120px, 11vw, 168px);
           height: auto;
           display: block;
           filter: drop-shadow(0 4px 10px rgba(13, 9, 89, 0.10));
         }
-        .svc-recognition__badge--lg { width: 143px; }
+        .svc-recognition__badge--lg { width: clamp(138px, 12.7vw, 193px); }
         @media (max-width: 600px) {
           .svc-recognition { padding: 20px 16px 28px; }
           .svc-recognition__inner { gap: 16px; }
-          .svc-recognition__badge { width: 114px; }
-          .svc-recognition__badge--lg { width: 131px; }
+          .svc-recognition__badge { width: 134px; }
+          .svc-recognition__badge--lg { width: 154px; }
         }
       `}</style>
     </section>
