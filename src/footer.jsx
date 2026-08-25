@@ -36,10 +36,8 @@
     {
       heading: 'Connect',
       items: [
-        { label: 'LinkedIn', href: '#' },
-        { label: 'Email',    href: 'mailto:hello@knowaa.com' },
-        { label: 'X',        href: '#' },
-        { label: 'YouTube',  href: '#' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/company/knowaa-learning' },
+        { label: 'Email',    href: 'mailto:office@knowaa.com' },
       ],
     },
   ];

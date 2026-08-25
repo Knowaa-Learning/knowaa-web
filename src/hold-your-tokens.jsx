@@ -180,7 +180,6 @@ function HoldYourTokens() {
           </div>
           <div className="hyt__hero-media">
             <video className="hyt__hero-vid" ref={heroVideoRef} src="assets/campaign/tokens-hero.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Selected work for AppsFlyer, silent loop"></video>
-            <p className="hyt__hero-cap">Selected work for AppsFlyer</p>
           </div>
         </div>
       </section>
