@@ -30,15 +30,15 @@ const CSS_HYT = `
 .btn{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;padding:14px 28px;border-radius:999px;transition:transform .16s cubic-bezier(.4,0,.2,1),box-shadow .16s,background .16s,border-color .16s}
 .btn--pri{background:var(--p);color:#fff}
 .btn--pri:hover{color:#fff;background:#3A0C91;transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(74,15,184,.6)}
-.hyt__hero .btn--pri{background:#fff;color:#D97757}
-.hyt__hero .btn--pri:hover{color:#D97757;background:#F6F1EC;box-shadow:0 12px 26px -10px rgba(0,0,0,.3)}
+.hyt__hero .btn--pri,.hyt__offer .btn--pri{background:#fff;color:#D97757}
+.hyt__hero .btn--pri:hover,.hyt__offer .btn--pri:hover{color:#D97757;background:#F6F1EC;box-shadow:0 12px 26px -10px rgba(0,0,0,.3)}
 .btn--ghost{border:1px solid rgba(255,255,255,.65);color:#fff}
 .btn--ghost:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.1)}
 
 /* 1. HERO */
 .hyt__hero{background:var(--night);color:var(--on-clay);padding:clamp(112px,12vw,164px) clamp(22px,5vw,80px) clamp(64px,7vw,100px);overflow:hidden}
 .hyt__hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(36px,5vw,64px);align-items:center}
-.hyt__h1{font-size:clamp(46px,7.4vw,104px);font-weight:900;line-height:.94;letter-spacing:-.045em;color:var(--on-clay);margin:0 0 28px}
+.hyt__h1{font-size:clamp(32px,3.9vw,58px);font-weight:900;line-height:1.06;letter-spacing:-.035em;color:var(--on-clay);margin:0 0 26px;max-width:22ch;text-wrap:pretty}
 .hyt__h1 em{font-style:normal;color:rgba(255,255,255,.72)}
 .hyt__kicker{font-family:'Urbanist',sans-serif;font-size:clamp(20px,2.2vw,29px);font-weight:700;letter-spacing:-.02em;line-height:1.28;color:var(--on-clay);margin-bottom:18px;max-width:30ch}
 .hyt__kicker span{color:var(--on-clay-2)}
@@ -94,19 +94,39 @@ const CSS_HYT = `
 .hyt__note{margin-top:clamp(32px,4vw,48px);padding-left:22px;border-left:2px solid rgba(255,255,255,.45);font-size:13.5px;line-height:1.65;color:var(--on-clay-2);max-width:72ch}
 
 /* 4. OFFER */
-.hyt__offer{background:#F6F5FA}
-.hyt__reframe{font-family:'Urbanist',sans-serif;font-size:clamp(28px,3.7vw,50px);font-weight:800;letter-spacing:-.032em;line-height:1.08;color:var(--ink);max-width:24ch}
-.hyt__reframe span{color:var(--p)}
+.hyt__offer{background:#D97757}
+.hyt__reframe{font-family:'Urbanist',sans-serif;font-size:clamp(28px,3.7vw,50px);font-weight:800;letter-spacing:-.032em;line-height:1.08;color:#fff;max-width:24ch}
+.hyt__reframe span{color:#fff}
+.hyt__offer .hyt__intro{color:rgba(255,255,255,.9)}
+.hyt__offer .hyt__close{border-top-color:rgba(255,255,255,.28)}
 .hyt__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);margin-top:clamp(44px,5vw,64px)}
 .hyt__step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,2.6vw,30px);box-shadow:0 14px 40px -32px rgba(13,9,89,.45)}
 .hyt__step-n{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;font-weight:700;color:rgba(13,9,89,.68);margin-bottom:16px}
 .hyt__step h3{font-size:23px;font-weight:800;letter-spacing:-.025em;color:var(--ink);margin-bottom:10px}
 .hyt__step p{font-size:15px;line-height:1.6;color:var(--mute)}
-.hyt__close{margin-top:clamp(40px,4.6vw,58px);padding-top:clamp(36px,4vw,48px);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
-.hyt__close-h{font-family:'Urbanist',sans-serif;font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-.028em;line-height:1.16;color:var(--ink);max-width:26ch}
+.hyt__close{margin-top:clamp(40px,4.6vw,58px);padding-top:clamp(36px,4vw,48px);border-top:1px solid var(--line);display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,4.5vw,72px);align-items:start}
+.hyt__close-h{font-family:'Urbanist',sans-serif;font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-.028em;line-height:1.16;color:#fff;max-width:22ch}
+.hyt__close-p{margin-top:16px;font-size:15.5px;line-height:1.62;color:rgba(255,255,255,.9);max-width:38ch}
+
+.hyt__form{display:flex;flex-direction:column;gap:16px}
+.hyt__form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hyt__hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+.hyt__field{display:flex;flex-direction:column;gap:7px}
+.hyt__field>span{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:#fff}
+.hyt__field>span em{font-style:normal;font-weight:400;color:rgba(255,255,255,.7)}
+.hyt__field input,.hyt__field select,.hyt__field textarea{font-family:'Poppins',sans-serif;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid rgba(13,9,89,.18);border-radius:8px;padding:11px 13px;width:100%;transition:border-color .16s,box-shadow .16s}
+.hyt__field textarea{resize:vertical;min-height:78px}
+.hyt__field input:focus,.hyt__field select:focus,.hyt__field textarea:focus{outline:none;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.32)}
+.hyt__field input::placeholder{color:rgba(13,9,89,.34)}
+.hyt__form .btn{align-self:flex-start;margin-top:4px}
+.hyt__form .btn:disabled{opacity:.65;cursor:progress}
+.hyt__status{font-size:13.5px;line-height:1.55;margin:0;padding:11px 14px;border-radius:8px}
+.hyt__status--ok{background:rgba(255,255,255,.92);color:var(--p)}
+.hyt__status--error{background:rgba(255,255,255,.92);color:#B3122F}
 
 @media(max-width:1000px){
 .hyt__hero-grid,.hyt__steps{grid-template-columns:1fr}
+.hyt__close{grid-template-columns:1fr;gap:30px}
 .hyt__hero-media{order:-1;margin-bottom:8px}
 .hyt__spread{display:grid;grid-auto-flow:column;grid-auto-columns:82%;grid-template-columns:none;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
 .hyt__spread::-webkit-scrollbar{display:none}
@@ -118,7 +138,8 @@ const CSS_HYT = `
 .hyt__frames::-webkit-scrollbar{display:none}
 .hyt__frame{scroll-snap-align:center}
 .btn{width:100%;text-align:center}
-.hyt__close{flex-direction:column;align-items:flex-start}
+.hyt__close{grid-template-columns:1fr;gap:28px}
+.hyt__form-row{grid-template-columns:1fr}
 }
 `;
 
@@ -152,6 +173,46 @@ const FRAMES = [
 function HoldYourTokens() {
   // Chrome evaluates the autoplay gate at parse time, and React sets `muted` as a
   // property after creation — so the attribute has to be forced before playback.
+  const [form, setForm] = React.useState({
+    name: '', email: '', company: '', message: '', botcheck: false,
+  });
+  const [sending, setSending] = React.useState(false);
+  const [status, setStatus] = React.useState({ type: '', message: '' });
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const el = e.currentTarget;
+    if (!el.checkValidity()) { el.reportValidity(); return; }
+    setStatus({ type: '', message: '' });
+    setSending(true);
+    const payload = new FormData();
+    payload.append('access_key', '37f4da46-943a-4171-81bc-48ead0b633ea');
+    payload.append('subject', 'Hold Your Tokens, campaign enquiry');
+    payload.append('from_name', 'Knowaa, Hold Your Tokens page');
+    payload.append('botcheck', form.botcheck ? 'on' : '');
+    payload.append('name', form.name);
+    payload.append('email', form.email);
+    payload.append('company', form.company);
+    payload.append('message', form.message);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', body: payload, headers: { Accept: 'application/json' },
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.success !== false) {
+        setStatus({ type: 'ok', message: "Thanks, that's with us. We'll be in touch shortly." });
+        setForm({ name: '', email: '', company: '', message: '', botcheck: false });
+      } else {
+        setStatus({ type: 'error', message: (json && json.message) || 'Something went wrong. Please try again or email office@knowaa.com.' });
+      }
+    } catch (err) {
+      setStatus({ type: 'error', message: 'Network error. Please try again or email office@knowaa.com.' });
+    } finally {
+      setSending(false);
+    }
+  };
+
   const heroVideoRef = React.useCallback((el) => {
     if (!el) return;
     el.muted = true;
@@ -175,16 +236,14 @@ function HoldYourTokens() {
       <section className="hyt__hero" data-screen-label="Hero, the pain">
         <div className="hyt__hero-grid">
           <div>
-            <h1 className="hyt__h1">Hold your<br />tokens.</h1>
-
-            <p className="hyt__kicker">Behavior-change campaigns for Claude usage at scale.</p>
+            <h1 className="hyt__h1">Your people have a Claude budget. Nobody taught them how to spend it.</h1>
             <p className="hyt__desc">Companies increasingly allocate, measure and control AI coding capacity. Two teams can be given the same allowance and consume it very differently, and the difference shows up in spend and in interrupted access long before anyone changes a policy.</p>
             <div className="hyt__cta-row">
               <a className="btn btn--pri" href="Knowaa Contact.html" data-cta="hero_primary">Talk to Knowaa</a>
             </div>
           </div>
           <div className="hyt__hero-media">
-            <video className="hyt__hero-vid" ref={heroVideoRef} src="assets/campaign/tokens-hero.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Selected work for AppsFlyer, silent loop"></video>
+            <video className="hyt__hero-vid" ref={heroVideoRef} src="assets/campaign/tokens-hero.mp4" autoPlay muted loop playsInline controls controlsList="nodownload noremoteplayback" preload="auto" aria-label="Selected work for AppsFlyer, silent loop"></video>
           </div>
         </div>
       </section>
@@ -245,8 +304,37 @@ function HoldYourTokens() {
           <p className="hyt__reframe">Controls manage capacity. <span>Practice determines how well it gets used.</span></p>
           <p className="hyt__intro">Knowaa helps engineering organizations turn AI guidance into consistent developer practice, using creative work built on your own tools, limits and terminology.</p>
           <div className="hyt__close">
-            <p className="hyt__close-h">Before you raise the cap, improve what happens before it.</p>
-            <a className="btn btn--pri" href="Knowaa Contact.html" data-cta="cta_bottom">Talk to Knowaa</a>
+            <div className="hyt__close-copy">
+              <p className="hyt__close-h">Before you raise the cap, improve what happens before it.</p>
+              <p className="hyt__close-p">Tell us about your setup and we'll come back with what a campaign would look like for your teams.</p>
+            </div>
+            <form className="hyt__form" onSubmit={handleSubmit} noValidate>
+              <input className="hyt__hp" type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" checked={form.botcheck} onChange={set('botcheck')} aria-hidden="true" />
+              <div className="hyt__form-row">
+                <label className="hyt__field">
+                  <span>Name</span>
+                  <input type="text" name="name" required value={form.name} onChange={set('name')} autoComplete="name" />
+                </label>
+                <label className="hyt__field">
+                  <span>Work email</span>
+                  <input type="email" name="email" required value={form.email} onChange={set('email')} autoComplete="email" />
+                </label>
+              </div>
+              <label className="hyt__field">
+                <span>Company</span>
+                <input type="text" name="company" required value={form.company} onChange={set('company')} autoComplete="organization" />
+              </label>
+              <label className="hyt__field">
+                <span>What are you trying to change? <em>Optional</em></span>
+                <textarea name="message" rows="3" value={form.message} onChange={set('message')}></textarea>
+              </label>
+              {status.message && (
+                <p className={'hyt__status hyt__status--' + status.type} role="status">{status.message}</p>
+              )}
+              <button className="btn btn--pri" type="submit" disabled={sending} data-cta="form_submit_hold_your_tokens">
+                {sending ? 'Sending…' : 'Send'}
+              </button>
+            </form>
           </div>
         </div>
       </section>
