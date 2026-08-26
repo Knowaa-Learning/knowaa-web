@@ -93,6 +93,10 @@ const CSS_HYT = `
 .hyt__frame h3{margin-top:14px;font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:600;line-height:1.45;color:var(--on-clay)}
 .hyt__note{margin-top:clamp(32px,4vw,48px);padding-left:22px;border-left:2px solid rgba(255,255,255,.45);font-size:13.5px;line-height:1.65;color:var(--on-clay-2);max-width:72ch}
 
+/* 3b. VIDEO BAND */
+.hyt__band{background:#0B0A16;line-height:0}
+.hyt__band-vid{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+
 /* 4. OFFER */
 .hyt__offer{background:#D97757}
 .hyt__reframe{font-family:'Urbanist',sans-serif;font-size:clamp(28px,3.7vw,50px);font-weight:800;letter-spacing:-.032em;line-height:1.08;color:#fff;max-width:24ch}
@@ -213,6 +217,21 @@ function HoldYourTokens() {
     }
   };
 
+  const bandVideoRef = React.useCallback((el) => {
+    if (!el) return;
+    el.muted = true;
+    el.setAttribute('muted', '');
+    el.play().catch(() => {});
+    if (typeof IntersectionObserver === 'function') {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) el.play().catch(() => {});
+          else el.pause();
+        });
+      }, { threshold: 0.2 }).observe(el);
+    }
+  }, []);
+
   const heroVideoRef = React.useCallback((el) => {
     if (!el) return;
     el.muted = true;
@@ -270,7 +289,7 @@ function HoldYourTokens() {
           </div>
 
           <div className="hyt__concl">
-            <p><span className="hyt__concl-line">Budgets and caps control <b>how much</b> people can use.</span> They don't determine <b>how</b> people use it.</p>
+            <p><span className="hyt__concl-line">Before you raise the cap,</span> <b>improve what happens before it.</b></p>
           </div>
         </div>
       </section>
@@ -296,6 +315,11 @@ function HoldYourTokens() {
           </div>
           <p className="hyt__note">AppsFlyer's campaign was workforce-wide rather than developer-specific. No claims are made about reduced spend, lower token usage, productivity gains or ROI.</p>
         </div>
+      </section>
+
+      {/* ── 3b. VIDEO BAND ── */}
+      <section className="hyt__band" data-screen-label="Video band">
+        <video className="hyt__band-vid" ref={bandVideoRef} src="assets/campaign/tokens-film.mp4" autoPlay muted playsInline controls controlsList="nodownload noremoteplayback" preload="auto" poster="assets/campaign/og-hold-your-tokens.jpg" aria-label="Knowaa campaign film"></video>
       </section>
 
       {/* ── 4. THE SOLUTION + CTA ── */}
